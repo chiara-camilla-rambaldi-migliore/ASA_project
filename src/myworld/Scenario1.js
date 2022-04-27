@@ -5,8 +5,8 @@ const Agent = require('../utils/Agent')
 const Goal = require('../utils/Goal')
 const Intention = require('../utils/Intention')
 const House = require('../house/House')
-const { BrightnessIntention, BrightnessGoal } = require('../agents/Brightness')
-const { HeatingIntention, HeatingGoal } = require('../agents/Heating')
+const { BrightnessIntention, BrightnessGoal } = require('../goal_intentions/Brightness')
+const { HeatingIntention, HeatingGoal } = require('../goal_intentions/Heating')
 
 
 
