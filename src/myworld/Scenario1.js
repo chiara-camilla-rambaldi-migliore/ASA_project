@@ -1,9 +1,5 @@
-const Beliefset =  require('../utils/Beliefset')
-const Observable =  require('../utils/Observable')
 const Clock =  require('../utils/Clock')
 const Agent = require('../utils/Agent')
-const Goal = require('../utils/Goal')
-const Intention = require('../utils/Intention')
 const House = require('../house/House')
 const { BrightnessIntention, BrightnessGoal } = require('../goal_intentions/Brightness')
 const { HeatingIntention, HeatingGoal } = require('../goal_intentions/Heating')
@@ -51,8 +47,8 @@ Clock.global.observe('mm', (key, mm) => {
     }
 
     if(!(time.dd>1 && time.dd<5) && time.hh==19 && time.mm==30){
-        house.residents.nicola.in_room = house.rooms.living_room
-        house.residents.sara.in_room = house.rooms.living_room
+        house.residents.nicola.in_room = house.rooms.kitchen
+        house.residents.sara.in_room = house.rooms.kitchen
     }
     if(!(time.dd>1 && time.dd<5) && time.hh==20 && time.mm==0){
         house.residents.nicola.in_room = house.rooms.living_room
@@ -77,7 +73,11 @@ var heating_agent = new Agent('heating_agent')
 
 
 brightness_agent.intentions.push(BrightnessIntention)
-brightness_agent.postSubGoal(new BrightnessGoal({resident: house.residents.nicola, room: house.rooms.kitchen}))
+brightness_agent.postSubGoal(new BrightnessGoal({resident: house.residents.nicola, rooms: Object.values(house.rooms)}))
+
+brightness_agent.intentions.push(BrightnessIntention)
+brightness_agent.postSubGoal(new BrightnessGoal({resident: house.residents.sara, rooms: Object.values(house.rooms)}))
+
 
 heating_agent.intentions.push(HeatingIntention)
 heating_agent.postSubGoal(new HeatingGoal({thermostat: house.devices.thermostat}))

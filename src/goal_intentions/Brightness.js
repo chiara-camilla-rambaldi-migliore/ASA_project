@@ -8,7 +8,7 @@ class BrightnessIntention extends Intention {
     constructor(agent, goal){
         super(agent, goal)
         this.resident = this.goal.parameters['resident']
-        this.room = this.goal.parameters['room']
+        this.rooms = this.goal.parameters['rooms']
     }
     static applicable(goal) {
         return goal instanceof BrightnessGoal
@@ -16,16 +16,18 @@ class BrightnessIntention extends Intention {
     *exec(){
         while(true) {
             yield this.resident.notifyChange('in_room')
-            if (this.resident.in_room === this.room) {
-                if(Clock.global.hh >= 7 && Clock.global.hh <= 19 && 'rollUpShutter' in this.room.devices && this.room.devices['rollUpShutter'].status == 'lowered'){
-                    this.room.devices['rollUpShutter'].liftUpShutter()
-                } else if(!(Clock.global.hh > 7 && Clock.global.hh < 19) && this.room.devices['light'].status == 'off'){
-                    //TODO: check brightness
-                    this.room.devices['light'].switchOnLight()
+            this.rooms.forEach(room => {
+                if (this.resident.in_room === room) {
+                    if(Clock.global.hh >= 7 && Clock.global.hh <= 19 && 'rollUpShutter' in room.devices && room.devices['rollUpShutter'].status == 'lowered'){
+                        room.devices['rollUpShutter'].liftUpShutter()
+                    } else if(!(Clock.global.hh >= 7 && Clock.global.hh <= 19) && room.devices['light'].status == 'off'){
+                        //TODO: check brightness
+                        room.devices['light'].switchOnLight()
+                    }
+                } else if(room.devices['light'].status == 'on'){
+                    room.devices['light'].switchOffLight()
                 }
-            } else if(this.room.devices['light'].status == 'on'){
-                this.room.devices['light'].switchOffLight()
-            }
+            });
         }
     }
 }
