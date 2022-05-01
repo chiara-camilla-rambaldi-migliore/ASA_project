@@ -6,14 +6,14 @@ class Speaker extends Observable {
         this.house = house;
         this.name = name;
     }
-    switchOnSpeaker (l) {
+    switchOnSpeaker () {
         this.status = 'on'
         //TODO: increase consumption every 15 minutes of usage
         this.house.utilities.electricity.consumption += 1;
         // Include some messages logged on the console!
         console.log(this.name, ' speaker turned on')
     }
-    switchOffSpeaker (l) {
+    switchOffSpeaker () {
         this.status = 'off'
         // Include some messages logged on the console!
         console.log(this.name, ' speaker turned off')

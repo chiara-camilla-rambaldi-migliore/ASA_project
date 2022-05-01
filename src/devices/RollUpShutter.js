@@ -11,12 +11,12 @@ class RollUpShutter extends Observable {
         //TODO: search how many KWh a roll up shutter consumes
         this.house.utilities.electricity.consumption += 1;
         // Include some messages logged on the console!
-        console.log(this.name, ' roll-up shutter lifted up')
+        console.log(this.name, ' lifted up')
     }
     lowDownShutter () {
         this.status = 'lowered'
         // Include some messages logged on the console!
-        console.log(this.name, ' roll-up shutter lowered down')
+        console.log(this.name, ' lowered down')
     }
 }
 

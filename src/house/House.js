@@ -13,7 +13,7 @@ const Speaker = require("../devices/Speaker")
 const RollUpShutter = require("../devices/RollUpShutter")
 const Room = require("../room/Room")
 const Electricity = require("../utilities/Electricity")
-const Clock = require('../utils/Clock')
+
 
 class House {
 
@@ -149,11 +149,11 @@ class House {
     }
 
     observeResidents(){
-        this.residents.nicola.observe('in_room', (v, k)=>console.log('Nicola in room ' + v.name) )
+        this.residents.nicola.observe('in_room', (v, k)=>console.log('Nicola moved to ' + v.name) )
 
-        this.residents.sara.observe('in_room', (v, k)=>console.log('Sara in room ' + v.name) )
+        this.residents.sara.observe('in_room', (v, k)=>console.log('Sara moved to ' + v.name) )
 
-        this.residents.frolla.observe('in_room', (v, k)=>console.log('frolla in room ' + v.name) )
+        this.residents.frolla.observe('in_room', (v, k)=>console.log('frolla moved to ' + v.name) )
     }
 
     observeDevices(){
