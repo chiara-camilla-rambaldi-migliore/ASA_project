@@ -6,7 +6,7 @@ class ElectricScooter extends Observable {
         this.house = house;
         this.name = name;
     }
-    chargeScooter (l) {
+    chargeScooter () {
         let consumption = 0.275
         if(this.status == 'half_charge'){
             consumption = 0.275/2
@@ -18,6 +18,17 @@ class ElectricScooter extends Observable {
         this.house.utilities.electricity.consumption += consumption;
         // Include some messages logged on the console!
         console.log('electric scooter charged')
+    }
+
+    taken(){
+        this.position = 'out_garage'
+        console.log('electric scooter taken out of garage')
+    }
+
+    released(){
+        this.position = 'in_garage'
+        this.status = 'half_charge'
+        console.log('electric scooter in garage')
     }
 }
 

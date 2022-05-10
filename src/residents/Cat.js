@@ -7,7 +7,7 @@ class Cat extends Observable {
         this.name = name
     }
     moveTo (to) {
-        if ( to in this.house.rooms[this.in_room].doors_to ) {
+        if (this.house.rooms[this.in_room.name].doors_to.find(element => element === to)) {
             this.in_room = to
             return true 
         }

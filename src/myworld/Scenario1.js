@@ -20,75 +20,60 @@ Clock.global.observe('mm', (key, mm) => {
     if(time.hh==6 && time.mm==0){
         house.devices.thermostat.status = 18
     }
-    if(time.hh==7 && time.mm==0){
-        house.residents.frolla.in_room = house.rooms.kitchen
-        house.devices.cat_feeder.status_food = 'empty'
-        house.devices.cat_feeder.status_water = 'off'
-        house.devices.cat_feeder.cat_prossimity = true
-        setTimeout(() => {
-            house.devices.cat_feeder.cat_prossimity = false
-        }, 5, house);
-    }
-    
-    if(time.hh==8 && time.mm==0){
-        house.residents.frolla.in_room = house.rooms.service_bathroom
-    }
 
-    //monday and friday schedule
-    if((time.dd==1 || time.dd==5) && time.hh==7 && time.mm==0)
-        house.residents.nicola.in_room = house.rooms.kitchen
-    if((time.dd==1 || time.dd==5) && time.hh==7 && time.mm==15)
-        house.residents.nicola.in_room = house.rooms.bathroom
+    //cat schedule
+    house.catSchedule(time)
 
-    // monday, friday, saturday and sunday
-    if(!(time.dd>1 && time.dd<5) && time.hh==12 && time.mm==30)
-        house.residents.nicola.in_room = house.rooms.kitchen
+    //Nicola - monday and friday schedule
+    house.mondayFridayNicolaSchedule(time)
 
-    if(!(time.dd>1 && time.dd<5) && time.hh==13 && time.mm==00)
-        house.residents.nicola.in_room = house.rooms.living_room
+    //Nicola - tuesday, wednesday and thursday schedule
+    house.tueWedThurNicolaSchedule(time)
 
-    if(!(time.dd>1 && time.dd<5) && time.hh==19 && time.mm==30){
-        house.residents.nicola.in_room = house.rooms.kitchen
-        house.residents.sara.in_room = house.rooms.kitchen
-    }
-    if(!(time.dd>1 && time.dd<5) && time.hh==20 && time.mm==0){
-        house.residents.nicola.in_room = house.rooms.living_room
-        house.residents.sara.in_room = house.rooms.living_room
-    }
-
-    //tuesday, wednesday and thursday schedule
-
-    if(time.dd>1 && time.dd<5 && time.hh==6 && time.mm==0)
-        house.residents.nicola.in_room = house.rooms.kitchen
-    if(time.dd>=1 && time.dd<6 && time.hh==7 && time.mm==0)
-        house.residents.sara.in_room = house.rooms.kitchen
-
-    if(time.dd>1 && time.dd<5 && time.hh==6 && time.mm==15)
-        house.residents.nicola.in_room = house.rooms.bathroom
-    if(time.dd>=1 && time.dd<6 && time.hh==7 && time.mm==15)
-        house.residents.sara.in_room = house.rooms.bathroom
-
-    if(time.dd>1 && time.dd<5 && time.hh==20 && time.mm==30)
-        house.residents.sara.in_room = house.rooms.kitchen
- 
-    if(time.dd>1 && time.dd<5 && time.hh==21 && time.mm==0){
-        house.residents.nicola.in_room = house.rooms.living_room
-        house.residents.sara.in_room = house.rooms.living_room
-    }
-
+    //Sara
+    house.workdaysSaraSchedule(time)
     
     //saturday and sunday schedule
     if((time.dd==6 || time.dd==7) && time.hh==8 && time.mm==00){
-        house.residents.sara.in_room = house.rooms.kitchen
-        house.residents.nicola.in_room = house.rooms.kitchen
+        house.residents.nicola.moveTo(house.rooms.corridor)
+        house.residents.nicola.moveTo(house.rooms.living_room)
+        house.residents.nicola.moveTo(house.rooms.kitchen)
+        house.residents.sara.moveTo(house.rooms.corridor)
+        house.residents.sara.moveTo(house.rooms.living_room)
+        house.residents.sara.moveTo(house.rooms.kitchen)
     }
+
+    if((time.dd==6 || time.dd==7) && time.hh==8 && time.mm==45){
+        house.residents.nicola.moveTo(house.rooms.living_room)
+        house.residents.nicola.moveTo(house.rooms.corridor)
+        house.residents.nicola.moveTo(house.rooms.bathroom)
+        house.residents.sara.moveTo(house.rooms.living_room)
+        house.residents.sara.moveTo(house.rooms.corridor)
+        house.residents.sara.moveTo(house.rooms.bathroom)
+    }
+
     if((time.dd==6 || time.dd==7) && time.hh==12 && time.mm==30){
-        house.residents.sara.in_room = house.rooms.kitchen
-        house.residents.nicola.in_room = house.rooms.kitchen
+        house.residents.nicola.moveTo(house.rooms.corridor)
+        house.residents.nicola.moveTo(house.rooms.living_room)
+        house.residents.nicola.moveTo(house.rooms.kitchen)
+        house.residents.sara.moveTo(house.rooms.corridor)
+        house.residents.sara.moveTo(house.rooms.living_room)
+        house.residents.sara.moveTo(house.rooms.kitchen)
     }
     if((time.dd==6 || time.dd==7) && time.hh==13 && time.mm==00){
-        house.residents.sara.in_room = house.rooms.living_room
-        house.residents.nicola.in_room = house.rooms.living_room
+        house.residents.nicola.moveTo(house.rooms.living_room)
+        house.residents.sara.moveTo(house.rooms.living_room)
+    }
+
+    if((time.dd==6 || time.dd==7) && time.hh==19 && time.mm==30){
+        house.residents.nicola.moveTo(house.rooms.living_room)
+        house.residents.nicola.moveTo(house.rooms.kitchen)
+        house.residents.sara.moveTo(house.rooms.living_room)
+        house.residents.sara.moveTo(house.rooms.kitchen)
+    }
+    if((time.dd==6 || time.dd==7) && time.hh==20 && time.mm==0){
+        house.residents.nicola.moveTo(house.rooms.living_room)
+        house.residents.sara.moveTo(house.rooms.living_room)
     }
 })
 

@@ -18,23 +18,25 @@ const Electricity = require("../utilities/Electricity")
 class House {
 
     constructor () {
+        let bedroom = new Room('bedroom')
 
         this.residents = {
-            nicola: new Person(this, 'Nicola', {in_room: "bedroom"}),
-            sara: new Person(this, 'Sara', {in_room: "bedroom"}),
-            frolla: new Cat(this, "Frolla", {in_room: "bedroom"})
+            nicola: new Person(this, 'Nicola', {in_room: bedroom}),
+            sara: new Person(this, 'Sara', {in_room: bedroom}),
+            frolla: new Cat(this, "Frolla", {in_room: bedroom})
         }
         this.rooms = {
             kitchen: new Room('kitchen'),
             corridor: new Room('corridor'),
             living_room: new Room('living_room'),
-            bedroom: new Room('bedroom'),
+            bedroom: bedroom,
             bathroom: new Room('bathroom'),
             office: new Room('office'),
             service_bathroom: new Room('service_bathroom'),
             stairs: new Room('stairs'),
             laundry: new Room('laundry'),
-            garage: new Room('garage')
+            garage: new Room('garage'),
+            outside: new Room('outside')
         }
         this.devices = {
             electric_scooter: new ElectricScooter(this, "Sara's scooter"),
@@ -66,11 +68,12 @@ class House {
             this.rooms.bedroom,
             this.rooms.bathroom,
             this.rooms.office,
-            this.service_bathroom,
+            this.rooms.service_bathroom,
             this.rooms.stairs
         ])
         this.rooms.living_room.setDoorsTo([
-            this.rooms.corridor
+            this.rooms.corridor,
+            this.rooms.kitchen
         ])
         this.rooms.bedroom.setDoorsTo([
             this.rooms.corridor
@@ -88,7 +91,17 @@ class House {
             this.rooms.stairs
         ])
         this.rooms.garage.setDoorsTo([
-            this.rooms.stairs
+            this.rooms.stairs,
+            this.rooms.outside
+        ])
+        this.rooms.outside.setDoorsTo([
+            this.rooms.living_room,
+            this.rooms.garage
+        ])
+        this.rooms.stairs.setDoorsTo([
+            this.rooms.garage,
+            this.rooms.laundry,
+            this.rooms.corridor
         ])
     }
 
@@ -176,6 +189,220 @@ class House {
         this.devices.towel_warmer.observe('status', (v, k)=>console.log('towel warmer status: '+v))
 
         this.devices.washing_machine.observe('status', (v, k)=>console.log('washing machine status: '+v))
+    }
+
+    catSchedule(time){
+        if(time.hh==7 && time.mm==0){
+            this.residents.frolla.moveTo(this.rooms.corridor)
+            this.residents.frolla.moveTo(this.rooms.living_room)
+            this.residents.frolla.moveTo(this.rooms.kitchen)
+            setTimeout(() => {
+                this.devices.cat_feeder.catEatAndDrink()
+            }, 5, this);
+        }
+        
+        if(time.hh==8 && time.mm==0){
+            this.residents.frolla.moveTo(this.rooms.living_room)
+            this.residents.frolla.moveTo(this.rooms.corridor)
+            this.residents.frolla.moveTo(this.rooms.service_bathroom)
+            setTimeout(() => {
+                this.devices.cat_litter.catUseLitter()
+            }, 5, this);
+        }
+
+        if(time.hh==8 && time.mm==15){
+            this.residents.frolla.moveTo(this.rooms.corridor)
+            this.residents.frolla.moveTo(this.rooms.living_room)
+        }
+
+        if(time.hh==12 && time.mm==30){
+            this.residents.frolla.moveTo(this.rooms.kitchen)
+            setTimeout(() => {
+                this.devices.cat_feeder.catEatAndDrink()
+            }, 5, this);
+        }
+        
+        if(time.hh==13 && time.mm==0){
+            this.residents.frolla.moveTo(this.rooms.living_room)
+            this.residents.frolla.moveTo(this.rooms.corridor)
+            this.residents.frolla.moveTo(this.rooms.service_bathroom)
+            setTimeout(() => {
+                this.devices.cat_litter.catUseLitter()
+            }, 5, this);
+        }
+
+        if(time.hh==13 && time.mm==15){
+            this.residents.frolla.moveTo(this.rooms.corridor)
+            this.residents.frolla.moveTo(this.rooms.living_room)
+        }
+
+        if(time.hh==19 && time.mm==0){
+            this.residents.frolla.moveTo(this.rooms.kitchen)
+            setTimeout(() => {
+                this.devices.cat_feeder.catEatAndDrink()
+            }, 5, this);
+        }
+        
+        if(time.hh==19 && time.mm==30){
+            this.residents.frolla.moveTo(this.rooms.living_room)
+            this.residents.frolla.moveTo(this.rooms.corridor)
+            this.residents.frolla.moveTo(this.rooms.service_bathroom)
+            setTimeout(() => {
+                this.devices.cat_litter.catUseLitter()
+            }, 5, this);
+        }
+
+        if(time.hh==19 && time.mm==45){
+            this.residents.frolla.moveTo(this.rooms.corridor)
+            this.residents.frolla.moveTo(this.rooms.living_room)
+        }
+
+        if(time.hh==22 && time.mm==45){
+            this.residents.frolla.moveTo(this.rooms.corridor)
+            this.residents.frolla.moveTo(this.rooms.bedroom)
+        }
+    }
+
+    mondayFridayNicolaSchedule(time){
+        if((time.dd==1 || time.dd==5) && time.hh==7 && time.mm==0){
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.living_room)
+            this.residents.nicola.moveTo(this.rooms.kitchen)
+        }
+        if((time.dd==1 || time.dd==5) && time.hh==7 && time.mm==15){
+            this.residents.nicola.moveTo(this.rooms.living_room)
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.bathroom)
+        }
+    
+        if((time.dd==1 || time.dd==5) && time.hh==7 && time.mm==45){
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.office)
+        }
+    
+        if((time.dd == 1 || time.dd == 5) && time.hh==12 && time.mm==30){
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.living_room)
+            this.residents.nicola.moveTo(this.rooms.kitchen)
+        }
+    
+        if((time.dd == 1 || time.dd == 5) && time.hh==13 && time.mm==0){
+            this.residents.nicola.moveTo(this.rooms.living_room)
+        }
+    
+        if((time.dd == 1 || time.dd == 5) && time.hh==13 && time.mm==30){
+            this.residents.nicola.moveTo(this.rooms.kitchen)
+        }
+    
+        if((time.dd == 1 || time.dd == 5) && time.hh==14 && time.mm==30){
+            this.residents.nicola.moveTo(this.rooms.living_room)
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.office)
+        }
+    
+        if((time.dd == 1 || time.dd == 5) && time.hh==19 && time.mm==30){
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.living_room)
+            this.residents.nicola.moveTo(this.rooms.kitchen)
+        }
+    
+        if((time.dd == 1 || time.dd == 5) && time.hh==20 && time.mm==0){
+            this.residents.nicola.moveTo(this.rooms.living_room)
+        }
+    
+        if((time.dd == 1 || time.dd == 5) && time.hh==22 && time.mm==15){
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.bathroom)
+        }
+    
+        if((time.dd == 1 || time.dd == 5) && time.hh==22 && time.mm==30){
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.bedroom)
+        }
+    }
+
+    tueWedThurNicolaSchedule(time){
+        if(time.dd>1 && time.dd<5 && time.hh==6 && time.mm==0){
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.living_room)
+            this.residents.nicola.moveTo(this.rooms.kitchen)
+        }
+    
+        if(time.dd>1 && time.dd<5 && time.hh==6 && time.mm==15){
+            this.residents.nicola.moveTo(this.rooms.living_room)
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.bathroom)
+        }
+    
+        if(time.dd>1 && time.dd<5 && time.hh==6 && time.mm==30){
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.living_room)
+            this.residents.nicola.moveTo(this.rooms.outside)
+        }
+    
+        if(time.dd>1 && time.dd<5 && time.hh==19 && time.mm==30){
+            this.residents.nicola.moveTo(this.rooms.living_room)
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.bathroom)
+        }
+    
+        if(time.dd>1 && time.dd<5 && time.hh==20 && time.mm==0){
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.living_room)
+        }
+        
+        if(time.dd>1 && time.dd<5 && time.hh==22 && time.mm==15){
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.bathroom)
+        }
+    
+        if(time.dd>1 && time.dd<5 && time.hh==22 && time.mm==30){
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.bedroom)
+        }
+    }
+
+    workdaysSaraSchedule(time){
+        if(time.dd>=1 && time.dd<6 && time.hh==7 && time.mm==0){
+            this.residents.sara.moveTo(this.rooms.corridor)
+            this.residents.sara.moveTo(this.rooms.living_room)
+            this.residents.sara.moveTo(this.rooms.kitchen)
+        }
+    
+        if(time.dd>=1 && time.dd<6 && time.hh==7 && time.mm==15){
+            this.residents.sara.moveTo(this.rooms.living_room)
+            this.residents.sara.moveTo(this.rooms.corridor)
+            this.residents.sara.moveTo(this.rooms.bathroom)
+        }
+
+        if(time.dd>=1 && time.dd<6 && time.hh==7 && time.mm==30){
+            this.residents.sara.moveTo(this.rooms.corridor)
+            this.residents.sara.moveTo(this.rooms.stairs)
+            this.residents.sara.moveTo(this.rooms.garage)
+            this.devices.electric_scooter.taken()
+            this.residents.sara.moveTo(this.rooms.outside)
+        }
+
+        if(time.dd>=1 && time.dd<6 && time.hh==16 && time.mm==30){
+            this.devices.electric_scooter.released()
+            this.residents.sara.moveTo(this.rooms.garage)
+            this.residents.sara.moveTo(this.rooms.stairs)
+            this.residents.sara.moveTo(this.rooms.corridor)
+            this.residents.sara.moveTo(this.rooms.bathroom)
+        }
+
+        if(time.dd>=1 && time.dd<6 && time.hh==17 && time.mm==0){
+            this.residents.sara.moveTo(this.rooms.corridor)
+            this.residents.sara.moveTo(this.rooms.living_room)
+        }
+
+        if(time.dd>=1 && time.dd<6 && time.hh==19 && time.mm==30){
+            this.residents.sara.moveTo(this.rooms.kitchen)
+        }
+    
+        if(time.dd>=1 && time.dd<6 && time.hh==20 && time.mm==0){
+            this.residents.sara.moveTo(this.rooms.living_room)
+        }
     }
 }
 
