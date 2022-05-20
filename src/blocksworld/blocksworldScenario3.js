@@ -52,18 +52,14 @@ const world = new Agent('world');
         static precondition = [ 
             ['free_energy', 'energy'], 
             ['not consume_energy', 'agent', 'energy'], 
-            ['not washing', 'agent'], 
-            ['no_washing', 'agent'], 
+            ['not washing', 'agent'],
             ['soap', 'agent'],
-            ['not no_soap', 'agent'],
-            ['charged', 'agent'],
-            ['not no_charged', 'agent'] 
+            ['charged', 'agent']
         ]
         static effect = [ 
             ['consume_energy', 'agent', 'energy'],
             ['not free_energy', 'energy'],
-            ['washing', 'agent'], 
-            ['not no_washing', 'agent']
+            ['washing', 'agent']
         ]
     }
 
@@ -74,11 +70,8 @@ const world = new Agent('world');
             ['consume_energy', 'agent', 'energy'], 
             ['not free_energy', 'energy'], 
             ['washing', 'agent'], 
-            ['not no_washing', 'agent'], 
             ['soap', 'agent'],
-            ['not no_soap', 'agent'],
-            ['charged', 'agent'],
-            ['not no_charged', 'agent'] 
+            ['charged', 'agent']
         ]
         static effect = [ 
             ['not very_dirty', 'agent']
@@ -88,32 +81,24 @@ const world = new Agent('world');
     class Charge extends FakeAction {
         static parameters = ['agent']
         static precondition = [ 
-            ['not washing', 'agent'], 
-            ['no_washing', 'agent'],
+            ['not washing', 'agent'],
             ['not charged', 'agent'],
-            ['no_charged', 'agent']
         ]
         static effect = [ 
             ['charged', 'agent'],
-            ['not no_charged', 'agent'] ,
-            ['not cleaned', 'agent'],
-            ['no_cleaned', 'agent']
+            ['not cleaned', 'agent']
         ]
     }
 
     class Discharge extends FakeAction {
         static parameters = ['agent']
         static precondition = [ 
-            ['not washing', 'agent'], 
-            ['no_washing', 'agent'],
+            ['not washing', 'agent'],
             ['charged', 'agent'],
-            ['not no_charged', 'agent'],
-            ['cleaned', 'agent'],
-            ['not no_cleaned', 'agent']
+            ['cleaned', 'agent']
         ]
         static effect = [ 
-            ['not charged', 'agent'],
-            ['no_charged', 'agent'] 
+            ['not charged', 'agent']
         ]
     }
 
@@ -122,42 +107,33 @@ const world = new Agent('world');
         static precondition = [ 
             ['not very_dirty', 'agent'],
             ['washing', 'agent'], 
-            ['not no_washing', 'agent'],
             ['charged', 'agent'],
-            ['not no_charged', 'agent'],
             ['not cleaned', 'agent'],
-            ['no_cleaned', 'agent'],
             ['consume_energy', 'agent', 'energy'], 
             ['not free_energy', 'energy']
         ]
         static effect = [ 
             ['cleaned', 'agent'],
-            ['not no_cleaned', 'agent'],
-            ['not washing', 'agent'], 
-            ['no_washing', 'agent'],
+            ['not washing', 'agent'],
             ['not consume_energy', 'agent', 'energy'], 
             ['free_energy', 'energy'],
-            ['not soap', 'agent'],
-            ['no_soap', 'agent'],
+            ['not soap', 'agent']
         ]
     }
 
     class AddSoap extends FakeAction {
         static parameters = ['agent']
         static precondition = [ 
-            ['not washing', 'agent'], 
-            ['no_washing', 'agent'],
-            ['not soap', 'agent'],
-            ['no_soap', 'agent']
+            ['not washing', 'agent'],
+            ['not soap', 'agent']
         ]
         static effect = [ 
-            ['soap', 'agent'],
-            ['not no_soap', 'agent']
+            ['soap', 'agent']
         ]
     }
 
     world.start = function ({energy, agent} = args) {
-        this.log('pickUp', energy, agent)
+        this.log('start', energy, agent)
         return new Start(world, {energy, agent} ).checkPreconditionAndApplyEffect()
         .catch(err=>{this.error('world.start failed:', err.message || err); throw err;})
     }
@@ -205,18 +181,14 @@ const world = new Agent('world');
         static precondition = [ 
             ['free_energy', 'energy'], 
             ['not consume_energy', 'energy'], 
-            ['not washing'], 
-            ['no_washing'], 
+            ['not washing'],
             ['soap'],
-            ['not no_soap'],
-            ['charged'],
-            ['not no_charged'] 
+            ['charged']
         ];
         static effect = [ 
             ['consume_energy', 'energy'],
             ['not free_energy', 'energy'],
-            ['washing'], 
-            ['not no_washing']
+            ['washing']
         ];
         *exec ({energy}=parameters) {
             yield world.start({energy, agent: this.agent.name})
@@ -230,11 +202,8 @@ const world = new Agent('world');
             ['consume_energy', 'energy'], 
             ['not free_energy', 'energy'], 
             ['washing'], 
-            ['not no_washing'], 
             ['soap'],
-            ['not no_soap'],
-            ['charged'],
-            ['not no_charged'] 
+            ['charged']
         ];
         static effect = [ 
             ['not very_dirty']
@@ -247,16 +216,12 @@ const world = new Agent('world');
     class Charge extends pddlActionIntention {
         static parameters = [];
         static precondition = [ 
-            ['not washing'], 
-            ['no_washing'],
-            ['not charged'],
-            ['no_charged']
+            ['not washing'],
+            ['not charged']
         ];
         static effect = [ 
             ['charged'],
-            ['not no_charged'] ,
-            ['not cleaned'],
-            ['no_cleaned']
+            ['not cleaned']
         ];
         *exec () {
             yield world.charge({agent: this.agent.name})
@@ -266,16 +231,12 @@ const world = new Agent('world');
     class Discharge extends pddlActionIntention {
         static parameters = [];
         static precondition = [ 
-            ['not washing'], 
-            ['no_washing'],
+            ['not washing'],
             ['charged'],
-            ['not no_charged'],
-            ['cleaned'],
-            ['not no_cleaned']
+            ['cleaned']
         ];
         static effect = [ 
-            ['not charged'],
-            ['no_charged'] 
+            ['not charged']
         ];
         *exec () {
             yield world.discharge({agent: this.agent.name})
@@ -287,23 +248,17 @@ const world = new Agent('world');
         static precondition = [ 
             ['not very_dirty'],
             ['washing'], 
-            ['not no_washing'],
             ['charged'],
-            ['not no_charged'],
             ['not cleaned'],
-            ['no_cleaned'],
             ['consume_energy', 'energy'], 
             ['not free_energy', 'energy']
         ];
         static effect = [ 
             ['cleaned'],
-            ['not no_cleaned'],
-            ['not washing'], 
-            ['no_washing'],
+            ['not washing'],
             ['not consume_energy', 'energy'], 
             ['free_energy', 'energy'],
-            ['not soap'],
-            ['no_soap'],
+            ['not soap']
         ];
         *exec ({energy}=parameters) {
             yield world.finish({energy, agent: this.agent.name})
@@ -311,16 +266,13 @@ const world = new Agent('world');
     }
 
     class AddSoap extends pddlActionIntention {
-        static parameters = ['agent'];
+        static parameters = [];
         static precondition = [ 
-            ['not washing', 'agent'], 
-            ['no_washing', 'agent'],
-            ['not soap', 'agent'],
-            ['no_soap', 'agent']
+            ['not washing'],
+            ['not soap']
         ];
         static effect = [ 
-            ['soap', 'agent'],
-            ['not no_soap', 'agent']
+            ['soap']
         ];
         *exec () {
             yield world.addSoap({agent: this.agent.name})
@@ -367,7 +319,7 @@ const world = new Agent('world');
         let {OnlinePlanning} = require('../pddl/OnlinePlanner')([Start, PreWash, Charge, Discharge, Finish, AddSoap])
         a1.intentions.push(OnlinePlanning)
         a1.intentions.push(RetryFourTimesIntention)
-        a1.postSubGoal( new RetryGoal( { goal: new PlanningGoal( { goal: [ ['cleaned'], ['no_charged'], ['no_washing'], ['no_soap'] ] } ) } ) ) // try to achieve the PlanningGoal for 4 times
+        a1.postSubGoal( new RetryGoal( { goal: new PlanningGoal( { goal: [ ['cleaned'], ['not charged'], ['not washing'], ['not soap'] ] } ) } ) ) // try to achieve the PlanningGoal for 4 times
     }
     {
         let a2 = new Agent('a2')
@@ -375,20 +327,11 @@ const world = new Agent('world');
         let {OnlinePlanning} = require('../pddl/OnlinePlanner')([Start, PreWash, Charge, Discharge, Finish, AddSoap])
         a2.intentions.push(OnlinePlanning)
         a2.intentions.push(RetryFourTimesIntention)
-        a2.postSubGoal( new RetryGoal( { goal: new PlanningGoal( { goal: [ ['cleaned'], ['no_charged'], ['no_washing'], ['no_soap'] ] } ) } ) ) // try to achieve the PlanningGoal for 4 times
+        a2.postSubGoal( new RetryGoal( { goal: new PlanningGoal( { goal: [ ['cleaned'], ['not charged'], ['not washing'], ['not soap'] ] } ) } ) ) // try to achieve the PlanningGoal for 4 times
     }
 }
 
 
-world.beliefs.declare('no_washing a1')
-world.beliefs.declare('no_cleaned a1')
-world.beliefs.declare('no_charged a1')
-world.beliefs.declare('no_soap a1')
 world.beliefs.declare('very_dirty a1')
-
-world.beliefs.declare('no_washing a2')
-world.beliefs.declare('no_cleaned a2')
-world.beliefs.declare('no_charged a2')
-world.beliefs.declare('no_soap a2')
 
 world.beliefs.declare('free_energy energy')

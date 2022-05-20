@@ -19,7 +19,15 @@ class PddlProblem {
 
         this.goals = goals
         this.goals.toPddlString = () => {
-            return '(and ' + this.goals.map(e=>'('+e+')').join(' ') + ')'
+            return `(and 
+                ${goals.map( p => {
+                    let not = p[0].split(' ')[0]=='not'
+                    let predicate = (not ? p[0].split(' ')[1] : p[0])
+                    let args = p.slice(1).map( v => '?'+v ).join(' ')
+                    if (not)
+                        return '(not (' + predicate + ' ' + args + '))'
+                    return '(' + predicate + ' ' + args + ')'
+                }).join(' ')} )`
         }
     }
 

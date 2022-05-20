@@ -44,7 +44,15 @@ class PddlDomain {
                 return `
         (:action ${actionClass.name}
             :parameters (${parameters.map( p => '?'+p ).join(' ')})
-            :precondition (and ${precondition.map( p => '('+p[0]+' ' + p.slice(1).map( v => '?'+v ).join(' ') + ')').join(' ')} )
+            :precondition (and 
+                ${precondition.map( p => {
+                    let not = p[0].split(' ')[0]=='not'
+                    let predicate = (not ? p[0].split(' ')[1] : p[0])
+                    let args = p.slice(1).map( v => '?'+v ).join(' ')
+                    if (not)
+                        return '(not (' + predicate + ' ' + args + '))'
+                    return '(' + predicate + ' ' + args + ')'
+                }).join(' ')} )
             :effect (and
                 ${effect.map( p => {
                     let not = p[0].split(' ')[0]=='not'
