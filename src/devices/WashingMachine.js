@@ -1,4 +1,4 @@
-const Observable = require("../../../Autonode.js-master/src/utils/Observable");
+const Observable = require("../utils/Observable");
 
 class WashingMachine extends Observable {
     constructor (house, name) {

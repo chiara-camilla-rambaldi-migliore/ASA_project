@@ -1,6 +1,6 @@
 const fs = require('fs')
 const PddlDomain = require('./PddlDomain')
-const Goal = require('../bdi/Goal')
+const Goal = require('../utils/Goal')
 
 // var blocksworldProblem = new PddlProblem('blocksworld')
 // blocksworldProblem.addObject('a', 'b')

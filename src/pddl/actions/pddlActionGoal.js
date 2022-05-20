@@ -1,4 +1,4 @@
-const Goal =  require('../../bdi/Goal')
+const Goal =  require('../../utils/Goal')
 
 
 
