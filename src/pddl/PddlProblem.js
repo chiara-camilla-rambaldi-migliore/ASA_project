@@ -14,7 +14,12 @@ class PddlProblem {
 
         this.inits = inits
         this.inits.toPddlString = () => {
-            return this.inits.map(e=>'('+e+')').join(' ')
+            return `${inits.map( p => {
+                let not = p.split(' ')[0]=='not'
+                if (!not){
+                    return '(' + p + ')'
+                }
+            }).join(' ')}`
         }
 
         this.goals = goals
@@ -23,7 +28,7 @@ class PddlProblem {
                 ${goals.map( p => {
                     let not = p[0].split(' ')[0]=='not'
                     let predicate = (not ? p[0].split(' ')[1] : p[0])
-                    let args = p.slice(1).map( v => '?'+v ).join(' ')
+                    let args = p.slice(1).join(' ')
                     if (not)
                         return '(not (' + predicate + ' ' + args + '))'
                     return '(' + predicate + ' ' + args + ')'
@@ -47,7 +52,6 @@ class PddlProblem {
         var path = './tmp/problem-'+this.name+'.pddl'
         
         return new Promise( (res, rej) => {
-
             fs.writeFile(path, this.content, err => {
                 if (err)
                     rej(err)
@@ -60,15 +64,19 @@ class PddlProblem {
     }
 
     get content() {
-        return `\
-;; problem file: problem-${this.name}.pddl
-(define (problem ${this.name})
-    (:domain ${this.name})
-    (:objects ${this.objects.toPddlString()})
-	(:init ${this.inits.toPddlString()})
-	(:goal ${this.goals.toPddlString()})
-)
-`
+        let objects = this.objects.toPddlString()
+        let init = this.inits.toPddlString()
+        let goal = this.goals.toPddlString()
+        let content =  `\
+            ;; problem file: problem-${this.name}.pddl
+            (define (problem ${this.name})
+                (:domain ${this.name})
+                (:objects ${objects})
+                (:init ${init})
+                (:goal ${goal})
+            )
+        `
+        return content
     }
 
 }

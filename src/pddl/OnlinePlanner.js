@@ -31,7 +31,6 @@ function setup (intentions = []) {
         }
 
         async doPlan (domainFile, problemFile) {
-
             // console.log(JSON.stringify( {domain: domainFile.content, problem: problemFile.content} ))
             var res = await fetch("http://solver.planning.domains/solve", {
                 method: "POST",
@@ -70,7 +69,6 @@ function setup (intentions = []) {
                 // var number = line.shift()
                 var action = line.shift()
                 var args = line
-                // console.log(number, action, args)
                 var intentionClass = this.constructor.getAction(action)
                 var mappedArgs = {}
                 for (let index = 0; index < intentionClass.parameters.length; index++) {
