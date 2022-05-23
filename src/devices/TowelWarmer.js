@@ -1,4 +1,5 @@
 const Observable = require("../utils/Observable");
+const chalk = require('chalk')
 
 class TowelWarmer extends Observable {
     constructor (house, name) {
@@ -11,12 +12,12 @@ class TowelWarmer extends Observable {
         //TODO: increase consumption every 15 minutes of usage
         this.house.utilities.electricity.consumption += 1;
         // Include some messages logged on the console!
-        console.log(this.name, ' towel warmer turned on')
+        console.log(chalk['cyan'](this.name, ' towel warmer turned on'))
     }
     switchOffTowelWarmer (l) {
         this.status = 'off'
         // Include some messages logged on the console!
-        console.log(this.name, ' towel warmer turned off')
+        console.log(chalk['cyan'](this.name, ' towel warmer turned off'))
     }
 }
 

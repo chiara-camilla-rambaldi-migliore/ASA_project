@@ -13,6 +13,7 @@ const Speaker = require("../devices/Speaker")
 const RollUpShutter = require("../devices/RollUpShutter")
 const Room = require("../room/Room")
 const Electricity = require("../utilities/Electricity")
+const chalk = require('chalk');
 
 
 class House {
@@ -162,33 +163,33 @@ class House {
     }
 
     observeResidents(){
-        this.residents.nicola.observe('in_room', (v, k)=>console.log('Nicola moved to ' + v.name) )
+        this.residents.nicola.observe('in_room', (v, k)=>console.log(chalk['green']('Nicola moved to ' + v.name)) )
 
-        this.residents.sara.observe('in_room', (v, k)=>console.log('Sara moved to ' + v.name) )
+        this.residents.sara.observe('in_room', (v, k)=>console.log(chalk['blue']('Sara moved to ' + v.name)) )
 
-        this.residents.frolla.observe('in_room', (v, k)=>console.log('frolla moved to ' + v.name) )
+        this.residents.frolla.observe('in_room', (v, k)=>console.log(chalk['yellow']('frolla moved to ' + v.name)) )
     }
 
     observeDevices(){
-        this.devices.burglar_alarm.observe('status', (v, k)=>console.log('burglar alarm status: '+v))
+        this.devices.burglar_alarm.observe('status', (v, k)=>console.log(chalk['magenta']('burglar alarm status: '+v)))
         
-        this.devices.cat_feeder.observe('status_food', (v, k)=>console.log('cat feeder status_food: '+v))
-        this.devices.cat_feeder.observe('status_water', (v, k)=>console.log('cat feeder status_water: '+v))
-        this.devices.cat_feeder.observe('cat_prossimity', (v, k)=>console.log('cat feeder cat_prossimity: '+v))
+        this.devices.cat_feeder.observe('status_food', (v, k)=>console.log(chalk['magenta']('cat feeder status_food: '+v)))
+        this.devices.cat_feeder.observe('status_water', (v, k)=>console.log(chalk['magenta']('cat feeder status_water: '+v)))
+        this.devices.cat_feeder.observe('cat_prossimity', (v, k)=>console.log(chalk['magenta']('cat feeder cat_prossimity: '+v)))
 
-        this.devices.cat_litter.observe('status', (v, k)=>console.log('cat litter status: '+v))
-        this.devices.cat_litter.observe('cat_position', (v, k)=>console.log('cat litter cat_position: '+v))
+        this.devices.cat_litter.observe('status', (v, k)=>console.log(chalk['magenta']('cat litter status: '+v)))
+        this.devices.cat_litter.observe('cat_position', (v, k)=>console.log(chalk['magenta']('cat litter cat_position: '+v)))
 
-        this.devices.dishwasher.observe('status', (v, k)=>console.log('dishwasher status: '+v))
+        this.devices.dishwasher.observe('status', (v, k)=>console.log(chalk['magenta']('dishwasher status: '+v)))
 
-        this.devices.electric_scooter.observe('status', (v, k)=>console.log('electric scooter status: '+v))
-        this.devices.electric_scooter.observe('position', (v, k)=>console.log('electric scooter position: '+v))
+        this.devices.electric_scooter.observe('status', (v, k)=>console.log(chalk['magenta']('electric scooter status: '+v)))
+        this.devices.electric_scooter.observe('position', (v, k)=>console.log(chalk['magenta']('electric scooter position: '+v)))
         
-        this.devices.thermostat.observe('status', (v, k)=>console.log('thermostat status: '+v))
+        this.devices.thermostat.observe('status', (v, k)=>console.log(chalk['magenta']('thermostat status: '+v)))
 
-        this.devices.towel_warmer.observe('status', (v, k)=>console.log('towel warmer status: '+v))
+        this.devices.towel_warmer.observe('status', (v, k)=>console.log(chalk['magenta']('towel warmer status: '+v)))
 
-        this.devices.washing_machine.observe('status', (v, k)=>console.log('washing machine status: '+v))
+        this.devices.washing_machine.observe('status', (v, k)=>console.log(chalk['magenta']('washing machine status: '+v)))
     }
 
     catSchedule(time){

@@ -1,4 +1,5 @@
 const Observable = require("../utils/Observable");
+const chalk = require('chalk')
 
 class ElectricScooter extends Observable {
     constructor (house, name) {
@@ -17,18 +18,18 @@ class ElectricScooter extends Observable {
         //TODO: search how many KWh an half and fully charge of a scooter consumes
         this.house.utilities.electricity.consumption += consumption;
         // Include some messages logged on the console!
-        console.log('electric scooter charged')
+        console.log(chalk['cyan']('electric scooter charged'))
     }
 
     taken(){
         this.position = 'out_garage'
-        console.log('electric scooter taken out of garage')
+        console.log(chalk['cyan']('electric scooter taken out of garage'))
     }
 
     released(){
         this.position = 'in_garage'
         this.status = 'half_charge'
-        console.log('electric scooter in garage')
+        console.log(chalk['cyan']('electric scooter in garage'))
     }
 }
 

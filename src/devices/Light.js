@@ -1,4 +1,5 @@
 const Observable = require("../utils/Observable");
+const chalk = require('chalk')
 
 class Light extends Observable {
     constructor (house, name) {
@@ -11,12 +12,12 @@ class Light extends Observable {
         //TODO: increase consumption every 15 minutes of usage
         this.house.utilities.electricity.consumption += 1;
         // Include some messages logged on the console!
-        console.log(this.name, ' light turned on')
+        console.log(chalk['cyan'](this.name, ' light turned on'))
     }
     switchOffLight () {
         this.status = 'off'
         // Include some messages logged on the console!
-        console.log(this.name, ' light turned off')
+        console.log(chalk['cyan'](this.name, ' light turned off'))
     }
 }
 

@@ -1,6 +1,7 @@
 const Goal = require("../utils/Goal");
 const Intention = require("../utils/Intention");
 const Temperature = require('../utils/Temperature');
+const chalk = require('chalk')
 
 class HeatingGoal extends Goal {
 }
@@ -16,7 +17,7 @@ class HeatingIntention extends Intention {
         while(true) {
             yield Temperature.global.notifyChange('degrees')
             if(Temperature.global.degrees<parseInt(this.thermostat.status)){
-                console.log("Thermostat: trying to increase temperature")
+                console.log(chalk['cyan']("Thermostat: trying to increase temperature"))
                 Temperature.startTemperatureSensor(this.thermostat.status)
             }
         }
@@ -36,7 +37,7 @@ class HeatingThermostatIntention extends Intention {
         while(true) {
             yield this.thermostat.notifyChange('status')
             if(Temperature.global.degrees<parseInt(this.thermostat.status)){
-                console.log("Thermostat: trying to increase temperature")
+                console.log(chalk['cyan']("Thermostat: trying to increase temperature"))
                 Temperature.startTemperatureSensor(this.thermostat.status)
             }
         }

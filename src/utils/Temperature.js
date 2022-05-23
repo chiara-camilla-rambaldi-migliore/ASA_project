@@ -16,7 +16,7 @@ class Temperature {
 
     static format() {
         var temperature = Temperature.global
-        return "temperature: "+temperature.degrees+'°C'
+        return "Temperature: "+temperature.degrees+'°C'
     }
 
     static wallTemperature() {
@@ -32,10 +32,6 @@ class Temperature {
         clearInterval(this.increaseInterval)
         Temperature.#start = false
         this.decreaseInterval = setInterval(function(){Temperature.global.degrees -= 1}, 500);
-        // while(!Temperature.#start) {
-        //     await new Promise( res => setTimeout(res, 300))
-        //     Temperature.global.degrees -= 1
-        // }
     }
 
     static startTemperatureSensor(reachTemperature) {

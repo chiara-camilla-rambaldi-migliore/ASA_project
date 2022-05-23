@@ -1,4 +1,5 @@
 const Observable = require("../utils/Observable");
+const chalk = require('chalk')
 
 class Thermostat extends Observable {
     constructor (house, name) {
@@ -10,18 +11,18 @@ class Thermostat extends Observable {
     increaseTemperature () {
         this.status = String(parseInt(this.status)+1)
         // Include some messages logged on the console!
-        console.log('Temperature increased to: ', this.status)
+        console.log(chalk['cyan']('Temperature increased to: ', this.status))
     }
     decreaseTemperature () {
         this.status = String(parseInt(this.status)-1)
         // Include some messages logged on the console!
-        console.log('Temperature decreased to: ', this.status)
+        console.log(chalk['cyan']('Temperature decreased to: ', this.status))
     }
 
     changeTemperture(degrees){
         this.status = String(degrees)
 
-        console.log('Temperature changed to: ', this.status)
+        console.log(chalk['cyan']('Temperature changed to: ', this.status))
     }
 }
 

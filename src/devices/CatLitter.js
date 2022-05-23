@@ -1,4 +1,5 @@
 const Observable = require("../utils/Observable");
+const chalk = require('chalk')
 
 class CatLitter extends Observable {
     constructor (house, name) {
@@ -11,15 +12,15 @@ class CatLitter extends Observable {
         this.status = 'clean'
         this.house.utilities.electricity.consumption += 1;
         // Include some messages logged on the console!
-        console.log('Cat litter cleaned')
+        console.log(chalk['cyan']('Cat litter cleaned'))
     }
     catUseLitter(){
         this.cat_position = 'in'
-        console.log('Cat is using the litter')
+        console.log(chalk['cyan']('Cat is using the litter'))
         setTimeout(() => {
             this.status = 'dirty'
             this.cat_position = 'out'
-            console.log('Cat finished using the litter')
+            console.log(chalk['cyan']('Cat finished using the litter'))
         }, 10, this);
     }
 }

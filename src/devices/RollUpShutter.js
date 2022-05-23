@@ -1,4 +1,5 @@
 const Observable = require("../utils/Observable");
+const chalk = require('chalk')
 
 class RollUpShutter extends Observable {
     constructor (house, name) {
@@ -11,12 +12,12 @@ class RollUpShutter extends Observable {
         //TODO: search how many KWh a roll up shutter consumes
         this.house.utilities.electricity.consumption += 1;
         // Include some messages logged on the console!
-        console.log(this.name, ' lifted up')
+        console.log(chalk['cyan'](this.name, ' lifted up'))
     }
     lowDownShutter () {
         this.status = 'lowered'
         // Include some messages logged on the console!
-        console.log(this.name, ' lowered down')
+        console.log(chalk['cyan'](this.name, ' lowered down'))
     }
 }
 
