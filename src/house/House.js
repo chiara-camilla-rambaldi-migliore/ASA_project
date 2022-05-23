@@ -265,19 +265,20 @@ class House {
     }
 
     mondayFridayNicolaSchedule(time){
-        if((time.dd==1 || time.dd==5) && time.hh==7 && time.mm==0){
+        if((time.dd==1 || time.dd==5) && time.hh==7 && time.mm==30){
             this.devices.thermostat.changeTemperture(20)
             this.residents.nicola.moveTo(this.rooms.corridor)
             this.residents.nicola.moveTo(this.rooms.living_room)
             this.residents.nicola.moveTo(this.rooms.kitchen)
         }
-        if((time.dd==1 || time.dd==5) && time.hh==7 && time.mm==15){
+        if((time.dd==1 || time.dd==5) && time.hh==8 && time.mm==0){
             this.residents.nicola.moveTo(this.rooms.living_room)
             this.residents.nicola.moveTo(this.rooms.corridor)
             this.residents.nicola.moveTo(this.rooms.bathroom)
+            console.log(chalk['magenta']('Nicola will have a shower'))
         }
     
-        if((time.dd==1 || time.dd==5) && time.hh==7 && time.mm==45){
+        if((time.dd==1 || time.dd==5) && time.hh==8 && time.mm==45){
             this.residents.nicola.moveTo(this.rooms.corridor)
             this.residents.nicola.moveTo(this.rooms.office)
         }
@@ -302,9 +303,12 @@ class House {
             this.residents.nicola.moveTo(this.rooms.office)
         }
     
-        if((time.dd == 1 || time.dd == 5) && time.hh==19 && time.mm==30){
+        if((time.dd == 1 || time.dd == 5) && time.hh==18 && time.mm==0){
             this.residents.nicola.moveTo(this.rooms.corridor)
             this.residents.nicola.moveTo(this.rooms.living_room)
+        }
+
+        if((time.dd == 1 || time.dd == 5) && time.hh==19 && time.mm==30){
             this.residents.nicola.moveTo(this.rooms.kitchen)
         }
     
@@ -347,6 +351,7 @@ class House {
             this.residents.nicola.moveTo(this.rooms.living_room)
             this.residents.nicola.moveTo(this.rooms.corridor)
             this.residents.nicola.moveTo(this.rooms.bathroom)
+            console.log(chalk['magenta']('Nicola will have a shower'))
         }
     
         if(time.dd>1 && time.dd<5 && time.hh==20 && time.mm==0){
@@ -392,9 +397,10 @@ class House {
             this.residents.sara.moveTo(this.rooms.stairs)
             this.residents.sara.moveTo(this.rooms.corridor)
             this.residents.sara.moveTo(this.rooms.bathroom)
+            console.log(chalk['magenta']('Sara will have a shower'))
         }
 
-        if(time.dd>=1 && time.dd<6 && time.hh==17 && time.mm==0){
+        if(time.dd>=1 && time.dd<6 && time.hh==17 && time.mm==15){
             this.residents.sara.moveTo(this.rooms.corridor)
             this.residents.sara.moveTo(this.rooms.living_room)
         }

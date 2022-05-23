@@ -7,14 +7,14 @@ class TowelWarmer extends Observable {
         this.house = house;
         this.name = name;
     }
-    switchOnTowelWarmer (l) {
+    switchOnTowelWarmer () {
         this.status = 'on'
         //TODO: increase consumption every 15 minutes of usage
         this.house.utilities.electricity.consumption += 1;
         // Include some messages logged on the console!
         console.log(chalk['cyan'](this.name, ' towel warmer turned on'))
     }
-    switchOffTowelWarmer (l) {
+    switchOffTowelWarmer () {
         this.status = 'off'
         // Include some messages logged on the console!
         console.log(chalk['cyan'](this.name, ' towel warmer turned off'))

@@ -5,6 +5,7 @@ const { BrightnessWithPresenceIntention, BrightnessWithPresenceGoal, BrightnessW
 const { HeatingIntention, HeatingGoal, HeatingThermostatGoal, HeatingThermostatIntention} = require('../goal_intentions/Heating')
 const { CatFeederGoal, CatFeederIntention, CatLitterGoal, CatLitterIntention } = require('../goal_intentions/CatNeeding')
 const Temperature = require('../utils/Temperature');
+const { ShowerGoal, ShowerIntention } = require('../goal_intentions/Shower')
 
 
 
@@ -82,7 +83,7 @@ Clock.startTimer()
 Clock.wallClock()
 
 var brightness_agent = new Agent('brightness_agent')
-var heating_agent = new Agent('heating_agent')
+var house_agent = new Agent('house_agent')
 var catNeedings_agent = new Agent('catNeedings_agent')
 
 
@@ -95,10 +96,12 @@ brightness_agent.postSubGoal(new BrightnessWithPresenceGoal({resident: house.res
 brightness_agent.intentions.push(BrightnessWithTimeIntention)
 brightness_agent.postSubGoal(new BrightnessWithTimeGoal({residents: [house.residents.sara, house.residents.nicola]}))
 
-heating_agent.intentions.push(HeatingThermostatIntention)
-heating_agent.intentions.push(HeatingIntention)
-heating_agent.postSubGoal(new HeatingThermostatGoal({thermostat: house.devices.thermostat}))
-heating_agent.postSubGoal(new HeatingGoal({thermostat: house.devices.thermostat}))
+house_agent.intentions.push(HeatingThermostatIntention)
+house_agent.intentions.push(HeatingIntention)
+house_agent.postSubGoal(new HeatingThermostatGoal({thermostat: house.devices.thermostat}))
+house_agent.postSubGoal(new HeatingGoal({thermostat: house.devices.thermostat}))
+house_agent.intentions.push(ShowerIntention)
+house_agent.postSubGoal(new ShowerGoal({towel_warmer: house.devices.towel_warmer}))
 
 catNeedings_agent.intentions.push(CatFeederIntention)
 catNeedings_agent.intentions.push(CatLitterIntention)
