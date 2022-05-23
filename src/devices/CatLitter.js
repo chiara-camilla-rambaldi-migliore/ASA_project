@@ -9,8 +9,7 @@ class CatLitter extends Observable {
     cleanCatLitter () {
         //TODO prerequisites
         this.status = 'clean'
-        //TODO: search how many KWh an half and fully charge of a scooter consumes
-        this.house.utilities.electricity.consumption += consumption;
+        this.house.utilities.electricity.consumption += 1;
         // Include some messages logged on the console!
         console.log('Cat litter cleaned')
     }

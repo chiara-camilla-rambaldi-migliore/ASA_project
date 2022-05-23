@@ -2,7 +2,7 @@ const Observable = require("../utils/Observable");
 
 class Thermostat extends Observable {
     constructor (house, name) {
-        super({status: "18"})
+        super({status: "19"})
         this.house = house;
         this.name = name;
         //TODO: how to define all possible status?

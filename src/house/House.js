@@ -198,7 +198,7 @@ class House {
             this.residents.frolla.moveTo(this.rooms.kitchen)
             setTimeout(() => {
                 this.devices.cat_feeder.catEatAndDrink()
-            }, 5, this);
+            }, 10, this);
         }
         
         if(time.hh==8 && time.mm==0){
@@ -265,6 +265,7 @@ class House {
 
     mondayFridayNicolaSchedule(time){
         if((time.dd==1 || time.dd==5) && time.hh==7 && time.mm==0){
+            this.devices.thermostat.changeTemperture(20)
             this.residents.nicola.moveTo(this.rooms.corridor)
             this.residents.nicola.moveTo(this.rooms.living_room)
             this.residents.nicola.moveTo(this.rooms.kitchen)
@@ -318,6 +319,7 @@ class House {
         if((time.dd == 1 || time.dd == 5) && time.hh==22 && time.mm==30){
             this.residents.nicola.moveTo(this.rooms.corridor)
             this.residents.nicola.moveTo(this.rooms.bedroom)
+            this.devices.thermostat.changeTemperture(19)
         }
     }
 

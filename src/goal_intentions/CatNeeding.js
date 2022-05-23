@@ -1,15 +1,15 @@
 const Intention = require('../utils/Intention')
 const Goal = require('../utils/Goal')
 
-class CatNeedingGoal extends Goal {
+class CatFeederGoal extends Goal {
 }
-class CatNeedingIntention extends Intention {
+class CatFeederIntention extends Intention {
     constructor(agent, goal){
         super(agent, goal)
         this.cat_feeder = this.goal.parameters['cat_feeder']
     }
     static applicable(goal) {
-        return goal instanceof CatNeedingGoal
+        return goal instanceof CatFeederGoal
     } 
     *exec(){
         while(true) {
@@ -27,4 +27,25 @@ class CatNeedingIntention extends Intention {
         }
     }
 }
-module.exports = {CatNeedingGoal, CatNeedingIntention}
+
+class CatLitterGoal extends Goal {
+}
+class CatLitterIntention extends Intention {
+    constructor(agent, goal){
+        super(agent, goal)
+        this.cat_litter = this.goal.parameters['cat_litter']
+    }
+    static applicable(goal) {
+        return goal instanceof CatLitterGoal
+    } 
+    *exec(){
+        while(true) {
+            yield this.cat_litter.notifyChange('status')
+            if (this.cat_litter.status == 'dirty' && this.cat_litter.cat_position == 'out'){
+                this.cat_litter.cleanCatLitter()
+            }
+        }
+    }
+}
+
+module.exports = {CatFeederGoal, CatFeederIntention, CatLitterGoal, CatLitterIntention}

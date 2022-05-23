@@ -16,39 +16,41 @@ class Temperature {
 
     static format() {
         var temperature = Temperature.global
-        return "temperature: "+temperature+'°C'
+        return "temperature: "+temperature.degrees+'°C'
     }
 
     static wallTemperature() {
         // Wall Temperature
         Temperature.global.observe('degrees', degrees => {
-            process.stdout.clearLine(0);
-            process.stdout.cursorTo(0);
-            process.stdout.write( Temperature.format() + '\t');
+           console.log( Temperature.format() + '\t');
         })
     }
 
     static #start = true
 
-    static async stopTemperatureSensor() {
+    static stopTemperatureSensor() {
+        clearInterval(this.increaseInterval)
         Temperature.#start = false
+        this.decreaseInterval = setInterval(function(){Temperature.global.degrees -= 1}, 500);
+        // while(!Temperature.#start) {
+        //     await new Promise( res => setTimeout(res, 300))
+        //     Temperature.global.degrees -= 1
+        // }
     }
 
-    static async startTemperatureSensor(reachTemperature) {
-
+    static startTemperatureSensor(reachTemperature) {
+        clearInterval(this.decreaseInterval)
         Temperature.#start = true
 
-        while(Temperature.#start) {
-            await new Promise( res => setTimeout(res, 500))
-            
+        this.increaseInterval = setInterval(function(){
             var {degrees} = Temperature.global
             
             if(degrees<reachTemperature)
                 Temperature.global.degrees += 1
             else {
-                this.stopTemperatureSensor()
+                Temperature.stopTemperatureSensor()
             }
-        }
+        }, 100);
     }
 
 }

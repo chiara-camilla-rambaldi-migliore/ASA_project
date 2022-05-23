@@ -2,8 +2,9 @@ const Clock =  require('../utils/Clock')
 const Agent = require('../utils/Agent')
 const House = require('../house/House')
 const { BrightnessIntention, BrightnessGoal } = require('../goal_intentions/Brightness')
-const { HeatingIntention, HeatingGoal } = require('../goal_intentions/Heating')
-const { CatNeedingIntention, CatNeedingGoal } = require('../goal_intentions/CatNeeding')
+const { HeatingIntention, HeatingGoal, HeatingThermostatGoal, HeatingThermostatIntention} = require('../goal_intentions/Heating')
+const { CatFeederGoal, CatFeederIntention, CatLitterGoal, CatLitterIntention } = require('../goal_intentions/CatNeeding')
+const Temperature = require('../utils/Temperature');
 
 
 
@@ -17,9 +18,9 @@ var house = new House()
 Clock.global.observe('mm', (key, mm) => {
     var time = Clock.global
     //everyday schedule
-    if(time.hh==6 && time.mm==0){
-        house.devices.thermostat.status = 18
-    }
+    // if(time.hh==6 && time.mm==0){
+    //     house.devices.thermostat.status = 19
+    // }
 
     //cat schedule
     house.catSchedule(time)
@@ -90,13 +91,19 @@ brightness_agent.postSubGoal(new BrightnessGoal({resident: house.residents.nicol
 brightness_agent.intentions.push(BrightnessIntention)
 brightness_agent.postSubGoal(new BrightnessGoal({resident: house.residents.sara, rooms: Object.values(house.rooms)}))
 
+heating_agent.intentions.push(HeatingThermostatIntention)
 heating_agent.intentions.push(HeatingIntention)
+heating_agent.postSubGoal(new HeatingThermostatGoal({thermostat: house.devices.thermostat}))
 heating_agent.postSubGoal(new HeatingGoal({thermostat: house.devices.thermostat}))
 
-catNeedings_agent.intentions.push(CatNeedingIntention)
-catNeedings_agent.postSubGoal(new CatNeedingGoal({cat_feeder: house.devices.cat_feeder}))
+catNeedings_agent.intentions.push(CatFeederIntention)
+catNeedings_agent.intentions.push(CatLitterIntention)
+catNeedings_agent.postSubGoal(new CatFeederGoal({cat_feeder: house.devices.cat_feeder}))
+catNeedings_agent.postSubGoal(new CatLitterGoal({cat_litter: house.devices.cat_litter}))
 
 
 
 Clock.startTimer()
 Clock.wallClock()
+Temperature.stopTemperatureSensor()
+Temperature.wallTemperature()
