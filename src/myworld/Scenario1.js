@@ -1,7 +1,7 @@
 const Clock =  require('../utils/Clock')
 const Agent = require('../utils/Agent')
 const House = require('../house/House')
-const { BrightnessIntention, BrightnessGoal } = require('../goal_intentions/Brightness')
+const { BrightnessWithPresenceIntention, BrightnessWithPresenceGoal, BrightnessWithTimeGoal, BrightnessWithTimeIntention } = require('../goal_intentions/Brightness')
 const { HeatingIntention, HeatingGoal, HeatingThermostatGoal, HeatingThermostatIntention} = require('../goal_intentions/Heating')
 const { CatFeederGoal, CatFeederIntention, CatLitterGoal, CatLitterIntention } = require('../goal_intentions/CatNeeding')
 const Temperature = require('../utils/Temperature');
@@ -78,18 +78,22 @@ Clock.global.observe('mm', (key, mm) => {
     }
 })
 
-
+Clock.startTimer()
+Clock.wallClock()
 
 var brightness_agent = new Agent('brightness_agent')
 var heating_agent = new Agent('heating_agent')
 var catNeedings_agent = new Agent('catNeedings_agent')
 
 
-brightness_agent.intentions.push(BrightnessIntention)
-brightness_agent.postSubGoal(new BrightnessGoal({resident: house.residents.nicola, rooms: Object.values(house.rooms)}))
+brightness_agent.intentions.push(BrightnessWithPresenceIntention)
+brightness_agent.postSubGoal(new BrightnessWithPresenceGoal({resident: house.residents.nicola, rooms: Object.values(house.rooms)}))
 
-brightness_agent.intentions.push(BrightnessIntention)
-brightness_agent.postSubGoal(new BrightnessGoal({resident: house.residents.sara, rooms: Object.values(house.rooms)}))
+brightness_agent.intentions.push(BrightnessWithPresenceIntention)
+brightness_agent.postSubGoal(new BrightnessWithPresenceGoal({resident: house.residents.sara, rooms: Object.values(house.rooms)}))
+
+brightness_agent.intentions.push(BrightnessWithTimeIntention)
+brightness_agent.postSubGoal(new BrightnessWithTimeGoal({residents: [house.residents.sara, house.residents.nicola]}))
 
 heating_agent.intentions.push(HeatingThermostatIntention)
 heating_agent.intentions.push(HeatingIntention)
@@ -103,7 +107,6 @@ catNeedings_agent.postSubGoal(new CatLitterGoal({cat_litter: house.devices.cat_l
 
 
 
-Clock.startTimer()
-Clock.wallClock()
+
 Temperature.stopTemperatureSensor()
 Temperature.wallTemperature()
