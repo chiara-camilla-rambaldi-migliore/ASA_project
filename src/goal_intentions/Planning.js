@@ -2,17 +2,11 @@ const pddlActionIntention = require('../pddl/actions/pddlActionIntention')
 const Agent = require('../utils/Agent')
 const Goal = require('../utils/Goal')
 const Intention = require('../utils/Intention')
-const PlanningGoal = require('../pddl/PlanningGoal')
 const House = require('../house/House')
 const Clock = require('../utils/Clock')
 
 
 const house = new House()
-Clock.startTimer()
-Clock.wallClock()
-/**
- * World agent
- */
 const world = new Agent('world');
 {
 
@@ -291,7 +285,10 @@ const world = new Agent('world');
  */
 {
     class RinseAid extends pddlActionIntention {
-
+        constructor(agent, goal){
+            this.house = house
+            this.worldAgent = worldAgent
+        }
         static parameters = ['energy'];
         static precondition = [ 
             ['cristal_to_rinse'], 
@@ -305,8 +302,8 @@ const world = new Agent('world');
             ['not cristal_to_rinse'], 
         ];
         *exec ({energy}=parameters) {
-            yield world.rinseAid({energy, agent: this.agent.name})
-            house.devices.dishwasher.rinseAid()
+            yield this.worldAgent.rinseAid({energy, agent: this.agent.name})
+            this.house.devices.dishwasher.rinseAid()
         }
     }
 
@@ -511,22 +508,6 @@ const world = new Agent('world');
         }
     }
 
-    class RetryGoal extends Goal {}
-    class RetryFourTimesIntention extends Intention {
-        static applicable (goal) {
-            return goal instanceof RetryGoal
-        }
-        *exec ({goal}=parameters) {
-            for(let i=0; i<4; i++) {
-                let goalAchieved = yield this.agent.postSubGoal( goal )
-                if (goalAchieved)
-                    return;
-                this.log('wait for something to change on beliefset before retrying for the ' + (i+2) + 'th time goal', goal.toString())
-                yield this.agent.beliefs.notifyAnyChange()
-            }
-        }
-    }
-
     var sensor = (agent) => (value,key,observable) => {
         let predicate = key.split(' ')[0]
         let arg1 = key.split(' ')[1]
@@ -553,23 +534,6 @@ const world = new Agent('world');
             else
                 return;
         value?agent.beliefs.declare(key):agent.beliefs.undeclare(key)
-    }
-    
-    {
-        let a1 = new Agent('washingMachine')
-        world.beliefs.observeAny( sensor(a1) )
-        let {OnlinePlanning} = require('../pddl/OnlinePlanner')([Start, PreWash, Charge, Discharge, Finish, AddNormalSoap, AddTenderSoap, StartDry, FinishDry])
-        a1.intentions.push(OnlinePlanning)
-        a1.intentions.push(RetryFourTimesIntention)
-        a1.postSubGoal( new RetryGoal( { goal: new PlanningGoal( { goal: [ ['cleaned'], ['not charged'], ['not washing'], ['not soap'], ['dried'] ] } ) } ) ) // try to achieve the PlanningGoal for 4 times
-    }
-    {
-        let a2 = new Agent('dishwasher')
-        world.beliefs.observeAny( sensor(a2) )
-        let {OnlinePlanning} = require('../pddl/OnlinePlanner')([Start, PreWash, Charge, Discharge, Finish, AddNormalSoap, RinseAid])
-        a2.intentions.push(OnlinePlanning)
-        a2.intentions.push(RetryFourTimesIntention)
-        a2.postSubGoal( new RetryGoal( { goal: new PlanningGoal( { goal: [ ['cleaned'], ['not charged'], ['not washing'], ['not soap'], ['free_energy energy'] ] } ) } ) ) // try to achieve the PlanningGoal for 4 times
     }
 }
 
