@@ -13,7 +13,7 @@ var readline = require('readline');
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 class Clock {
 
-    static global = new Observable( {dd: 5, hh: 0, mm: 0} )
+    static global = new Observable( {dd: 1, hh: 0, mm: 0} )
 
     static format() {
         var time = Clock.global
@@ -24,12 +24,12 @@ class Clock {
         // Wall clock
         Clock.global.observe('mm', mm => {
             var time = Clock.global
-            // readline.clearLine(process.stdout);
-            // readline.cursorTo(process.stdout, 0);
-            // process.stdout.clearLine(0);
-            // process.stdout.cursorTo(0);
-            // process.stdout.write( Clock.format() + '\t');
-            console.log(Clock.format())
+            readline.clearLine(process.stdout);
+            readline.cursorTo(process.stdout, 0);
+            process.stdout.clearLine(0);
+            process.stdout.cursorTo(0);
+            process.stdout.write( Clock.format() + '\t');
+            // console.log(Clock.format())
         })
     }
 

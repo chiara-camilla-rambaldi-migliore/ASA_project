@@ -159,9 +159,7 @@ class House {
         this.residents.frolla.observe('in_room', (v, k)=>console.log(chalk['yellow']('frolla moved to ' + v.name)) )
     }
 
-    observeDevices(){
-        this.devices.burglar_alarm.observe('status', (v, k)=>console.log(chalk['magenta']('burglar alarm status: '+v)))
-        
+    observeDevices(){        
         this.devices.cat_feeder.observe('status_food', (v, k)=>console.log(chalk['magenta']('cat feeder status_food: '+v)))
         this.devices.cat_feeder.observe('status_water', (v, k)=>console.log(chalk['magenta']('cat feeder status_water: '+v)))
         this.devices.cat_feeder.observe('cat_prossimity', (v, k)=>console.log(chalk['magenta']('cat feeder cat_prossimity: '+v)))
