@@ -15,13 +15,14 @@ class Dishwasher extends Observable {
     switchOnDishwasher () {
         this.status = 'started'
         //TODO: increase consumption every 15 minutes of usage
-        this.house.utilities.electricity.consumption += 500;
+        this.house.utilities.electricity.consumption += 20;
+        this.house.utilities.electricity.powerLoad += 500;
         // Include some messages logged on the console!
         console.log(chalk['cyan'](this.name, ' dishwasher turned on'))
     }
     switchOffDishwasher () {
         this.status = 'finished'
-        this.house.utilities.electricity.consumption -= 500;
+        this.house.utilities.electricity.powerLoad -= 500;
         // Include some messages logged on the console!
         console.log(chalk['cyan'](this.name, ' dishwasher turned off'))
     }

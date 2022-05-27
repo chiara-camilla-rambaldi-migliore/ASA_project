@@ -11,11 +11,13 @@ class BurglarAlarm extends Observable {
         this.status = 'on'
         //TODO: increase consumption every 15 minutes of usage
         this.house.utilities.electricity.consumption += 1;
+        this.house.utilities.electricity.powerLoad += 1;
         // Include some messages logged on the console!
         console.log(chalk['cyan']('Burglar alarm turned on'))
     }
     switchOffBurglarAlarm (l) {
         this.status = 'off'
+        this.house.utilities.electricity.powerLoad -= 1;
         // Include some messages logged on the console!
         console.log(chalk['cyan']('Burglar alarm turned off'))
     }
