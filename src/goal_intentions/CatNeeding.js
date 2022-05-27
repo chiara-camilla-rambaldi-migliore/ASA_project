@@ -13,7 +13,7 @@ class CatFeederIntention extends Intention {
     } 
     *exec(){
         while(true) {
-            yield this.cat_feeder.notifyChange('cat_prossimity')
+            yield this.cat_feeder.notifyChange('cat_prossimity', 'cat_feeder')
             if (this.cat_feeder.cat_prossimity == true){
                 if(this.cat_feeder.status_food == 'empty'){
                     this.cat_feeder.getFoodFromCatFeeder()
@@ -40,7 +40,7 @@ class CatLitterIntention extends Intention {
     } 
     *exec(){
         while(true) {
-            yield this.cat_litter.notifyChange('status')
+            yield this.cat_litter.notifyChange('status', 'cat_litter')
             if (this.cat_litter.status == 'dirty' && this.cat_litter.cat_position == 'out'){
                 this.cat_litter.cleanCatLitter()
             }

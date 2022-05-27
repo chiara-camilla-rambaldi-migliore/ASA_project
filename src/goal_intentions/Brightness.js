@@ -16,7 +16,7 @@ class BrightnessWithPresenceIntention extends Intention {
     *exec(){
         while(true) {
             //TODO: switch on light at sunset and off at sunrise
-            yield this.resident.notifyChange('in_room')// || Clock.global.notifyChange('hh')
+            yield this.resident.notifyChange('in_room', 'brightness')
             this.rooms.forEach(room => {
                 if(room.name != "outside"){
                     if (this.resident.in_room === room) {

@@ -10,13 +10,14 @@ class CatFeeder extends Observable {
     getFoodFromCatFeeder () {
         this.status_food = 'full'
         //TODO: increase consumption every 15 minutes of usage
-        this.house.utilities.electricity.consumption += 1;
+        this.house.utilities.electricity.consumption += 0.001;
         // Include some messages logged on the console!
         console.log(chalk['cyan']('cat feeder food bowl full'))
     }
     turnOnWater () {
         this.status_water = 'on'
         this.house.utilities.electricity.powerLoad += 1;
+        this.house.utilities.electricity.consumption += 0.003;
         // Include some messages logged on the console!
         console.log(chalk['cyan']('cat feeder water on'))
     }

@@ -15,7 +15,7 @@ class WashingMachine extends Observable {
     switchOnWashingMachine () {
         this.status = 'started'
         //TODO: increase consumption every 15 minutes of usage
-        this.house.utilities.electricity.consumption += 20;
+        this.house.utilities.electricity.consumption += 200;
         this.house.utilities.electricity.powerLoad += 500;
         // Include some messages logged on the console!
         console.log(chalk['cyan'](this.name, 'washing machine turned on'))
@@ -32,7 +32,7 @@ class WashingMachine extends Observable {
     }
     startDry () {
         this.status = 'startDry'
-        this.house.utilities.electricity.consumption += 20;
+        this.house.utilities.electricity.consumption += 2;
         this.house.utilities.electricity.powerLoad += 500;
         console.log(chalk['cyan'](this.name, 'has started drying'))
     }

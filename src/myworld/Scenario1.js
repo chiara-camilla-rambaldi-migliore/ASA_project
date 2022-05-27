@@ -14,7 +14,7 @@ const { SenseDishesGoal, SenseDishesIntention } = require('../goal_intentions/Di
 const { SenseClothesGoal, SenseClothesIntention } = require('../goal_intentions/ClothesSensor')
 const { SensePowerLoadGoal, SensePowerLoadIntention } = require('../goal_intentions/EnergySensor')
 const { SensePersonGoal, SensePersonIntention } = require('../goal_intentions/PersonIntentionsSensor')
-
+const { SenseConsumptionGoal, SenseConsumptionIntention } = require('../goal_intentions/ConsumptionSensor')
 
 
 const house = new House()
@@ -461,6 +461,7 @@ house_agent.intentions.push(SenseDishesIntention)
 house_agent.intentions.push(SenseClothesIntention)
 house_agent.intentions.push(SensePowerLoadIntention)
 house_agent.intentions.push(SensePersonIntention)
+house_agent.intentions.push(SenseConsumptionIntention)
 
 house_agent.postSubGoal(new HeatingThermostatGoal({thermostat: house.devices.thermostat}))
 house_agent.postSubGoal(new HeatingGoal({thermostat: house.devices.thermostat}))
@@ -472,6 +473,7 @@ house_agent.postSubGoal(new SenseClothesGoal({washingMachine: house.devices.wash
 house_agent.postSubGoal(new SensePowerLoadGoal({electricity: house.utilities.electricity}))
 house_agent.postSubGoal(new SensePersonGoal({person: house.residents.nicola}))
 house_agent.postSubGoal(new SensePersonGoal({person: house.residents.sara}))
+house_agent.postSubGoal(new SenseConsumptionGoal({electricity: house.utilities.electricity}))
 
 
 

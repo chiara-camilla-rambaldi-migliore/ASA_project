@@ -10,7 +10,7 @@ class CatLitter extends Observable {
     cleanCatLitter () {
         //TODO prerequisites
         this.status = 'clean'
-        this.house.utilities.electricity.consumption += 1;
+        this.house.utilities.electricity.consumption += 0.002;
         // Include some messages logged on the console!
         console.log(chalk['cyan']('Cat litter cleaned'))
     }

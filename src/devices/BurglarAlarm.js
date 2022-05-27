@@ -1,5 +1,6 @@
 const Observable = require("../utils/Observable");
-const chalk = require('chalk')
+const chalk = require('chalk');
+const Clock = require("../utils/Clock");
 
 class BurglarAlarm extends Observable {
     constructor (house, name) {
@@ -10,7 +11,14 @@ class BurglarAlarm extends Observable {
     switchOnBurglarAlarm (l) {
         this.status = 'on'
         //TODO: increase consumption every 15 minutes of usage
-        this.house.utilities.electricity.consumption += 1;
+        callback = (mm) => {
+            if(this.status == 'on')
+                this.house.utilities.electricity.consumption += 1;
+            else{
+                Clock.global.unobserve('mm', callback, 'burglarAlarm')
+            }
+        }
+        Clock.global.observe('mm', callback, 'burglarAlarm')
         this.house.utilities.electricity.powerLoad += 1;
         // Include some messages logged on the console!
         console.log(chalk['cyan']('Burglar alarm turned on'))

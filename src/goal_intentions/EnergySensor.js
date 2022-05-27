@@ -22,7 +22,7 @@ class SensePowerLoadIntention extends Intention {
 
     *exec () {
         while (true) {
-            let status = yield this.electricity.notifyChange('powerLoad')
+            let status = yield this.electricity.notifyChange('powerLoad', 'sensePowerLoad')
             this.log('sense powerload status: ' + status)
             if(status < 500){
                 this.agent.beliefs.declare('free_energy energy')

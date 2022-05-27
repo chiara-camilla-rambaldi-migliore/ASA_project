@@ -22,7 +22,7 @@ class SenseClothesIntention extends Intention {
 
     *exec () {
         while (true) {
-            let status = yield this.washingMachine.notifyChange('charged')
+            let status = yield this.washingMachine.notifyChange('charged', 'clothesSensor')
             this.log('sense clothes charge status: ' + status)
             if(status >= 5){
                 this.agent.beliefs.declare('cleaned washingMachine', false)

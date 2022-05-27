@@ -22,7 +22,7 @@ class SenseDishesIntention extends Intention {
 
     *exec () {
         while (true) {
-            let status = yield this.dishwasher.notifyChange('charged')
+            let status = yield this.dishwasher.notifyChange('charged', 'dishesSensor')
             this.log('sense dishes charge status: ' + status)
             if(status >= 2){
                 this.agent.beliefs.declare('cleaned dishwasher', false)

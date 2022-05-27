@@ -15,7 +15,7 @@ class HeatingIntention extends Intention {
     } 
     *exec(){
         while(true) {
-            yield Temperature.global.notifyChange('degrees')
+            yield Temperature.global.notifyChange('degrees', 'heating')
             if(Temperature.global.degrees<parseInt(this.thermostat.status)){
                 console.log(chalk['cyan']("Thermostat: trying to increase temperature"))
                 Temperature.increaseTemperature(this.thermostat.status)
@@ -35,7 +35,7 @@ class HeatingThermostatIntention extends Intention {
     } 
     *exec(){
         while(true) {
-            yield this.thermostat.notifyChange('status')
+            yield this.thermostat.notifyChange('status', 'heating')
             if(Temperature.global.degrees<parseInt(this.thermostat.status)){
                 console.log(chalk['cyan']("Thermostat: trying to increase temperature from thermostat change"))
                 Temperature.increaseTemperature(this.thermostat.status)
