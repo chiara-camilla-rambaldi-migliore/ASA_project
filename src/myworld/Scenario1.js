@@ -10,6 +10,9 @@ const { WashingGoal, WashingIntention } = require('../goal_intentions/Washing')
 const { F_RinseAid, F_Start, F_PreWash, F_Charge, F_Discharge, F_Finish, F_AddNormalSoap, F_AddTenderSoap, F_StartDry, F_FinishDry } = require('../planning/FakeActionsPlanning')
 const pddlActionIntention = require('../pddl/actions/pddlActionIntention')
 const { RetryGoal, RetryFourTimesIntention } = require('../goal_intentions/RetryPlanning')
+const { SenseDishesGoal, SenseDishesIntention } = require('../goal_intentions/DishesSensor')
+const { SenseClothesGoal, SenseClothesIntention } = require('../goal_intentions/ClothesSensor')
+const { SensePowerLoadGoal, SensePowerLoadIntention } = require('../goal_intentions/EnergySensor')
 
 
 
@@ -66,44 +69,101 @@ const dishwasher_agent = new Agent('dishwasher')
 
     house_agent.charge = function ({agent} = args) {
         this.log('charge', agent)
-        return new F_Charge(house_agent, {agent} ).checkPreconditionAndApplyEffect()
-        .catch(err=>{this.error('house_agent.charge failed:', err.message || err); throw err;})
+        let charge = new F_Charge(house_agent, {agent} )
+        if(charge.checkPrecondition()){
+            charge.applyEffect()
+        } else {
+            let err = new Error('pddl precondition not valid');
+            this.error('house_agent.charge failed:', err.message || err); 
+            throw err;
+        }
+        // return new F_Charge(house_agent, {agent} ).checkPreconditionAndApplyEffect()
+        // .catch(err=>{this.error('house_agent.charge failed:', err.message || err); throw err;})
     }
 
     house_agent.discharge = function ({agent} = args) {
         this.log('discharge', agent)
-        return new F_Discharge(house_agent, {agent} ).checkPreconditionAndApplyEffect()
-        .catch(err=>{this.error('house_agent.discharge failed:', err.message || err); throw err;})
+        let discharge = new F_Discharge(house_agent, {agent} )
+        if(discharge.checkPrecondition()){
+            discharge.applyEffect()
+        } else {
+            let err = new Error('pddl precondition not valid');
+            this.error('house_agent.discharge failed:', err.message || err); 
+            throw err;
+        }
+        // return new F_Discharge(house_agent, {agent} ).checkPreconditionAndApplyEffect()
+        // .catch(err=>{this.error('house_agent.discharge failed:', err.message || err); throw err;})
     }
 
     house_agent.finish = function ({energy, agent} = args) {
         this.log('finish', energy, agent)
-        return new F_Finish(house_agent, {energy, agent} ).checkPreconditionAndApplyEffect()
-        .catch(err=>{this.error('house_agent.finish failed:', err.message || err); throw err;})
+        let finish = new F_Finish(house_agent, {energy, agent} )
+        if(finish.checkPrecondition()){
+            finish.applyEffect()
+        } else {
+            let err = new Error('pddl precondition not valid');
+            this.error('house_agent.finish failed:', err.message || err); 
+            throw err;
+        }
+        // return new F_Finish(house_agent, {energy, agent} ).checkPreconditionAndApplyEffect()
+        // .catch(err=>{this.error('house_agent.finish failed:', err.message || err); throw err;})
     }
 
     house_agent.addNormalSoap = function ({agent} = args) {
         this.log('addNormalSoap', agent)
-        return new F_AddNormalSoap(house_agent, {agent} ).checkPreconditionAndApplyEffect()
-        .catch(err=>{this.error('house_agent.addNormalSoap failed:', err.message || err); throw err;})
+        let addNormalSoap = new F_AddNormalSoap(house_agent, {agent} )
+        if(addNormalSoap.checkPrecondition()){
+            addNormalSoap.applyEffect()
+        } else {
+            let err = new Error('pddl precondition not valid');
+            this.error('house_agent.addNormalSoap failed:', err.message || err); 
+            throw err;
+        }
+        // return new F_AddNormalSoap(house_agent, {agent} ).checkPreconditionAndApplyEffect()
+        // .catch(err=>{this.error('house_agent.addNormalSoap failed:', err.message || err); throw err;})
     }
     
     house_agent.addTenderSoap = function ({agent} = args) {
         this.log('addTenderSoap', agent)
-        return new F_AddTenderSoap(house_agent, {agent} ).checkPreconditionAndApplyEffect()
-        .catch(err=>{this.error('house_agent.addTenderSoap failed:', err.message || err); throw err;})
+        let addTenderSoap = new F_AddTenderSoap(house_agent, {agent} )
+        if(addTenderSoap.checkPrecondition()){
+            addTenderSoap.applyEffect()
+        } else {
+            let err = new Error('pddl precondition not valid');
+            this.error('house_agent.addTenderSoap failed:', err.message || err); 
+            throw err;
+        }
+        // return new F_AddTenderSoap(house_agent, {agent} ).checkPreconditionAndApplyEffect()
+        // .catch(err=>{this.error('house_agent.addTenderSoap failed:', err.message || err); throw err;})
     }
 
-    house_agent.startDry = function ({energy, agent} = args) {
+    house_agent.startDry = async function ({energy, agent} = args) {
         this.log('startDry', energy, agent)
-        return new F_StartDry(house_agent, {energy, agent} ).checkPreconditionAndApplyEffect()
-        .catch(err=>{this.error('house_agent.startDry failed:', err.message || err); throw err;})
+        let startDry = new F_StartDry(house_agent, {energy, agent} )
+        if(startDry.checkPrecondition()){
+            startDry.applyEffect()
+            await Clock.global.notifyChange('mm')
+        } else {
+            let err = new Error('pddl precondition not valid');
+            this.error('house_agent.startDry failed:', err.message || err); 
+            throw err;
+        }
+        // return new F_StartDry(house_agent, {energy, agent} ).checkPreconditionAndApplyEffect()
+        // .catch(err=>{this.error('house_agent.startDry failed:', err.message || err); throw err;})
     }
 
     house_agent.finishDry = function ({energy, agent} = args) {
         this.log('finishDry', energy, agent)
-        return new F_FinishDry(house_agent, {energy, agent} ).checkPreconditionAndApplyEffect()
-        .catch(err=>{this.error('house_agent.finishDry failed:', err.message || err); throw err;})
+        let finishDry = new F_FinishDry(house_agent, {energy, agent} )
+        if(finishDry.checkPrecondition()){
+            finishDry.applyEffect()
+        } else {
+            let err = new Error('pddl precondition not valid');
+            this.error('house_agent.finishDry failed:', err.message || err); 
+            throw err;
+        }
+        // return new F_FinishDry(house_agent, {energy, agent} ).checkPreconditionAndApplyEffect()
+        // .catch(err=>{this.error('house_agent.finishDry failed:', err.message || err); throw err;})
     }
 }
 
@@ -363,82 +423,6 @@ var sensor = (agent) => (value,key,observable) => {
 }
 
 
-// Daily schedule
-Clock.global.observe('mm', (key, mm) => {
-    var time = Clock.global
-    //everyday schedule
-    if(time.hh==21 && time.mm==0){
-        // house_agent.beliefs.declare('very_dirty washingMachine')
-        // house_agent.beliefs.declare('tender washingMachine')
-        house_agent.beliefs.declare('cristal_to_rinse dishwasher')
-        house_agent.beliefs.declare('free_energy energy')
-    }
-
-    //cat schedule
-    house.catSchedule(time)
-
-    //Nicola - monday and friday schedule
-    house.mondayFridayNicolaSchedule(time)
-
-    //Nicola - tuesday, wednesday and thursday schedule
-    house.tueWedThurNicolaSchedule(time)
-
-    //Sara
-    house.workdaysSaraSchedule(time)
-    
-    //saturday and sunday schedule
-    if((time.dd==6 || time.dd==7) && time.hh==8 && time.mm==00){
-        house.residents.nicola.moveTo(house.rooms.corridor)
-        house.residents.nicola.moveTo(house.rooms.living_room)
-        house.residents.nicola.moveTo(house.rooms.kitchen)
-        house.residents.sara.moveTo(house.rooms.corridor)
-        house.residents.sara.moveTo(house.rooms.living_room)
-        house.residents.sara.moveTo(house.rooms.kitchen)
-    }
-
-    if((time.dd==6 || time.dd==7) && time.hh==8 && time.mm==45){
-        house.residents.nicola.moveTo(house.rooms.living_room)
-        house.residents.nicola.moveTo(house.rooms.corridor)
-        house.residents.nicola.moveTo(house.rooms.bathroom)
-        house.residents.sara.moveTo(house.rooms.living_room)
-        house.residents.sara.moveTo(house.rooms.corridor)
-        house.residents.sara.moveTo(house.rooms.bathroom)
-    }
-
-    if((time.dd==6 || time.dd==7) && time.hh==12 && time.mm==30){
-        house.residents.nicola.moveTo(house.rooms.corridor)
-        house.residents.nicola.moveTo(house.rooms.living_room)
-        house.residents.nicola.moveTo(house.rooms.kitchen)
-        house.residents.sara.moveTo(house.rooms.corridor)
-        house.residents.sara.moveTo(house.rooms.living_room)
-        house.residents.sara.moveTo(house.rooms.kitchen)
-    }
-    if((time.dd==6 || time.dd==7) && time.hh==13 && time.mm==0){
-        house.residents.nicola.moveTo(house.rooms.living_room)
-        house.residents.sara.moveTo(house.rooms.living_room)
-    }
-
-    if ((time.dd==6 || time.dd==7) && time.hh==19 && time.mm==0) {
-        house_agent.beliefs.declare('very_dirty washingMachine')
-        house_agent.beliefs.declare('tender washingMachine')
-        house_agent.beliefs.declare('free_energy energy')
-    }
-
-    if((time.dd==6 || time.dd==7) && time.hh==19 && time.mm==30){
-        house.residents.nicola.moveTo(house.rooms.living_room)
-        house.residents.nicola.moveTo(house.rooms.kitchen)
-        house.residents.sara.moveTo(house.rooms.living_room)
-        house.residents.sara.moveTo(house.rooms.kitchen)
-    }
-    if((time.dd==6 || time.dd==7) && time.hh==20 && time.mm==0){
-        house_agent.beliefs.declare('cristal_to_rinse dishwasher')
-        house_agent.beliefs.declare('free_energy energy')
-        house.residents.nicola.moveTo(house.rooms.living_room)
-        house.residents.sara.moveTo(house.rooms.living_room)
-    }
-})
-
-
 
 brightness_agent.intentions.push(BrightnessWithPresenceIntention)
 brightness_agent.postSubGoal(new BrightnessWithPresenceGoal({resident: house.residents.nicola, rooms: Object.values(house.rooms)}))
@@ -461,29 +445,65 @@ brightness_agent.postSubGoal(new BrightnessWithTimeGoal({residents: [house.resid
     dishwasher_agent.intentions.push(RetryFourTimesIntention)
 }
 
-house_agent.beliefs.observeAny( sensor(dishwasher_agent) )
-house_agent.beliefs.observeAny( sensor(washingMachine_agent) )
-
-house_agent.intentions.push(HeatingThermostatIntention)
-house_agent.intentions.push(HeatingIntention)
-house_agent.postSubGoal(new HeatingThermostatGoal({thermostat: house.devices.thermostat}))
-house_agent.postSubGoal(new HeatingGoal({thermostat: house.devices.thermostat}))
-house_agent.intentions.push(ShowerIntention)
-house_agent.postSubGoal(new ShowerGoal({towel_warmer: house.devices.towel_warmer}))
-house_agent.intentions.push(WashingIntention)
-house_agent.postSubGoal(new WashingGoal({
-    dishWasher: dishwasher_agent,
-    washingMachine: washingMachine_agent
-}))
-
 catNeedings_agent.intentions.push(CatFeederIntention)
 catNeedings_agent.intentions.push(CatLitterIntention)
 catNeedings_agent.postSubGoal(new CatFeederGoal({cat_feeder: house.devices.cat_feeder}))
 catNeedings_agent.postSubGoal(new CatLitterGoal({cat_litter: house.devices.cat_litter}))
 
 
+house_agent.beliefs.observeAny( sensor(dishwasher_agent) )
+house_agent.beliefs.observeAny( sensor(washingMachine_agent) )
+
+house_agent.intentions.push(HeatingThermostatIntention)
+house_agent.intentions.push(HeatingIntention)
+house_agent.intentions.push(ShowerIntention)
+house_agent.intentions.push(WashingIntention)
+house_agent.intentions.push(SenseDishesIntention)
+house_agent.intentions.push(SenseClothesIntention)
+house_agent.intentions.push(SensePowerLoadIntention)
+
+house_agent.postSubGoal(new HeatingThermostatGoal({thermostat: house.devices.thermostat}))
+house_agent.postSubGoal(new HeatingGoal({thermostat: house.devices.thermostat}))
+house_agent.postSubGoal(new ShowerGoal({towel_warmer: house.devices.towel_warmer}))
+house_agent.postSubGoal(new WashingGoal({dishWasher: dishwasher_agent, washingMachine: washingMachine_agent}))
+house_agent.postSubGoal(new SenseDishesGoal({dishwasher: house.devices.dishwasher}))
+house_agent.postSubGoal(new SenseClothesGoal({washingMachine: house.devices.washing_machine}))
+house_agent.postSubGoal(new SensePowerLoadGoal({electricity: house.utilities.electricity}))
+
+
+
+
+// Daily schedule
+Clock.global.observe('mm', (key, mm) => {
+    var time = Clock.global
+    //everyday schedule
+    if(time.hh==21 && time.mm==0){
+        // house_agent.beliefs.declare('very_dirty washingMachine')
+        // house_agent.beliefs.declare('tender washingMachine')
+        // house_agent.beliefs.declare('cristal_to_rinse dishwasher')
+        // house_agent.beliefs.declare('free_energy energy')
+    }
+
+    //cat schedule
+    house.catSchedule(time)
+
+    //Nicola - monday and friday schedule
+    house.mondayFridayNicolaSchedule(time)
+
+    //Nicola - tuesday, wednesday and thursday schedule
+    house.tueWedThurNicolaSchedule(time)
+
+    //Sara
+    house.workdaysSaraSchedule(time)
+    
+    //saturday and sunday schedule
+    house.satSunSchedule(time)
+})
+
+
+
 Clock.startTimer()
 Clock.wallClock()
 
-Temperature.stopTemperatureSensor()
+Temperature.startTemperatureSensor()
 Temperature.wallTemperature()

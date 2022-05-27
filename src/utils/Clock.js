@@ -13,7 +13,7 @@ var readline = require('readline');
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 class Clock {
 
-    static global = new Observable( {dd: 1, hh: 0, mm: 0} )
+    static global = new Observable( {dd: 5, hh: 0, mm: 0} )
 
     static format() {
         var time = Clock.global
@@ -44,7 +44,7 @@ class Clock {
         Clock.#start = true
 
         while(Clock.#start) {
-            await new Promise( res => setTimeout(res, 50))
+            await new Promise( res => setTimeout(res, 150))
             
             var {dd, hh, mm} = Clock.global
             if(mm<60-15)

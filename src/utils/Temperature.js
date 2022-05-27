@@ -1,3 +1,4 @@
+const Clock = require('./Clock')
 const Observable =  require('./Observable')
 
 
@@ -26,27 +27,28 @@ class Temperature {
         })
     }
 
-    static #start = true
+    static #start = false
+    static #reachTemperature = 19
 
-    static stopTemperatureSensor() {
-        clearInterval(this.increaseInterval)
+    static async startTemperatureSensor() {
         Temperature.#start = false
-        this.decreaseInterval = setInterval(function(){Temperature.global.degrees -= 1}, 500);
+        while (true) {
+            await Clock.global.notifyChange('mm').then(mm => {
+                if(!Temperature.#start && (Clock.global.hh % 3)==0)
+                    Temperature.global.degrees -= 1
+                if(Temperature.#start && Clock.global.mm==30){
+                    if(Temperature.global.degrees < Temperature.#reachTemperature)
+                        Temperature.global.degrees += 1
+                    else
+                        Temperature.#start = false
+                }
+            })
+        }
     }
 
-    static startTemperatureSensor(reachTemperature) {
-        clearInterval(this.decreaseInterval)
+    static increaseTemperature(reachTemperature) {
         Temperature.#start = true
-
-        this.increaseInterval = setInterval(function(){
-            var {degrees} = Temperature.global
-            
-            if(degrees<reachTemperature)
-                Temperature.global.degrees += 1
-            else {
-                Temperature.stopTemperatureSensor()
-            }
-        }, 100);
+        Temperature.#reachTemperature = reachTemperature
     }
 
 }

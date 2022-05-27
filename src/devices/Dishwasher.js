@@ -3,19 +3,25 @@ const chalk = require('chalk')
 
 class Dishwasher extends Observable {
     constructor (house, name) {
-        super({status: "idle"})
+        super({status: "idle", charged: 0, cristals: false})
         this.house = house;
         this.name = name;
+    }
+    setDirtyDishes (cristal=false){
+        this.charged += 1
+        if (cristal)
+            this.cristals = true
     }
     switchOnDishwasher () {
         this.status = 'started'
         //TODO: increase consumption every 15 minutes of usage
-        this.house.utilities.electricity.consumption += 1;
+        this.house.utilities.electricity.consumption += 500;
         // Include some messages logged on the console!
         console.log(chalk['cyan'](this.name, ' dishwasher turned on'))
     }
     switchOffDishwasher () {
         this.status = 'finished'
+        this.house.utilities.electricity.consumption -= 500;
         // Include some messages logged on the console!
         console.log(chalk['cyan'](this.name, ' dishwasher turned off'))
     }
@@ -33,6 +39,8 @@ class Dishwasher extends Observable {
     }
     discharge () {
         this.status = 'discharge'
+        this.cristals = false
+        this.charged = 0
         console.log(chalk['cyan'](this.name, 'has discharged dishes'))
     }
     addSoap () {
