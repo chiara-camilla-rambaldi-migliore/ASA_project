@@ -6,10 +6,8 @@ const Dishwasher = require("../devices/Dishwasher")
 const WashingMachine = require("../devices/WashingMachine")
 const CatFeeder = require("../devices/CatFeeder")
 const CatLitter = require("../devices/CatLitter")
-const BurglarAlarm = require("../devices/BurglarAlarm")
 const Thermostat = require("../devices/Thermostat")
 const Light = require("../devices/Light")
-const Speaker = require("../devices/Speaker")
 const RollUpShutter = require("../devices/RollUpShutter")
 const Room = require("../room/Room")
 const Electricity = require("../utilities/Electricity")
@@ -46,7 +44,6 @@ class House {
             washing_machine: new WashingMachine(this, "washing machine"),
             cat_feeder: new CatFeeder(this, "cat feeder"),
             cat_litter: new CatLitter(this, "cat litter"),
-            burglar_alarm: new BurglarAlarm(this, "burglar alarm"),
             thermostat: new Thermostat(this, "thermostat")
         }
         this.utilities = {
@@ -109,14 +106,12 @@ class House {
     setRoomsDevices(){
         this.rooms.kitchen.setDevices({
             light: new Light(this, this.rooms.kitchen.getName()+' light'),
-            rollUpShutter: new RollUpShutter(this, this.rooms.kitchen.getName()+' roll up shutter'),
-            speaker: new Speaker(this, this.rooms.kitchen.getName()+' speaker')
+            rollUpShutter: new RollUpShutter(this, this.rooms.kitchen.getName()+' roll up shutter')
         })
 
         this.rooms.living_room.setDevices({
             light: new Light(this, this.rooms.living_room.getName()+' light'),
-            rollUpShutter: new RollUpShutter(this, this.rooms.living_room.getName()+' roll up shutter'),
-            speaker: new Speaker(this, this.rooms.living_room.getName()+' speaker')
+            rollUpShutter: new RollUpShutter(this, this.rooms.living_room.getName()+' roll up shutter')
         })
 
         this.rooms.corridor.setDevices({
@@ -125,26 +120,22 @@ class House {
 
         this.rooms.bedroom.setDevices({
             light: new Light(this, this.rooms.bedroom.getName()+' light'),
-            rollUpShutter: new RollUpShutter(this, this.rooms.bedroom.getName()+' roll up shutter'),
-            speaker: new Speaker(this, this.rooms.bedroom.getName()+' speaker')
+            rollUpShutter: new RollUpShutter(this, this.rooms.bedroom.getName()+' roll up shutter')
         })
 
         this.rooms.bathroom.setDevices({
             light: new Light(this, this.rooms.bathroom.getName()+' light'),
-            rollUpShutter: new RollUpShutter(this, this.rooms.bathroom.getName()+' roll up shutter'),
-            speaker: new Speaker(this, this.rooms.bathroom.getName()+' speaker')
+            rollUpShutter: new RollUpShutter(this, this.rooms.bathroom.getName()+' roll up shutter')
         })
 
         this.rooms.office.setDevices({
             light: new Light(this, this.rooms.office.getName()+' light'),
-            rollUpShutter: new RollUpShutter(this, this.rooms.office.getName()+' roll up shutter'),
-            speaker: new Speaker(this, this.rooms.office.getName()+' speaker')
+            rollUpShutter: new RollUpShutter(this, this.rooms.office.getName()+' roll up shutter')
         })
 
         this.rooms.service_bathroom.setDevices({
             light: new Light(this, this.rooms.service_bathroom.getName()+' light'),
-            rollUpShutter: new RollUpShutter(this, this.rooms.service_bathroom.getName()+' roll up shutter'),
-            speaker: new Speaker(this, this.rooms.service_bathroom.getName()+' speaker')
+            rollUpShutter: new RollUpShutter(this, this.rooms.service_bathroom.getName()+' roll up shutter')
         })
 
         this.rooms.stairs.setDevices({
@@ -152,13 +143,11 @@ class House {
         })
 
         this.rooms.laundry.setDevices({
-            light: new Light(this, this.rooms.laundry.getName()+' light'),
-            speaker: new Speaker(this, this.rooms.laundry.getName()+' speaker')
+            light: new Light(this, this.rooms.laundry.getName()+' light')
         })
 
         this.rooms.garage.setDevices({
-            light: new Light(this, this.rooms.garage.getName()+' light'),
-            speaker: new Speaker(this, this.rooms.garage.getName()+' speaker')
+            light: new Light(this, this.rooms.garage.getName()+' light')
         })
     }
 

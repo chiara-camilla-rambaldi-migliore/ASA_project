@@ -1,12 +1,6 @@
 # House
 
 ### Devices
-#### BurglarAlarm.js
-This file contains the class for the burglar alarm device
-The burglar alarm has this observable:
-- status
-    - on
-    - off
 #### CatFeeder.js
 This file contains the class for the cat feeder device
 The cat feeder has this observable:
@@ -56,12 +50,6 @@ The roll-up shutter has this observable:
 - status
     - lifted
     - lowered
-#### Speaker.js
-This file contains the class for the speaker device
-The speaker has this observable:
-- status
-    - on
-    - off
 #### Thermostat.js
 This file contains the class for the thermostat device
 The thermostat has this observable:
