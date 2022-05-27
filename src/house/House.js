@@ -22,8 +22,8 @@ class House {
         let bedroom = new Room('bedroom')
 
         this.residents = {
-            nicola: new Person(this, 'Nicola', {in_room: bedroom}),
-            sara: new Person(this, 'Sara', {in_room: bedroom}),
+            nicola: new Person(this, 'Nicola', {in_room: bedroom, shower_intention: false}),
+            sara: new Person(this, 'Sara', {in_room: bedroom, shower_intention: false}),
             frolla: new Cat(this, "Frolla", {in_room: bedroom})
         }
         this.rooms = {
@@ -270,6 +270,7 @@ class House {
             this.residents.nicola.moveTo(this.rooms.corridor)
             this.residents.nicola.moveTo(this.rooms.living_room)
             this.residents.nicola.moveTo(this.rooms.kitchen)
+            this.residents.nicola.willShowerIn30Min()
             this.devices.dishwasher.setDirtyDishes()
         }
         if((time.dd==1 || time.dd==5) && time.hh==8 && time.mm==0){
@@ -277,6 +278,7 @@ class House {
             this.residents.nicola.moveTo(this.rooms.corridor)
             this.residents.nicola.moveTo(this.rooms.bathroom)
             console.log(chalk['magenta']('Nicola will have a shower'))
+            this.residents.nicola.showered()
         }
     
         if((time.dd==1 || time.dd==5) && time.hh==8 && time.mm==45){
@@ -351,11 +353,16 @@ class House {
             this.residents.nicola.moveTo(this.rooms.outside)
         }
     
+        if(time.dd>1 && time.dd<5 && time.hh==19 && time.mm==0){
+            this.residents.nicola.willShowerIn30Min()
+        }
+
         if(time.dd>1 && time.dd<5 && time.hh==19 && time.mm==30){
             this.residents.nicola.moveTo(this.rooms.living_room)
             this.residents.nicola.moveTo(this.rooms.corridor)
             this.residents.nicola.moveTo(this.rooms.bathroom)
             console.log(chalk['magenta']('Nicola will have a shower'))
+            this.residents.nicola.showered()
         }
     
         if(time.dd>1 && time.dd<5 && time.hh==20 && time.mm==0){
@@ -395,6 +402,10 @@ class House {
             this.residents.sara.moveTo(this.rooms.outside)
         }
 
+        if(time.dd>=1 && time.dd<6 && time.hh==16 && time.mm==0){
+            this.residents.sara.willShowerIn30Min()
+        }
+
         if(time.dd>=1 && time.dd<6 && time.hh==16 && time.mm==30){
             this.devices.electric_scooter.released()
             this.residents.sara.moveTo(this.rooms.garage)
@@ -402,6 +413,7 @@ class House {
             this.residents.sara.moveTo(this.rooms.corridor)
             this.residents.sara.moveTo(this.rooms.bathroom)
             console.log(chalk['magenta']('Sara will have a shower'))
+            this.residents.sara.showered()
             this.devices.washing_machine.setDirtyClothes()
         }
 

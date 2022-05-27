@@ -18,7 +18,7 @@ class WashingIntention extends Intention{
     } 
     *exec(){
         while(true) {
-            yield Clock.global.notifyChange('mm')
+            yield Clock.global.notifyChange('mm', 'washing')
             if(
                 (Clock.global.dd>=1 && Clock.global.dd<6 && Clock.global.hh==21 && Clock.global.mm==30)
             ){

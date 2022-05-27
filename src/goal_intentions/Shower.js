@@ -9,25 +9,27 @@ class ShowerIntention extends Intention{
     constructor(agent, goal){
         super(agent, goal)
         this.towel_warmer = this.goal.parameters['towel_warmer']
+        this.person = this.goal.parameters['person']
     }
     static applicable(goal) {
         return goal instanceof ShowerGoal
     } 
     *exec(){
         while(true) {
-            yield Clock.global.notifyChange('mm')
-            if(
-                ((Clock.global.dd==1 || Clock.global.dd==5) && Clock.global.hh==7 && Clock.global.mm==30) ||
-                (Clock.global.dd>1 && Clock.global.dd<5 && Clock.global.hh==19 && Clock.global.mm==0) ||
-                (Clock.global.dd>=1 && Clock.global.dd<6 && Clock.global.hh==16 && Clock.global.mm==0)
-            ){
+            yield this.person.notifyChange('shower_intention', 'shower')
+            
+            if(this.person.shower_intention)
+            {
+                let mm_start = Clock.global.mm
                 this.towel_warmer.switchOnTowelWarmer()
-            } else if (
-                ((Clock.global.dd==1 || Clock.global.dd==5) && Clock.global.hh==8 && Clock.global.mm==0) ||
-                (Clock.global.dd>1 && Clock.global.dd<5 && Clock.global.hh==19 && Clock.global.mm==30) ||
-                (Clock.global.dd>=1 && Clock.global.dd<6 && Clock.global.hh==16 && Clock.global.mm==30)
-            ){
-                this.towel_warmer.switchOffTowelWarmer()
+                let funct = (mm) => {
+                    if(Math.abs(mm-mm_start) == 30){
+                        this.towel_warmer.switchOffTowelWarmer()
+                        this.person.showered()
+                        Clock.global.unobserve('mm', funct)
+                    }
+                }
+                Clock.global.observe('mm',  funct)
             }
         }
     }

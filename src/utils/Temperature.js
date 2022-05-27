@@ -33,7 +33,7 @@ class Temperature {
     static async startTemperatureSensor() {
         Temperature.#start = false
         while (true) {
-            await Clock.global.notifyChange('mm').then(mm => {
+            await Clock.global.notifyChange('mm', 'temperature').then(mm => {
                 if(!Temperature.#start && (Clock.global.hh % 3)==0)
                     Temperature.global.degrees -= 1
                 if(Temperature.#start && Clock.global.mm==30){

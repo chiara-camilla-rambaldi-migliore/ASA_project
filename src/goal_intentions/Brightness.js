@@ -48,7 +48,7 @@ class BrightnessWithTimeIntention extends Intention {
     *exec(){
         while(true) {
             //TODO: switch on light at sunset and off at sunrise
-            yield Clock.global.notifyChange('mm')
+            yield Clock.global.notifyChange('mm', 'brightness')
             // if it's sunrise and light are on, then switch them off and lift the shutters
             // if it's unset and shutter are lifted and light off
             this.residents.forEach(resident => {

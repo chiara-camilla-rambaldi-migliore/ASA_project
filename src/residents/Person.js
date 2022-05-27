@@ -6,6 +6,12 @@ class Person extends Observable {
         this.house = house
         this.name = name
     }
+    willShowerIn30Min(){
+        this.shower_intention = true
+    }
+    showered(){
+        this.shower_intention = false
+    }
     moveTo (to) {
         if (this.house.rooms[this.in_room.name].doors_to.find(element => element === to)) {
             this.in_room = to

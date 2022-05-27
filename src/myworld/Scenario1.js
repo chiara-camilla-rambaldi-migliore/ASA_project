@@ -13,6 +13,7 @@ const { RetryGoal, RetryFourTimesIntention } = require('../goal_intentions/Retry
 const { SenseDishesGoal, SenseDishesIntention } = require('../goal_intentions/DishesSensor')
 const { SenseClothesGoal, SenseClothesIntention } = require('../goal_intentions/ClothesSensor')
 const { SensePowerLoadGoal, SensePowerLoadIntention } = require('../goal_intentions/EnergySensor')
+const { SensePersonGoal, SensePersonIntention } = require('../goal_intentions/PersonIntentionsSensor')
 
 
 
@@ -42,7 +43,7 @@ const dishwasher_agent = new Agent('dishwasher')
         let start = new F_Start(house_agent, {energy, agent} )
         if(start.checkPrecondition()){
             start.applyEffect()
-            await Clock.global.notifyChange('mm')
+            await Clock.global.notifyChange('mm', 'planning_start')
         } else {
             let err = new Error('pddl precondition not valid');
             this.error('house_agent.start failed:', err.message || err); 
@@ -57,7 +58,7 @@ const dishwasher_agent = new Agent('dishwasher')
         let start = new F_PreWash(house_agent, {energy, agent} )
         if(start.checkPrecondition()){
             start.applyEffect()
-            await Clock.global.notifyChange('mm')
+            await Clock.global.notifyChange('mm', 'planning_prewash')
         } else {
             let err = new Error('pddl precondition not valid');
             this.error('house_agent.prewash failed:', err.message || err); 
@@ -142,7 +143,7 @@ const dishwasher_agent = new Agent('dishwasher')
         let startDry = new F_StartDry(house_agent, {energy, agent} )
         if(startDry.checkPrecondition()){
             startDry.applyEffect()
-            await Clock.global.notifyChange('mm')
+            await Clock.global.notifyChange('mm', 'planning_startDry')
         } else {
             let err = new Error('pddl precondition not valid');
             this.error('house_agent.startDry failed:', err.message || err); 
@@ -425,12 +426,10 @@ var sensor = (agent) => (value,key,observable) => {
 
 
 brightness_agent.intentions.push(BrightnessWithPresenceIntention)
-brightness_agent.postSubGoal(new BrightnessWithPresenceGoal({resident: house.residents.nicola, rooms: Object.values(house.rooms)}))
-
-brightness_agent.intentions.push(BrightnessWithPresenceIntention)
-brightness_agent.postSubGoal(new BrightnessWithPresenceGoal({resident: house.residents.sara, rooms: Object.values(house.rooms)}))
-
 brightness_agent.intentions.push(BrightnessWithTimeIntention)
+
+brightness_agent.postSubGoal(new BrightnessWithPresenceGoal({resident: house.residents.nicola, rooms: Object.values(house.rooms)}))
+brightness_agent.postSubGoal(new BrightnessWithPresenceGoal({resident: house.residents.sara, rooms: Object.values(house.rooms)}))
 brightness_agent.postSubGoal(new BrightnessWithTimeGoal({residents: [house.residents.sara, house.residents.nicola]}))
 
 
@@ -461,14 +460,18 @@ house_agent.intentions.push(WashingIntention)
 house_agent.intentions.push(SenseDishesIntention)
 house_agent.intentions.push(SenseClothesIntention)
 house_agent.intentions.push(SensePowerLoadIntention)
+house_agent.intentions.push(SensePersonIntention)
 
 house_agent.postSubGoal(new HeatingThermostatGoal({thermostat: house.devices.thermostat}))
 house_agent.postSubGoal(new HeatingGoal({thermostat: house.devices.thermostat}))
-house_agent.postSubGoal(new ShowerGoal({towel_warmer: house.devices.towel_warmer}))
+house_agent.postSubGoal(new ShowerGoal({towel_warmer: house.devices.towel_warmer, person: house.residents.nicola}))
+house_agent.postSubGoal(new ShowerGoal({towel_warmer: house.devices.towel_warmer, person: house.residents.sara}))
 house_agent.postSubGoal(new WashingGoal({dishWasher: dishwasher_agent, washingMachine: washingMachine_agent}))
 house_agent.postSubGoal(new SenseDishesGoal({dishwasher: house.devices.dishwasher}))
 house_agent.postSubGoal(new SenseClothesGoal({washingMachine: house.devices.washing_machine}))
 house_agent.postSubGoal(new SensePowerLoadGoal({electricity: house.utilities.electricity}))
+house_agent.postSubGoal(new SensePersonGoal({person: house.residents.nicola}))
+house_agent.postSubGoal(new SensePersonGoal({person: house.residents.sara}))
 
 
 
@@ -476,13 +479,6 @@ house_agent.postSubGoal(new SensePowerLoadGoal({electricity: house.utilities.ele
 // Daily schedule
 Clock.global.observe('mm', (key, mm) => {
     var time = Clock.global
-    //everyday schedule
-    if(time.hh==21 && time.mm==0){
-        // house_agent.beliefs.declare('very_dirty washingMachine')
-        // house_agent.beliefs.declare('tender washingMachine')
-        // house_agent.beliefs.declare('cristal_to_rinse dishwasher')
-        // house_agent.beliefs.declare('free_energy energy')
-    }
 
     //cat schedule
     house.catSchedule(time)
