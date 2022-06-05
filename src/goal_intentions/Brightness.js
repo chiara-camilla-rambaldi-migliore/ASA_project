@@ -40,6 +40,7 @@ class BrightnessWithTimeIntention extends Intention {
     constructor(agent, goal){
         super(agent, goal)
         this.residents = this.goal.parameters['residents']
+        this.rooms = this.goal.parameters['rooms']
     }
     static applicable(goal) {
         return goal instanceof BrightnessWithTimeGoal
@@ -61,17 +62,22 @@ class BrightnessWithTimeIntention extends Intention {
                         resident.in_room.devices['light'].switchOffLight()
                     } else if (
                         Clock.global.hh>=19 && 
-                        (Clock.global.hh<22 || (Clock.global.hh==22 && Clock.global.mm<30))&& 
+                        (Clock.global.hh<22 || (Clock.global.hh==22 && Clock.global.mm<=30)) && 
                         resident.in_room.devices['light'].status == 'off'
                     ){
                         resident.in_room.devices['light'].switchOnLight()
                     } else if (
                         Clock.global.hh>=22 && 
-                        Clock.global.mm>=30 && 
-                        resident.in_room.devices['light'].status == 'on'
+                        Clock.global.mm>=45
                     ){
-                        resident.in_room.devices['light'].switchOffLight()
-                        resident.in_room.devices['rollUpShutter'].lowDownShutter()
+                        if(resident.in_room.devices['light'].status == 'on'){
+                            resident.in_room.devices['light'].switchOffLight()
+                        }
+                        this.rooms.forEach(room => {
+                            if('rollUpShutter' in room.devices && room.devices['rollUpShutter'].status == 'lifted'){
+                                room.devices['rollUpShutter'].lowDownShutter()
+                            }
+                        })
                     }
                 }
             });

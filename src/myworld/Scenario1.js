@@ -25,6 +25,7 @@ const catNeedings_agent = new Agent('catNeedings_agent')
 const washingMachine_agent = new Agent('washingMachine')
 const dishwasher_agent = new Agent('dishwasher')
 
+
 {
 
     house_agent.rinseAid = async function ({energy, agent} = args) {
@@ -432,7 +433,7 @@ brightness_agent.intentions.push(BrightnessWithTimeIntention)
 
 brightness_agent.postSubGoal(new BrightnessWithPresenceGoal({resident: house.residents.nicola, rooms: Object.values(house.rooms)}))
 brightness_agent.postSubGoal(new BrightnessWithPresenceGoal({resident: house.residents.sara, rooms: Object.values(house.rooms)}))
-brightness_agent.postSubGoal(new BrightnessWithTimeGoal({residents: [house.residents.sara, house.residents.nicola]}))
+brightness_agent.postSubGoal(new BrightnessWithTimeGoal({residents: [house.residents.sara, house.residents.nicola], rooms: Object.values(house.rooms)}))
 
 
 {
@@ -486,10 +487,6 @@ house_agent.postSubGoal(new SenseConsumptionGoal({electricity: house.utilities.e
 Clock.global.observe('mm', (key, mm) => {
     var time = Clock.global
 
-    if(time.dd==1 && time.hh==0 && time.mm==0){
-        house_agent.beliefs.declare('cleaned washingMachine')
-        house_agent.beliefs.declare('cleaned dishwasher')
-    }
     //cat schedule
     house.catSchedule(time)
 

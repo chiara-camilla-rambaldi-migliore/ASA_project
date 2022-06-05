@@ -3,7 +3,7 @@ const chalk = require('chalk')
 
 class Dishwasher extends Observable {
     constructor (house, name) {
-        super({status: "idle", charged: 0, cristals: false})
+        super({status: "idle", charged: 2, cristals: false})
         this.house = house;
         this.name = name;
     }

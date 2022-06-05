@@ -1,93 +1,81 @@
-camir@MacBook-Air-2 ASA_project % node src/myworld/Scenario1.js
-brightness_agent               Trying to use intention BrightnessWithPresenceIntention to achieve goal BrightnessWithPresenceGoal#0[object Object]
-brightness_agent>BrightnessWithPresenceIntention#0 Intention started
-brightness_agent               Trying to use intention BrightnessWithPresenceIntention to achieve goal BrightnessWithPresenceGoal#1[object Object]
-brightness_agent>BrightnessWithPresenceIntention#1 Intention started
-brightness_agent               Trying to use intention BrightnessWithTimeIntention to achieve goal BrightnessWithTimeGoal#2[object Object]
-brightness_agent>BrightnessWithTimeIntention#2 Intention started
-catNeedings_agent              Trying to use intention CatFeederIntention to achieve goal CatFeederGoal#3[object Object]
-catNeedings_agent>CatFeederIntention#3 Intention started
-catNeedings_agent              Trying to use intention CatLitterIntention to achieve goal CatLitterGoal#4[object Object]
-catNeedings_agent>CatLitterIntention#4 Intention started
-house_agent                    Trying to use intention HeatingThermostatIntention to achieve goal HeatingThermostatGoal#5[object Object]
-house_agent>HeatingThermostatIntention#5 Intention started
-house_agent                    Trying to use intention HeatingIntention to achieve goal HeatingGoal#6[object Object]
-house_agent>HeatingIntention#6 Intention started
-house_agent                    Trying to use intention ScooterChargeIntention to achieve goal ScooterChargeGoal#7[object Object]
-house_agent>ScooterChargeIntention#7 Intention started
-house_agent                    Trying to use intention ShowerIntention to achieve goal ShowerGoal#8[object Object]
-house_agent>ShowerIntention#8  Intention started
-house_agent                    Trying to use intention ShowerIntention to achieve goal ShowerGoal#9[object Object]
-house_agent>ShowerIntention#9  Intention started
-house_agent                    Trying to use intention WashingIntention to achieve goal WashingGoal#10[object Object]
-house_agent>WashingIntention#10 Intention started
-house_agent                    Trying to use intention SenseDishesIntention to achieve goal SenseDishesGoal#11[object Object]
-house_agent>SenseDishesIntention#11 Intention started
-house_agent                    Trying to use intention SenseClothesIntention to achieve goal SenseClothesGoal#12[object Object]
-house_agent>SenseClothesIntention#12 Intention started
-house_agent                    Trying to use intention SensePowerLoadIntention to achieve goal SensePowerLoadGoal#13[object Object]
-house_agent>SensePowerLoadIntention#13 Intention started
-house_agent                    Trying to use intention SensePersonIntention to achieve goal SensePersonGoal#14[object Object]
-house_agent>SensePersonIntention#14 Intention started
-house_agent                    Trying to use intention SensePersonIntention to achieve goal SensePersonGoal#15[object Object]
-house_agent>SensePersonIntention#15 Intention started
-house_agent                    Trying to use intention SenseConsumptionIntention to achieve goal SenseConsumptionGoal#16[object Object]
-house_agent>SenseConsumptionIntention#16 Intention started
-Monday:00:00    Temperature: 19°C
-Nicola moved to bedroom
-Sara moved to bedroom
-frolla moved to bedroom
-electric scooter status: half_charge
-electric scooter position: in_garage
-towel warmer status: off
-dishwasher status: idle
-washing machine status: idle
-cat feeder status_food: empty
-cat feeder status_water: off
-cat feeder cat_prossimity: false
-cat litter status: dirty
-cat litter cat_position: out
-thermostat status: 19
-house_agent                    Belief changed: cleaned washingMachine
-house_agent                    Belief changed: cleaned dishwasher
-washingMachine                 Belief changed: cleaned
-dishwasher                     Belief changed: cleaned
-Temperature: 18°C
-bedroom light  light turned on
-Cat litter cleaned
-cat litter status: clean
-Thermostat: trying to increase temperature from thermostat change
+Monday:00:00    Temperature: 18°C
 Thermostat: trying to increase temperature
-electric scooter charged
-electric scooter status: full_charge
-house_agent>SenseDishesIntention#11 sense dishes charge status: 0
-house_agent>SenseClothesIntention#12 sense clothes charge status: 0
-house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-house_agent                    Belief changed: free_energy energy
-dishwasher                     Belief changed: free_energy energy
-washingMachine                 Belief changed: free_energy energy
-house_agent>SensePersonIntention#14 sense shower intention: Nicola false
-house_agent                    Belief changed: resident_shower_intention
-house_agent>SensePersonIntention#15 sense shower intention: Sara false
-house_agent>SenseConsumptionIntention#16 sense consumption status: 0kW
-
 Monday:00:30    Temperature: 19°C
 Monday:03:00    Temperature: 18°C
 Thermostat: trying to increase temperature
 Monday:03:30    Temperature: 19°C
-Monday:04:00    dishwasher                     Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#18[object Object]
-dishwasher>RetryFourTimesIntention#17 Intention started
-dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#17 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>OnlinePlanning#18   Intention started
-Monday:04:30    dishwasher>OnlinePlanning#18   No plan found
-dishwasher>OnlinePlanning#18   {"status":"error","result":{"output":"\nff: goal can be simplified to TRUE. The empty plan solves it\n\n","parse_status":"err","error":"Suspected timeout.\n\n\nff: goal can be simplified to TRUE. The empty plan solves it\n\n"}}
-dishwasher>OnlinePlanning#18   Intention failed: Plan not found
-dishwasher                     Failed to use intention OnlinePlanning to achieve goal PddlGoal#17 goal:cleaned,not charged,not washing,not soap,free_energy energy: Plan not found
-dishwasher                     Error: Plan not found
-    at OnlinePlanning.doPlan (/Users/camir/Documents/Cami/UNIVERSITA/MAGISTRALE/Y_1_S_2/ASA/Project/Assignment2/src/pddl/OnlinePlanner.js:53:23)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-dishwasher                     No success in achieving goal PddlGoal#17 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>RetryFourTimesIntention#17 wait for something to change on beliefset before retrying for the 2th time goal PddlGoal#17 goal:cleaned,not charged,not washing,not soap,free_energy energy
+Monday:04:00    dishwasher                     Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#66[object Object]
+dishwasher>RetryFourTimesIntention#67 Intention started
+dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#65 goal:cleaned,not charged,not washing,not soap,free_energy energy
+dishwasher>OnlinePlanning#68   Intention started
+Monday:04:15    dishwasher>OnlinePlanning#68   Plan found:
+dishwasher>OnlinePlanning#68   - (addnormalsoap)
+dishwasher>OnlinePlanning#68   - (start energy)
+dishwasher>OnlinePlanning#68   - (rinseaid energy)
+dishwasher>OnlinePlanning#68   - (finish energy)
+dishwasher>OnlinePlanning#68   - (discharge)
+dishwasher>OnlinePlanning#68   Starting sequential step (AddNormalSoap ) Effect: soap
+dishwasher>AddNormalSoap#69    Intention started
+house_agent                    addNormalSoap dishwasher
+house_agent                    Belief changed: soap dishwasher
+dishwasher                     Belief changed: soap
+dishwasher has added soap
+dishwasher status: addSoap
+dishwasher>AddNormalSoap#69    Intention success
+dishwasher>OnlinePlanning#68   Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
+dishwasher>Start#70            Intention started
+house_agent                    start energy dishwasher
+house_agent                    Belief changed: consume_energy dishwasher energy
+house_agent                    Belief changed: not free_energy energy
+house_agent                    Belief changed: washing dishwasher
+dishwasher                     Belief changed: consume_energy energy
+dishwasher                     Belief changed: not free_energy energy
+washingMachine                 Belief changed: not free_energy energy
+dishwasher                     Belief changed: washing
+Monday:04:30    dishwasher  dishwasher turned on
+dishwasher status: started
+dishwasher>Start#70            Intention success
+house_agent>SenseConsumptionIntention#16 sense consumption status: 223.51699999999988kW
+house_agent>SensePowerLoadIntention#13 sense powerload status: 500
+dishwasher>OnlinePlanning#68   Starting sequential step (RinseAid energy) Effect: not cristal_to_rinse
+dishwasher>RinseAid#71         Intention started
+house_agent                    rinseAid energy dishwasher
+house_agent                    Belief changed: not cristal_to_rinse dishwasher
+dishwasher                     Belief changed: not cristal_to_rinse
+dishwasher  is using rinse aid
+dishwasher status: rinseAid
+dishwasher>RinseAid#71         Intention success
+dishwasher>OnlinePlanning#68   Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
+dishwasher>Finish#72           Intention started
+house_agent                    finish energy dishwasher
+house_agent                    Belief changed: cleaned dishwasher
+house_agent                    Belief changed: not washing dishwasher
+house_agent                    Belief changed: not consume_energy dishwasher energy
+house_agent                    Belief changed: free_energy energy
+house_agent                    Belief changed: not soap dishwasher
+dishwasher                     Belief changed: cleaned
+dishwasher                     Belief changed: not washing
+dishwasher                     Belief changed: not consume_energy energy
+dishwasher                     Belief changed: free_energy energy
+washingMachine                 Belief changed: free_energy energy
+dishwasher                     Belief changed: not soap
+dishwasher  dishwasher turned off
+dishwasher status: finished
+dishwasher>Finish#72           Intention success
+house_agent>SensePowerLoadIntention#13 sense powerload status: 0
+dishwasher>OnlinePlanning#68   Starting sequential step (Discharge ) Effect: not charged
+dishwasher>Discharge#73        Intention started
+house_agent                    discharge dishwasher
+house_agent                    Belief changed: not charged dishwasher
+dishwasher                     Belief changed: not charged
+dishwasher has discharged dishes
+dishwasher status: discharge
+dishwasher>Discharge#73        Intention success
+house_agent>SenseDishesIntention#11 sense dishes charge status: 0
+dishwasher>OnlinePlanning#68   Intention success
+dishwasher                     Succesfully used intention OnlinePlanning to achieve goal PddlGoal#65 goal:cleaned,not charged,not washing,not soap,free_energy energy
+dishwasher>RetryFourTimesIntention#67 Intention success
+dishwasher                     Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#66[object Object]
 Monday:06:00    Temperature: 18°C
 Thermostat: trying to increase temperature
 Monday:06:30    Temperature: 19°C
@@ -97,16 +85,14 @@ frolla moved to kitchen
 Sara moved to corridor
 Sara moved to living_room
 Sara moved to kitchen
-bedroom roll up shutter  lifted up
-bedroom light  light turned off
 kitchen roll up shutter  lifted up
-house_agent>SenseConsumptionIntention#16 sense consumption status: 2.6445kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 223.5179999999999kW
 cat feeder cat_prossimity: true
 cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 2.6464999999999996kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 223.5189999999999kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
@@ -117,7 +103,7 @@ Monday:07:15    Sara moved to living_room
 Sara moved to corridor
 Sara moved to bathroom
 bathroom roll up shutter  lifted up
-house_agent>SenseConsumptionIntention#16 sense consumption status: 2.6504999999999996kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 223.52299999999988kW
 Temperature changed to:  20
 electric scooter taken out of garage
 Monday:07:30    thermostat status: 20
@@ -134,7 +120,7 @@ towel warmer  towel warmer turned on
 towel warmer status: on
 house_agent>SensePersonIntention#14 sense shower intention: Nicola true
 house_agent>SenseDishesIntention#11 sense dishes charge status: 1
-house_agent>SenseConsumptionIntention#16 sense consumption status: 2.8505kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 223.72299999999987kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 50
 Monday:07:45    Nicola will have a shower
 Monday:08:00    towel warmer  towel warmer turned off
@@ -145,7 +131,13 @@ Nicola moved to living_room
 Nicola moved to corridor
 Nicola moved to bathroom
 towel warmer status: off
-house_agent>SenseClothesIntention#12 sense clothes charge status: 1
+house_agent>SenseClothesIntention#12 sense clothes charge status: 5
+house_agent                    Belief changed: not cleaned washingMachine
+house_agent                    Belief changed: charged washingMachine
+house_agent                    Belief changed: tender washingMachine
+washingMachine                 Belief changed: not cleaned
+washingMachine                 Belief changed: charged
+washingMachine                 Belief changed: tender
 house_agent>SensePersonIntention#14 sense shower intention: Nicola false
 house_agent>SensePowerLoadIntention#13 sense powerload status: 0
 Cat is using the litter
@@ -155,14 +147,14 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 2.8524999999999996kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 223.72499999999988kW
 Monday:08:15    frolla moved to corridor
 frolla moved to living_room
 Monday:08:30    Temperature: 20°C
 Monday:08:45    Nicola moved to corridor
 Nicola moved to office
 office roll up shutter  lifted up
-house_agent>SenseConsumptionIntention#16 sense consumption status: 2.8534999999999995kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 223.72599999999989kW
 Monday:09:45    Temperature: 19°C
 Thermostat: trying to increase temperature
 Monday:10:30    Temperature: 20°C
@@ -178,7 +170,7 @@ cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 2.8544999999999994kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 223.7269999999999kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
@@ -190,7 +182,7 @@ frolla moved to corridor
 frolla moved to service_bathroom
 Nicola moved to living_room
 living_room roll up shutter  lifted up
-house_agent>SenseConsumptionIntention#16 sense consumption status: 2.8584999999999994kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 223.73099999999988kW
 Cat is using the litter
 cat litter cat_position: in
 Cat finished using the litter
@@ -198,17 +190,15 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 2.860499999999999kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 223.7329999999999kW
 Monday:13:15    frolla moved to corridor
 frolla moved to living_room
 Monday:13:30    Nicola moved to kitchen
 house_agent>SenseDishesIntention#11 sense dishes charge status: 2
 house_agent                    Belief changed: not cleaned dishwasher
 house_agent                    Belief changed: charged dishwasher
-house_agent                    Belief changed: not cristal_to_rinse dishwasher
 dishwasher                     Belief changed: not cleaned
 dishwasher                     Belief changed: charged
-dishwasher                     Belief changed: not cristal_to_rinse
 Monday:14:30    Nicola moved to living_room
 Nicola moved to corridor
 Nicola moved to office
@@ -218,7 +208,7 @@ Monday:15:30    Temperature: 20°C
 Monday:16:00    towel warmer  towel warmer turned on
 towel warmer status: on
 house_agent>SensePersonIntention#15 sense shower intention: Sara true
-house_agent>SenseConsumptionIntention#16 sense consumption status: 3.0604999999999993kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 223.93299999999988kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 50
 Monday:16:15    electric scooter in garage
 Sara will have a shower
@@ -233,9 +223,9 @@ towel warmer status: off
 electric scooter charged
 electric scooter status: full_charge
 house_agent>SensePersonIntention#15 sense shower intention: Sara false
-house_agent>SenseClothesIntention#12 sense clothes charge status: 2
+house_agent>SenseClothesIntention#12 sense clothes charge status: 6
 house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-house_agent>SenseConsumptionIntention#16 sense consumption status: 3.1979999999999995kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 224.07049999999987kW
 Monday:17:15    Sara moved to corridor
 Sara moved to living_room
 Monday:18:00    Nicola moved to corridor
@@ -245,13 +235,13 @@ Thermostat: trying to increase temperature
 Monday:18:30    Temperature: 20°C
 Monday:19:00    frolla moved to kitchen
 living_room light  light turned on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 3.2019999999999995kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 224.07449999999986kW
 cat feeder cat_prossimity: true
 cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 3.2029999999999994kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 224.07549999999986kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
@@ -266,7 +256,7 @@ Sara moved to kitchen
 kitchen light  light turned on
 living_room light  light turned off
 house_agent>SenseDishesIntention#11 sense dishes charge status: 3
-house_agent>SenseConsumptionIntention#16 sense consumption status: 3.2099999999999995kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 224.08249999999984kW
 Cat is using the litter
 cat litter cat_position: in
 Cat finished using the litter
@@ -274,14 +264,14 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 3.2119999999999993kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 224.08449999999985kW
 Monday:19:45    frolla moved to corridor
 frolla moved to living_room
 Monday:20:30    Nicola moved to living_room
 Sara moved to living_room
 living_room light  light turned on
 kitchen light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 3.2159999999999993kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 224.08849999999984kW
 Monday:21:00    Temperature: 19°C
 Thermostat: trying to increase temperature
 Monday:21:30    Temperature: 20°C
@@ -291,7 +281,7 @@ Sara moved to corridor
 Sara moved to bathroom
 bathroom light  light turned on
 living_room light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 3.2199999999999993kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 224.09249999999983kW
 Temperature changed to:  19
 Monday:22:30    Nicola moved to corridor
 Nicola moved to bedroom
@@ -300,12 +290,15 @@ Sara moved to corridor
 Sara moved to bedroom
 bedroom light  light turned on
 bathroom light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 3.2239999999999993kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 224.09649999999982kW
 Monday:22:45    frolla moved to corridor
 frolla moved to bedroom
 bedroom light  light turned off
-bedroom roll up shutter  lowered down
-house_agent>SenseConsumptionIntention#16 sense consumption status: 3.224999999999999kW
+kitchen roll up shutter  lowered down
+living_room roll up shutter  lowered down
+bathroom roll up shutter  lowered down
+office roll up shutter  lowered down
+house_agent>SenseConsumptionIntention#16 sense consumption status: 224.09749999999983kW
 Tuesday:00:00   Temperature: 19°C
 Tuesday:00:15   Temperature: 18°C
 Thermostat: trying to increase temperature
@@ -313,25 +306,25 @@ Tuesday:00:30   Temperature: 19°C
 Tuesday:03:00   Temperature: 18°C
 Thermostat: trying to increase temperature
 Tuesday:03:30   Temperature: 19°C
-Tuesday:04:00   dishwasher                     Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#25[object Object]
-dishwasher>RetryFourTimesIntention#24 Intention started
-dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#24 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>OnlinePlanning#25   Intention started
-Tuesday:04:30   dishwasher>OnlinePlanning#25   Plan found:
-dishwasher>OnlinePlanning#25   - (addnormalsoap)
-dishwasher>OnlinePlanning#25   - (start energy)
-dishwasher>OnlinePlanning#25   - (finish energy)
-dishwasher>OnlinePlanning#25   - (discharge)
-dishwasher>OnlinePlanning#25   Starting sequential step (AddNormalSoap ) Effect: soap
-dishwasher>AddNormalSoap#26    Intention started
+Tuesday:04:00   dishwasher                     Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#73[object Object]
+dishwasher>RetryFourTimesIntention#74 Intention started
+dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#72 goal:cleaned,not charged,not washing,not soap,free_energy energy
+dishwasher>OnlinePlanning#75   Intention started
+Tuesday:04:15   dishwasher>OnlinePlanning#75   Plan found:
+dishwasher>OnlinePlanning#75   - (addnormalsoap)
+dishwasher>OnlinePlanning#75   - (start energy)
+dishwasher>OnlinePlanning#75   - (finish energy)
+dishwasher>OnlinePlanning#75   - (discharge)
+dishwasher>OnlinePlanning#75   Starting sequential step (AddNormalSoap ) Effect: soap
+dishwasher>AddNormalSoap#76    Intention started
 house_agent                    addNormalSoap dishwasher
 house_agent                    Belief changed: soap dishwasher
 dishwasher                     Belief changed: soap
 dishwasher has added soap
 dishwasher status: addSoap
-dishwasher>AddNormalSoap#26    Intention success
-dishwasher>OnlinePlanning#25   Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
-dishwasher>Start#27            Intention started
+dishwasher>AddNormalSoap#76    Intention success
+dishwasher>OnlinePlanning#75   Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
+dishwasher>Start#77            Intention started
 house_agent                    start energy dishwasher
 house_agent                    Belief changed: consume_energy dishwasher energy
 house_agent                    Belief changed: not free_energy energy
@@ -340,13 +333,13 @@ dishwasher                     Belief changed: consume_energy energy
 dishwasher                     Belief changed: not free_energy energy
 washingMachine                 Belief changed: not free_energy energy
 dishwasher                     Belief changed: washing
-Tuesday:04:45   dishwasher  dishwasher turned on
+Tuesday:04:30   dishwasher  dishwasher turned on
 dishwasher status: started
-dishwasher>Start#27            Intention success
-house_agent>SenseConsumptionIntention#16 sense consumption status: 5.725kW
+dishwasher>Start#77            Intention success
+house_agent>SenseConsumptionIntention#16 sense consumption status: 226.60049999999984kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 500
-dishwasher>OnlinePlanning#25   Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
-dishwasher>Finish#28           Intention started
+dishwasher>OnlinePlanning#75   Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
+dishwasher>Finish#78           Intention started
 house_agent                    finish energy dishwasher
 house_agent                    Belief changed: cleaned dishwasher
 house_agent                    Belief changed: not washing dishwasher
@@ -361,21 +354,21 @@ washingMachine                 Belief changed: free_energy energy
 dishwasher                     Belief changed: not soap
 dishwasher  dishwasher turned off
 dishwasher status: finished
-dishwasher>Finish#28           Intention success
+dishwasher>Finish#78           Intention success
 house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-dishwasher>OnlinePlanning#25   Starting sequential step (Discharge ) Effect: not charged
-dishwasher>Discharge#29        Intention started
+dishwasher>OnlinePlanning#75   Starting sequential step (Discharge ) Effect: not charged
+dishwasher>Discharge#79        Intention started
 house_agent                    discharge dishwasher
 house_agent                    Belief changed: not charged dishwasher
 dishwasher                     Belief changed: not charged
 dishwasher has discharged dishes
 dishwasher status: discharge
-dishwasher>Discharge#29        Intention success
+dishwasher>Discharge#79        Intention success
 house_agent>SenseDishesIntention#11 sense dishes charge status: 0
-dishwasher>OnlinePlanning#25   Intention success
-dishwasher                     Succesfully used intention OnlinePlanning to achieve goal PddlGoal#24 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>RetryFourTimesIntention#24 Intention success
-dishwasher                     Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#25[object Object]
+dishwasher>OnlinePlanning#75   Intention success
+dishwasher                     Succesfully used intention OnlinePlanning to achieve goal PddlGoal#72 goal:cleaned,not charged,not washing,not soap,free_energy energy
+dishwasher>RetryFourTimesIntention#74 Intention success
+dishwasher                     Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#73[object Object]
 Tuesday:06:00   Nicola moved to corridor
 Nicola moved to living_room
 Nicola moved to kitchen
@@ -383,19 +376,19 @@ Temperature: 18°C
 kitchen light  light turned on
 house_agent>SenseDishesIntention#11 sense dishes charge status: 1
 Thermostat: trying to increase temperature
-house_agent>SenseConsumptionIntention#16 sense consumption status: 5.728999999999999kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 226.60449999999983kW
 Tuesday:06:15   Nicola moved to living_room
 Nicola moved to corridor
 Nicola moved to bathroom
 kitchen light  light turned off
 bathroom light  light turned on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 5.732999999999999kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 226.60849999999982kW
 Tuesday:06:30   Nicola moved to corridor
 Nicola moved to living_room
 Temperature: 19°C
 living_room light  light turned on
 bathroom light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 5.736999999999998kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 226.6124999999998kW
 Tuesday:07:00   frolla moved to corridor
 frolla moved to living_room
 frolla moved to kitchen
@@ -404,13 +397,14 @@ Sara moved to living_room
 Sara moved to kitchen
 living_room roll up shutter  lifted up
 living_room light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 5.737999999999999kW
+kitchen roll up shutter  lifted up
+house_agent>SenseConsumptionIntention#16 sense consumption status: 226.61349999999982kW
 cat feeder cat_prossimity: true
 cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 5.738999999999999kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 226.61549999999983kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
@@ -420,6 +414,8 @@ house_agent>SensePowerLoadIntention#13 sense powerload status: 0
 Tuesday:07:15   Sara moved to living_room
 Sara moved to corridor
 Sara moved to bathroom
+bathroom roll up shutter  lifted up
+house_agent>SenseConsumptionIntention#16 sense consumption status: 226.61949999999982kW
 electric scooter taken out of garage
 Tuesday:07:30   Sara moved to corridor
 Sara moved to stairs
@@ -436,7 +432,7 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 5.743999999999999kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 226.62149999999983kW
 Tuesday:08:15   frolla moved to corridor
 frolla moved to living_room
 Tuesday:09:00   Temperature: 18°C
@@ -451,7 +447,7 @@ cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 5.744999999999999kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 226.62249999999983kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
@@ -468,7 +464,7 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 5.749999999999999kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 226.62749999999983kW
 Tuesday:13:15   frolla moved to corridor
 frolla moved to living_room
 Tuesday:15:00   Temperature: 18°C
@@ -477,7 +473,7 @@ Tuesday:15:30   Temperature: 19°C
 Tuesday:16:00   towel warmer  towel warmer turned on
 towel warmer status: on
 house_agent>SensePersonIntention#15 sense shower intention: Sara true
-house_agent>SenseConsumptionIntention#16 sense consumption status: 5.949999999999999kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 226.82749999999982kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 50
 Tuesday:16:15   electric scooter in garage
 Sara will have a shower
@@ -492,9 +488,9 @@ towel warmer status: off
 electric scooter charged
 electric scooter status: full_charge
 house_agent>SensePersonIntention#15 sense shower intention: Sara false
-house_agent>SenseClothesIntention#12 sense clothes charge status: 3
+house_agent>SenseClothesIntention#12 sense clothes charge status: 7
 house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-house_agent>SenseConsumptionIntention#16 sense consumption status: 6.0874999999999995kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 226.9649999999998kW
 Tuesday:17:15   Sara moved to corridor
 Sara moved to living_room
 Tuesday:18:00   Temperature: 18°C
@@ -505,14 +501,14 @@ living_room light  light turned on
 towel warmer  towel warmer turned on
 towel warmer status: on
 house_agent>SensePersonIntention#14 sense shower intention: Nicola true
-house_agent>SenseConsumptionIntention#16 sense consumption status: 6.091499999999999kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 226.9689999999998kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 50
 cat feeder cat_prossimity: true
 cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 6.2924999999999995kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 227.1699999999998kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 51
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
@@ -521,566 +517,6 @@ cat feeder status_water: off
 house_agent>SensePowerLoadIntention#13 sense powerload status: 50
 Tuesday:19:15   Nicola will have a shower
 Tuesday:19:30   towel warmer  towel warmer turned off
-frolla moved to living_room
-frolla moved to corridor
-frolla moved to service_bathroom
-Nicola moved to corridor
-Nicola moved to bathroom
-Sara moved to kitchen
-towel warmer status: off
-kitchen light  light turned on
-bathroom light  light turned on
-kitchen light  light turned off
-living_room light  light turned off
-house_agent>SenseClothesIntention#12 sense clothes charge status: 4
-house_agent>SensePersonIntention#14 sense shower intention: Nicola false
-bathroom light  light turned off
-house_agent>SenseDishesIntention#11 sense dishes charge status: 2
-house_agent                    Belief changed: not cleaned dishwasher
-house_agent                    Belief changed: charged dishwasher
-dishwasher                     Belief changed: not cleaned
-dishwasher                     Belief changed: charged
-house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-house_agent>SenseConsumptionIntention#16 sense consumption status: 6.299499999999999kW
-Cat is using the litter
-cat litter cat_position: in
-Cat finished using the litter
-cat litter status: dirty
-cat litter cat_position: out
-Cat litter cleaned
-cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 6.3054999999999986kW
-Tuesday:19:45   frolla moved to corridor
-frolla moved to living_room
-kitchen light  light turned on
-bathroom light  light turned on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 6.309499999999998kW
-Tuesday:20:30   Nicola moved to corridor
-Nicola moved to living_room
-Sara moved to living_room
-living_room light  light turned on
-kitchen light  light turned off
-bathroom light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 6.317499999999997kW
-Tuesday:21:00   Temperature: 18°C
-Thermostat: trying to increase temperature
-Tuesday:21:30   Temperature: 19°C
-Tuesday:22:15   Nicola moved to corridor
-Nicola moved to bathroom
-Sara moved to corridor
-Sara moved to bathroom
-bathroom light  light turned on
-living_room light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 6.321499999999997kW
-Tuesday:22:30   Nicola moved to corridor
-Nicola moved to bedroom
-Sara moved to corridor
-Sara moved to bedroom
-bedroom light  light turned on
-bathroom light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 6.325499999999996kW
-Tuesday:22:45   frolla moved to corridor
-frolla moved to bedroom
-bedroom light  light turned off
-bedroom roll up shutter  lowered down
-house_agent>SenseConsumptionIntention#16 sense consumption status: 6.326499999999997kW
-Wednesday:00:00 Temperature: 18°C
-Thermostat: trying to increase temperature
-Wednesday:00:30 Temperature: 19°C
-Wednesday:03:00 Temperature: 18°C
-Thermostat: trying to increase temperature
-Wednesday:03:30 Temperature: 19°C
-Wednesday:04:00 dishwasher                     Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#31[object Object]
-dishwasher>RetryFourTimesIntention#30 Intention started
-dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#30 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>OnlinePlanning#31   Intention started
-Wednesday:04:15 dishwasher>OnlinePlanning#31   Plan found:
-dishwasher>OnlinePlanning#31   - (addnormalsoap)
-dishwasher>OnlinePlanning#31   - (start energy)
-dishwasher>OnlinePlanning#31   - (finish energy)
-dishwasher>OnlinePlanning#31   - (discharge)
-dishwasher>OnlinePlanning#31   Starting sequential step (AddNormalSoap ) Effect: soap
-dishwasher>AddNormalSoap#32    Intention started
-house_agent                    addNormalSoap dishwasher
-house_agent                    Belief changed: soap dishwasher
-dishwasher                     Belief changed: soap
-dishwasher has added soap
-dishwasher status: addSoap
-dishwasher>AddNormalSoap#32    Intention success
-dishwasher>OnlinePlanning#31   Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
-dishwasher>Start#33            Intention started
-house_agent                    start energy dishwasher
-house_agent                    Belief changed: consume_energy dishwasher energy
-house_agent                    Belief changed: not free_energy energy
-house_agent                    Belief changed: washing dishwasher
-dishwasher                     Belief changed: consume_energy energy
-dishwasher                     Belief changed: not free_energy energy
-washingMachine                 Belief changed: not free_energy energy
-dishwasher                     Belief changed: washing
-Wednesday:04:30 dishwasher  dishwasher turned on
-dishwasher status: started
-dishwasher>Start#33            Intention success
-house_agent>SenseConsumptionIntention#16 sense consumption status: 8.826499999999996kW
-house_agent>SensePowerLoadIntention#13 sense powerload status: 500
-dishwasher>OnlinePlanning#31   Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
-dishwasher>Finish#34           Intention started
-house_agent                    finish energy dishwasher
-house_agent                    Belief changed: cleaned dishwasher
-house_agent                    Belief changed: not washing dishwasher
-house_agent                    Belief changed: not consume_energy dishwasher energy
-house_agent                    Belief changed: free_energy energy
-house_agent                    Belief changed: not soap dishwasher
-dishwasher                     Belief changed: cleaned
-dishwasher                     Belief changed: not washing
-dishwasher                     Belief changed: not consume_energy energy
-dishwasher                     Belief changed: free_energy energy
-washingMachine                 Belief changed: free_energy energy
-dishwasher                     Belief changed: not soap
-dishwasher  dishwasher turned off
-dishwasher status: finished
-dishwasher>Finish#34           Intention success
-house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-dishwasher>OnlinePlanning#31   Starting sequential step (Discharge ) Effect: not charged
-dishwasher>Discharge#35        Intention started
-house_agent                    discharge dishwasher
-house_agent                    Belief changed: not charged dishwasher
-dishwasher                     Belief changed: not charged
-dishwasher has discharged dishes
-dishwasher status: discharge
-dishwasher>Discharge#35        Intention success
-house_agent>SenseDishesIntention#11 sense dishes charge status: 0
-dishwasher>OnlinePlanning#31   Intention success
-dishwasher                     Succesfully used intention OnlinePlanning to achieve goal PddlGoal#30 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>RetryFourTimesIntention#30 Intention success
-dishwasher                     Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#31[object Object]
-Wednesday:06:00 Nicola moved to corridor
-Nicola moved to living_room
-Nicola moved to kitchen
-Temperature: 18°C
-kitchen light  light turned on
-house_agent>SenseDishesIntention#11 sense dishes charge status: 1
-Thermostat: trying to increase temperature
-house_agent>SenseConsumptionIntention#16 sense consumption status: 8.830499999999995kW
-Wednesday:06:15 Nicola moved to living_room
-Nicola moved to corridor
-Nicola moved to bathroom
-kitchen light  light turned off
-bathroom light  light turned on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 8.834499999999995kW
-Wednesday:06:30 Nicola moved to corridor
-Nicola moved to living_room
-Temperature: 19°C
-living_room light  light turned on
-bathroom light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 8.838499999999994kW
-Wednesday:07:00 frolla moved to corridor
-frolla moved to living_room
-frolla moved to kitchen
-Sara moved to corridor
-Sara moved to living_room
-Sara moved to kitchen
-living_room roll up shutter  lifted up
-living_room light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 8.839499999999994kW
-cat feeder cat_prossimity: true
-cat feeder food bowl full
-cat feeder water on
-cat feeder status_food: full
-cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 8.840499999999993kW
-house_agent>SensePowerLoadIntention#13 sense powerload status: 1
-cat feeder cat_prossimity: false
-cat feeder status_food: empty
-cat feeder water off
-cat feeder status_water: off
-house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-Wednesday:07:15 Sara moved to living_room
-Sara moved to corridor
-Sara moved to bathroom
-electric scooter taken out of garage
-Wednesday:07:30 Sara moved to corridor
-Sara moved to stairs
-Sara moved to garage
-electric scooter position: out_garage
-Sara moved to outside
-Wednesday:08:00 frolla moved to living_room
-frolla moved to corridor
-frolla moved to service_bathroom
-Cat is using the litter
-cat litter cat_position: in
-Cat finished using the litter
-cat litter status: dirty
-cat litter cat_position: out
-Cat litter cleaned
-cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 8.845499999999994kW
-Wednesday:08:15 frolla moved to corridor
-frolla moved to living_room
-Wednesday:09:00 Temperature: 18°C
-Thermostat: trying to increase temperature
-Wednesday:09:30 Temperature: 19°C
-Wednesday:12:00 Temperature: 18°C
-Thermostat: trying to increase temperature
-Wednesday:12:30 frolla moved to kitchen
-Temperature: 19°C
-cat feeder cat_prossimity: true
-cat feeder food bowl full
-cat feeder water on
-cat feeder status_food: full
-cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 8.846499999999994kW
-house_agent>SensePowerLoadIntention#13 sense powerload status: 1
-cat feeder cat_prossimity: false
-cat feeder status_food: empty
-cat feeder water off
-cat feeder status_water: off
-house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-Wednesday:13:00 frolla moved to living_room
-frolla moved to corridor
-frolla moved to service_bathroom
-Cat is using the litter
-cat litter cat_position: in
-Cat finished using the litter
-cat litter status: dirty
-cat litter cat_position: out
-Cat litter cleaned
-cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 8.851499999999994kW
-Wednesday:13:15 frolla moved to corridor
-frolla moved to living_room
-Wednesday:15:00 Temperature: 18°C
-Thermostat: trying to increase temperature
-Wednesday:15:30 Temperature: 19°C
-Wednesday:16:00 towel warmer  towel warmer turned on
-towel warmer status: on
-house_agent>SensePersonIntention#15 sense shower intention: Sara true
-house_agent>SenseConsumptionIntention#16 sense consumption status: 9.051499999999994kW
-house_agent>SensePowerLoadIntention#13 sense powerload status: 50
-Wednesday:16:15 electric scooter in garage
-Sara will have a shower
-Wednesday:16:30 towel warmer  towel warmer turned off
-electric scooter position: in_garage
-electric scooter status: half_charge
-Sara moved to garage
-Sara moved to stairs
-Sara moved to corridor
-Sara moved to bathroom
-towel warmer status: off
-electric scooter charged
-electric scooter status: full_charge
-house_agent>SensePersonIntention#15 sense shower intention: Sara false
-house_agent>SenseClothesIntention#12 sense clothes charge status: 5
-house_agent                    Belief changed: not cleaned washingMachine
-house_agent                    Belief changed: charged washingMachine
-house_agent                    Belief changed: not tender washingMachine
-washingMachine                 Belief changed: not cleaned
-washingMachine                 Belief changed: charged
-washingMachine                 Belief changed: not tender
-house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-house_agent>SenseConsumptionIntention#16 sense consumption status: 9.188999999999993kW
-Wednesday:17:15 Sara moved to corridor
-Sara moved to living_room
-Wednesday:18:00 Temperature: 18°C
-Thermostat: trying to increase temperature
-Wednesday:18:30 Temperature: 19°C
-Wednesday:19:00 frolla moved to kitchen
-living_room light  light turned on
-towel warmer  towel warmer turned on
-towel warmer status: on
-house_agent>SensePersonIntention#14 sense shower intention: Nicola true
-house_agent>SenseConsumptionIntention#16 sense consumption status: 9.192999999999993kW
-house_agent>SensePowerLoadIntention#13 sense powerload status: 50
-cat feeder cat_prossimity: true
-cat feeder food bowl full
-cat feeder water on
-cat feeder status_food: full
-cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 9.393999999999991kW
-house_agent>SensePowerLoadIntention#13 sense powerload status: 51
-cat feeder cat_prossimity: false
-cat feeder status_food: empty
-cat feeder water off
-cat feeder status_water: off
-house_agent>SensePowerLoadIntention#13 sense powerload status: 50
-Wednesday:19:15 Nicola will have a shower
-Wednesday:19:30 towel warmer  towel warmer turned off
-frolla moved to living_room
-frolla moved to corridor
-frolla moved to service_bathroom
-Nicola moved to corridor
-Nicola moved to bathroom
-Sara moved to kitchen
-towel warmer status: off
-kitchen light  light turned on
-bathroom light  light turned on
-kitchen light  light turned off
-living_room light  light turned off
-house_agent>SenseClothesIntention#12 sense clothes charge status: 6
-house_agent>SensePersonIntention#14 sense shower intention: Nicola false
-bathroom light  light turned off
-house_agent>SenseDishesIntention#11 sense dishes charge status: 2
-house_agent                    Belief changed: not cleaned dishwasher
-house_agent                    Belief changed: charged dishwasher
-dishwasher                     Belief changed: not cleaned
-dishwasher                     Belief changed: charged
-house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-house_agent>SenseConsumptionIntention#16 sense consumption status: 9.400999999999991kW
-Cat is using the litter
-cat litter cat_position: in
-Cat finished using the litter
-cat litter status: dirty
-cat litter cat_position: out
-Cat litter cleaned
-cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 9.406999999999991kW
-Wednesday:19:45 frolla moved to corridor
-frolla moved to living_room
-kitchen light  light turned on
-bathroom light  light turned on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 9.41099999999999kW
-Wednesday:20:30 Nicola moved to corridor
-Nicola moved to living_room
-Sara moved to living_room
-living_room light  light turned on
-kitchen light  light turned off
-bathroom light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 9.41899999999999kW
-Wednesday:21:00 Temperature: 18°C
-Thermostat: trying to increase temperature
-Wednesday:21:30 Temperature: 19°C
-Wednesday:22:15 Nicola moved to corridor
-Nicola moved to bathroom
-Sara moved to corridor
-Sara moved to bathroom
-bathroom light  light turned on
-living_room light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 9.42299999999999kW
-Wednesday:22:30 Nicola moved to corridor
-Nicola moved to bedroom
-Sara moved to corridor
-Sara moved to bedroom
-bedroom light  light turned on
-bathroom light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 9.426999999999989kW
-Wednesday:22:45 frolla moved to corridor
-frolla moved to bedroom
-bedroom light  light turned off
-bedroom roll up shutter  lowered down
-house_agent>SenseConsumptionIntention#16 sense consumption status: 9.427999999999988kW
-Thursday:00:00  Temperature: 18°C
-Thermostat: trying to increase temperature
-Thursday:00:30  Temperature: 19°C
-Thursday:03:00  Temperature: 18°C
-Thermostat: trying to increase temperature
-Thursday:03:30  Temperature: 19°C
-Thursday:04:00  dishwasher                     Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#37[object Object]
-dishwasher>RetryFourTimesIntention#36 Intention started
-dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#36 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>OnlinePlanning#37   Intention started
-Thursday:04:15  dishwasher>OnlinePlanning#37   Plan found:
-dishwasher>OnlinePlanning#37   - (addnormalsoap)
-dishwasher>OnlinePlanning#37   - (start energy)
-dishwasher>OnlinePlanning#37   - (finish energy)
-dishwasher>OnlinePlanning#37   - (discharge)
-Thursday:04:30  dishwasher>OnlinePlanning#37   Starting sequential step (AddNormalSoap ) Effect: soap
-dishwasher>AddNormalSoap#38    Intention started
-house_agent                    addNormalSoap dishwasher
-house_agent                    Belief changed: soap dishwasher
-dishwasher                     Belief changed: soap
-dishwasher has added soap
-dishwasher status: addSoap
-dishwasher>AddNormalSoap#38    Intention success
-dishwasher>OnlinePlanning#37   Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
-dishwasher>Start#39            Intention started
-house_agent                    start energy dishwasher
-house_agent                    Belief changed: consume_energy dishwasher energy
-house_agent                    Belief changed: not free_energy energy
-house_agent                    Belief changed: washing dishwasher
-dishwasher                     Belief changed: consume_energy energy
-dishwasher                     Belief changed: not free_energy energy
-washingMachine                 Belief changed: not free_energy energy
-dishwasher                     Belief changed: washing
-Thursday:04:45  dishwasher  dishwasher turned on
-dishwasher status: started
-dishwasher>Start#39            Intention success
-house_agent>SenseConsumptionIntention#16 sense consumption status: 11.927999999999988kW
-house_agent>SensePowerLoadIntention#13 sense powerload status: 500
-dishwasher>OnlinePlanning#37   Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
-dishwasher>Finish#40           Intention started
-house_agent                    finish energy dishwasher
-house_agent                    Belief changed: cleaned dishwasher
-house_agent                    Belief changed: not washing dishwasher
-house_agent                    Belief changed: not consume_energy dishwasher energy
-house_agent                    Belief changed: free_energy energy
-house_agent                    Belief changed: not soap dishwasher
-dishwasher                     Belief changed: cleaned
-dishwasher                     Belief changed: not washing
-dishwasher                     Belief changed: not consume_energy energy
-dishwasher                     Belief changed: free_energy energy
-washingMachine                 Belief changed: free_energy energy
-dishwasher                     Belief changed: not soap
-dishwasher  dishwasher turned off
-dishwasher status: finished
-dishwasher>Finish#40           Intention success
-house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-dishwasher>OnlinePlanning#37   Starting sequential step (Discharge ) Effect: not charged
-dishwasher>Discharge#41        Intention started
-house_agent                    discharge dishwasher
-house_agent                    Belief changed: not charged dishwasher
-dishwasher                     Belief changed: not charged
-dishwasher has discharged dishes
-dishwasher status: discharge
-dishwasher>Discharge#41        Intention success
-house_agent>SenseDishesIntention#11 sense dishes charge status: 0
-dishwasher>OnlinePlanning#37   Intention success
-dishwasher                     Succesfully used intention OnlinePlanning to achieve goal PddlGoal#36 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>RetryFourTimesIntention#36 Intention success
-dishwasher                     Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#37[object Object]
-Thursday:06:00  Nicola moved to corridor
-Nicola moved to living_room
-Nicola moved to kitchen
-Temperature: 18°C
-kitchen light  light turned on
-house_agent>SenseDishesIntention#11 sense dishes charge status: 1
-Thermostat: trying to increase temperature
-house_agent>SenseConsumptionIntention#16 sense consumption status: 11.931999999999988kW
-Thursday:06:15  Nicola moved to living_room
-Nicola moved to corridor
-Nicola moved to bathroom
-kitchen light  light turned off
-bathroom light  light turned on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 11.935999999999988kW
-Thursday:06:30  Nicola moved to corridor
-Nicola moved to living_room
-Temperature: 19°C
-living_room light  light turned on
-bathroom light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 11.939999999999987kW
-Thursday:07:00  frolla moved to corridor
-frolla moved to living_room
-frolla moved to kitchen
-Sara moved to corridor
-Sara moved to living_room
-Sara moved to kitchen
-living_room roll up shutter  lifted up
-living_room light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 11.940999999999987kW
-cat feeder cat_prossimity: true
-cat feeder food bowl full
-cat feeder water on
-cat feeder status_food: full
-cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 11.941999999999986kW
-house_agent>SensePowerLoadIntention#13 sense powerload status: 1
-cat feeder cat_prossimity: false
-cat feeder status_food: empty
-cat feeder water off
-cat feeder status_water: off
-house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-Thursday:07:15  Sara moved to living_room
-Sara moved to corridor
-Sara moved to bathroom
-electric scooter taken out of garage
-Thursday:07:30  Sara moved to corridor
-Sara moved to stairs
-Sara moved to garage
-electric scooter position: out_garage
-Sara moved to outside
-Thursday:08:00  frolla moved to living_room
-frolla moved to corridor
-frolla moved to service_bathroom
-Cat is using the litter
-cat litter cat_position: in
-Cat finished using the litter
-cat litter status: dirty
-cat litter cat_position: out
-Cat litter cleaned
-cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 11.946999999999987kW
-Thursday:08:15  frolla moved to corridor
-frolla moved to living_room
-Thursday:09:00  Temperature: 18°C
-Thermostat: trying to increase temperature
-Thursday:09:30  Temperature: 19°C
-Thursday:12:00  Temperature: 18°C
-Thermostat: trying to increase temperature
-Thursday:12:30  frolla moved to kitchen
-Temperature: 19°C
-cat feeder cat_prossimity: true
-cat feeder food bowl full
-cat feeder water on
-cat feeder status_food: full
-cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 11.947999999999986kW
-house_agent>SensePowerLoadIntention#13 sense powerload status: 1
-cat feeder cat_prossimity: false
-cat feeder status_food: empty
-cat feeder water off
-cat feeder status_water: off
-house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-Thursday:13:00  frolla moved to living_room
-frolla moved to corridor
-frolla moved to service_bathroom
-Cat is using the litter
-cat litter cat_position: in
-Cat finished using the litter
-cat litter status: dirty
-cat litter cat_position: out
-Cat litter cleaned
-cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 11.952999999999987kW
-Thursday:13:15  frolla moved to corridor
-frolla moved to living_room
-Thursday:15:00  Temperature: 18°C
-Thermostat: trying to increase temperature
-Thursday:15:30  Temperature: 19°C
-Thursday:16:00  towel warmer  towel warmer turned on
-towel warmer status: on
-house_agent>SensePersonIntention#15 sense shower intention: Sara true
-house_agent>SenseConsumptionIntention#16 sense consumption status: 12.152999999999986kW
-house_agent>SensePowerLoadIntention#13 sense powerload status: 50
-Thursday:16:15  electric scooter in garage
-Sara will have a shower
-Thursday:16:30  towel warmer  towel warmer turned off
-electric scooter position: in_garage
-electric scooter status: half_charge
-Sara moved to garage
-Sara moved to stairs
-Sara moved to corridor
-Sara moved to bathroom
-towel warmer status: off
-electric scooter charged
-electric scooter status: full_charge
-house_agent>SensePersonIntention#15 sense shower intention: Sara false
-house_agent>SenseClothesIntention#12 sense clothes charge status: 7
-house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-house_agent>SenseConsumptionIntention#16 sense consumption status: 12.290499999999986kW
-Thursday:17:15  Sara moved to corridor
-Sara moved to living_room
-Thursday:18:00  Temperature: 18°C
-Thermostat: trying to increase temperature
-Thursday:18:30  Temperature: 19°C
-Thursday:19:00  frolla moved to kitchen
-living_room light  light turned on
-towel warmer  towel warmer turned on
-towel warmer status: on
-house_agent>SensePersonIntention#14 sense shower intention: Nicola true
-house_agent>SenseConsumptionIntention#16 sense consumption status: 12.294499999999985kW
-house_agent>SensePowerLoadIntention#13 sense powerload status: 50
-cat feeder cat_prossimity: true
-cat feeder food bowl full
-cat feeder water on
-cat feeder status_food: full
-cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 12.495499999999984kW
-house_agent>SensePowerLoadIntention#13 sense powerload status: 51
-cat feeder cat_prossimity: false
-cat feeder status_food: empty
-cat feeder water off
-cat feeder status_water: off
-house_agent>SensePowerLoadIntention#13 sense powerload status: 50
-Thursday:19:15  Nicola will have a shower
-Thursday:19:30  towel warmer  towel warmer turned off
 frolla moved to living_room
 frolla moved to corridor
 frolla moved to service_bathroom
@@ -1101,7 +537,7 @@ house_agent                    Belief changed: charged dishwasher
 dishwasher                     Belief changed: not cleaned
 dishwasher                     Belief changed: charged
 house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-house_agent>SenseConsumptionIntention#16 sense consumption status: 12.502499999999984kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 227.17699999999977kW
 Cat is using the litter
 cat litter cat_position: in
 Cat finished using the litter
@@ -1109,66 +545,68 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 12.508499999999984kW
-Thursday:19:45  frolla moved to corridor
+house_agent>SenseConsumptionIntention#16 sense consumption status: 227.18299999999977kW
+Tuesday:19:45   frolla moved to corridor
 frolla moved to living_room
 kitchen light  light turned on
 bathroom light  light turned on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 12.512499999999983kW
-Thursday:20:30  Nicola moved to corridor
+house_agent>SenseConsumptionIntention#16 sense consumption status: 227.18699999999976kW
+Tuesday:20:30   Nicola moved to corridor
 Nicola moved to living_room
 Sara moved to living_room
 living_room light  light turned on
 kitchen light  light turned off
 bathroom light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 12.520499999999982kW
-Thursday:21:00  Temperature: 18°C
+house_agent>SenseConsumptionIntention#16 sense consumption status: 227.19499999999974kW
+Tuesday:21:00   Temperature: 18°C
 Thermostat: trying to increase temperature
-Thursday:21:30  Temperature: 19°C
-Thursday:22:15  Nicola moved to corridor
+Tuesday:21:30   Temperature: 19°C
+Tuesday:22:15   Nicola moved to corridor
 Nicola moved to bathroom
 Sara moved to corridor
 Sara moved to bathroom
 bathroom light  light turned on
 living_room light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 12.524499999999982kW
-Thursday:22:30  Nicola moved to corridor
+house_agent>SenseConsumptionIntention#16 sense consumption status: 227.19899999999973kW
+Tuesday:22:30   Nicola moved to corridor
 Nicola moved to bedroom
 Sara moved to corridor
 Sara moved to bedroom
 bedroom light  light turned on
 bathroom light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 12.528499999999982kW
-Thursday:22:45  frolla moved to corridor
+house_agent>SenseConsumptionIntention#16 sense consumption status: 227.20299999999972kW
+Tuesday:22:45   frolla moved to corridor
 frolla moved to bedroom
 bedroom light  light turned off
-bedroom roll up shutter  lowered down
-house_agent>SenseConsumptionIntention#16 sense consumption status: 12.529499999999981kW
-Friday:00:00    Temperature: 18°C
+kitchen roll up shutter  lowered down
+living_room roll up shutter  lowered down
+bathroom roll up shutter  lowered down
+house_agent>SenseConsumptionIntention#16 sense consumption status: 227.20399999999972kW
+Wednesday:00:00 Temperature: 18°C
 Thermostat: trying to increase temperature
-Friday:00:30    Temperature: 19°C
-Friday:03:00    Temperature: 18°C
+Wednesday:00:30 Temperature: 19°C
+Wednesday:03:00 Temperature: 18°C
 Thermostat: trying to increase temperature
-Friday:03:30    Temperature: 19°C
-Friday:04:00    dishwasher                     Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#43[object Object]
-dishwasher>RetryFourTimesIntention#42 Intention started
-dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#42 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>OnlinePlanning#43   Intention started
-Friday:04:15    dishwasher>OnlinePlanning#43   Plan found:
-dishwasher>OnlinePlanning#43   - (addnormalsoap)
-dishwasher>OnlinePlanning#43   - (start energy)
-dishwasher>OnlinePlanning#43   - (finish energy)
-dishwasher>OnlinePlanning#43   - (discharge)
-dishwasher>OnlinePlanning#43   Starting sequential step (AddNormalSoap ) Effect: soap
-dishwasher>AddNormalSoap#44    Intention started
+Wednesday:03:30 Temperature: 19°C
+Wednesday:04:00 dishwasher                     Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#79[object Object]
+dishwasher>RetryFourTimesIntention#80 Intention started
+dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#78 goal:cleaned,not charged,not washing,not soap,free_energy energy
+dishwasher>OnlinePlanning#81   Intention started
+Wednesday:04:15 dishwasher>OnlinePlanning#81   Plan found:
+dishwasher>OnlinePlanning#81   - (addnormalsoap)
+dishwasher>OnlinePlanning#81   - (start energy)
+dishwasher>OnlinePlanning#81   - (finish energy)
+dishwasher>OnlinePlanning#81   - (discharge)
+dishwasher>OnlinePlanning#81   Starting sequential step (AddNormalSoap ) Effect: soap
+dishwasher>AddNormalSoap#82    Intention started
 house_agent                    addNormalSoap dishwasher
 house_agent                    Belief changed: soap dishwasher
 dishwasher                     Belief changed: soap
 dishwasher has added soap
 dishwasher status: addSoap
-dishwasher>AddNormalSoap#44    Intention success
-dishwasher>OnlinePlanning#43   Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
-dishwasher>Start#45            Intention started
+dishwasher>AddNormalSoap#82    Intention success
+Wednesday:04:30 dishwasher>OnlinePlanning#81   Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
+dishwasher>Start#83            Intention started
 house_agent                    start energy dishwasher
 house_agent                    Belief changed: consume_energy dishwasher energy
 house_agent                    Belief changed: not free_energy energy
@@ -1177,13 +615,13 @@ dishwasher                     Belief changed: consume_energy energy
 dishwasher                     Belief changed: not free_energy energy
 washingMachine                 Belief changed: not free_energy energy
 dishwasher                     Belief changed: washing
-Friday:04:30    dishwasher  dishwasher turned on
+Wednesday:04:45 dishwasher  dishwasher turned on
 dishwasher status: started
-dishwasher>Start#45            Intention success
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.029499999999981kW
+dishwasher>Start#83            Intention success
+house_agent>SenseConsumptionIntention#16 sense consumption status: 229.70599999999973kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 500
-dishwasher>OnlinePlanning#43   Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
-dishwasher>Finish#46           Intention started
+dishwasher>OnlinePlanning#81   Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
+dishwasher>Finish#84           Intention started
 house_agent                    finish energy dishwasher
 house_agent                    Belief changed: cleaned dishwasher
 house_agent                    Belief changed: not washing dishwasher
@@ -1198,21 +636,585 @@ washingMachine                 Belief changed: free_energy energy
 dishwasher                     Belief changed: not soap
 dishwasher  dishwasher turned off
 dishwasher status: finished
-dishwasher>Finish#46           Intention success
+dishwasher>Finish#84           Intention success
 house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-dishwasher>OnlinePlanning#43   Starting sequential step (Discharge ) Effect: not charged
-dishwasher>Discharge#47        Intention started
+dishwasher>OnlinePlanning#81   Starting sequential step (Discharge ) Effect: not charged
+dishwasher>Discharge#85        Intention started
 house_agent                    discharge dishwasher
 house_agent                    Belief changed: not charged dishwasher
 dishwasher                     Belief changed: not charged
 dishwasher has discharged dishes
 dishwasher status: discharge
-dishwasher>Discharge#47        Intention success
+dishwasher>Discharge#85        Intention success
 house_agent>SenseDishesIntention#11 sense dishes charge status: 0
-dishwasher>OnlinePlanning#43   Intention success
-dishwasher                     Succesfully used intention OnlinePlanning to achieve goal PddlGoal#42 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>RetryFourTimesIntention#42 Intention success
-dishwasher                     Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#43[object Object]
+dishwasher>OnlinePlanning#81   Intention success
+dishwasher                     Succesfully used intention OnlinePlanning to achieve goal PddlGoal#78 goal:cleaned,not charged,not washing,not soap,free_energy energy
+dishwasher>RetryFourTimesIntention#80 Intention success
+dishwasher                     Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#79[object Object]
+Wednesday:06:00 Nicola moved to corridor
+Nicola moved to living_room
+Nicola moved to kitchen
+Temperature: 18°C
+kitchen light  light turned on
+house_agent>SenseDishesIntention#11 sense dishes charge status: 1
+Thermostat: trying to increase temperature
+house_agent>SenseConsumptionIntention#16 sense consumption status: 229.70999999999972kW
+Wednesday:06:15 Nicola moved to living_room
+Nicola moved to corridor
+Nicola moved to bathroom
+kitchen light  light turned off
+bathroom light  light turned on
+house_agent>SenseConsumptionIntention#16 sense consumption status: 229.71399999999971kW
+Wednesday:06:30 Nicola moved to corridor
+Nicola moved to living_room
+Temperature: 19°C
+living_room light  light turned on
+bathroom light  light turned off
+house_agent>SenseConsumptionIntention#16 sense consumption status: 229.7179999999997kW
+Wednesday:07:00 frolla moved to corridor
+frolla moved to living_room
+frolla moved to kitchen
+Sara moved to corridor
+Sara moved to living_room
+Sara moved to kitchen
+living_room roll up shutter  lifted up
+living_room light  light turned off
+kitchen roll up shutter  lifted up
+house_agent>SenseConsumptionIntention#16 sense consumption status: 229.7189999999997kW
+cat feeder cat_prossimity: true
+cat feeder food bowl full
+cat feeder water on
+cat feeder status_food: full
+cat feeder status_water: on
+house_agent>SenseConsumptionIntention#16 sense consumption status: 229.72099999999972kW
+house_agent>SensePowerLoadIntention#13 sense powerload status: 1
+cat feeder cat_prossimity: false
+cat feeder status_food: empty
+cat feeder water off
+cat feeder status_water: off
+house_agent>SensePowerLoadIntention#13 sense powerload status: 0
+Wednesday:07:15 Sara moved to living_room
+Sara moved to corridor
+Sara moved to bathroom
+bathroom roll up shutter  lifted up
+house_agent>SenseConsumptionIntention#16 sense consumption status: 229.7249999999997kW
+electric scooter taken out of garage
+Wednesday:07:30 Sara moved to corridor
+Sara moved to stairs
+Sara moved to garage
+electric scooter position: out_garage
+Sara moved to outside
+Wednesday:08:00 frolla moved to living_room
+frolla moved to corridor
+frolla moved to service_bathroom
+Cat is using the litter
+cat litter cat_position: in
+Cat finished using the litter
+cat litter status: dirty
+cat litter cat_position: out
+Cat litter cleaned
+cat litter status: clean
+house_agent>SenseConsumptionIntention#16 sense consumption status: 229.72699999999972kW
+Wednesday:08:15 frolla moved to corridor
+frolla moved to living_room
+Wednesday:09:00 Temperature: 18°C
+Thermostat: trying to increase temperature
+Wednesday:09:30 Temperature: 19°C
+Wednesday:12:00 Temperature: 18°C
+Thermostat: trying to increase temperature
+Wednesday:12:30 frolla moved to kitchen
+Temperature: 19°C
+cat feeder cat_prossimity: true
+cat feeder food bowl full
+cat feeder water on
+cat feeder status_food: full
+cat feeder status_water: on
+house_agent>SenseConsumptionIntention#16 sense consumption status: 229.72799999999972kW
+house_agent>SensePowerLoadIntention#13 sense powerload status: 1
+cat feeder cat_prossimity: false
+cat feeder status_food: empty
+cat feeder water off
+cat feeder status_water: off
+house_agent>SensePowerLoadIntention#13 sense powerload status: 0
+Wednesday:13:00 frolla moved to living_room
+frolla moved to corridor
+frolla moved to service_bathroom
+Cat is using the litter
+cat litter cat_position: in
+Cat finished using the litter
+cat litter status: dirty
+cat litter cat_position: out
+Cat litter cleaned
+cat litter status: clean
+house_agent>SenseConsumptionIntention#16 sense consumption status: 229.73299999999972kW
+Wednesday:13:15 frolla moved to corridor
+frolla moved to living_room
+Wednesday:15:00 Temperature: 18°C
+Thermostat: trying to increase temperature
+Wednesday:15:30 Temperature: 19°C
+Wednesday:16:00 towel warmer  towel warmer turned on
+towel warmer status: on
+house_agent>SensePersonIntention#15 sense shower intention: Sara true
+house_agent>SenseConsumptionIntention#16 sense consumption status: 229.9329999999997kW
+house_agent>SensePowerLoadIntention#13 sense powerload status: 50
+Wednesday:16:15 electric scooter in garage
+Sara will have a shower
+Wednesday:16:30 towel warmer  towel warmer turned off
+electric scooter position: in_garage
+electric scooter status: half_charge
+Sara moved to garage
+Sara moved to stairs
+Sara moved to corridor
+Sara moved to bathroom
+towel warmer status: off
+electric scooter charged
+electric scooter status: full_charge
+house_agent>SensePersonIntention#15 sense shower intention: Sara false
+house_agent>SenseClothesIntention#12 sense clothes charge status: 9
+house_agent>SensePowerLoadIntention#13 sense powerload status: 0
+house_agent>SenseConsumptionIntention#16 sense consumption status: 230.0704999999997kW
+Wednesday:17:15 Sara moved to corridor
+Sara moved to living_room
+Wednesday:18:00 Temperature: 18°C
+Thermostat: trying to increase temperature
+Wednesday:18:30 Temperature: 19°C
+Wednesday:19:00 frolla moved to kitchen
+living_room light  light turned on
+towel warmer  towel warmer turned on
+towel warmer status: on
+house_agent>SensePersonIntention#14 sense shower intention: Nicola true
+house_agent>SenseConsumptionIntention#16 sense consumption status: 230.0744999999997kW
+cat feeder cat_prossimity: true
+house_agent>SensePowerLoadIntention#13 sense powerload status: 50
+cat feeder food bowl full
+cat feeder water on
+cat feeder status_food: full
+cat feeder status_water: on
+house_agent>SenseConsumptionIntention#16 sense consumption status: 230.27549999999968kW
+house_agent>SensePowerLoadIntention#13 sense powerload status: 51
+cat feeder cat_prossimity: false
+cat feeder status_food: empty
+cat feeder water off
+cat feeder status_water: off
+house_agent>SensePowerLoadIntention#13 sense powerload status: 50
+Wednesday:19:15 Nicola will have a shower
+Wednesday:19:30 towel warmer  towel warmer turned off
+frolla moved to living_room
+frolla moved to corridor
+frolla moved to service_bathroom
+Nicola moved to corridor
+Nicola moved to bathroom
+Sara moved to kitchen
+towel warmer status: off
+kitchen light  light turned on
+bathroom light  light turned on
+kitchen light  light turned off
+living_room light  light turned off
+house_agent>SenseClothesIntention#12 sense clothes charge status: 10
+house_agent>SensePersonIntention#14 sense shower intention: Nicola false
+bathroom light  light turned off
+house_agent>SenseDishesIntention#11 sense dishes charge status: 2
+house_agent                    Belief changed: not cleaned dishwasher
+house_agent                    Belief changed: charged dishwasher
+dishwasher                     Belief changed: not cleaned
+dishwasher                     Belief changed: charged
+house_agent>SensePowerLoadIntention#13 sense powerload status: 0
+house_agent>SenseConsumptionIntention#16 sense consumption status: 230.28249999999966kW
+Cat is using the litter
+cat litter cat_position: in
+Cat finished using the litter
+cat litter status: dirty
+cat litter cat_position: out
+Cat litter cleaned
+cat litter status: clean
+house_agent>SenseConsumptionIntention#16 sense consumption status: 230.28849999999966kW
+Wednesday:19:45 frolla moved to corridor
+frolla moved to living_room
+kitchen light  light turned on
+bathroom light  light turned on
+house_agent>SenseConsumptionIntention#16 sense consumption status: 230.29249999999965kW
+Wednesday:20:30 Nicola moved to corridor
+Nicola moved to living_room
+Sara moved to living_room
+living_room light  light turned on
+kitchen light  light turned off
+bathroom light  light turned off
+house_agent>SenseConsumptionIntention#16 sense consumption status: 230.30049999999963kW
+Wednesday:21:00 Temperature: 18°C
+Thermostat: trying to increase temperature
+Wednesday:21:30 Temperature: 19°C
+Wednesday:22:15 Nicola moved to corridor
+Nicola moved to bathroom
+Sara moved to corridor
+Sara moved to bathroom
+bathroom light  light turned on
+living_room light  light turned off
+house_agent>SenseConsumptionIntention#16 sense consumption status: 230.30449999999962kW
+Wednesday:22:30 Nicola moved to corridor
+Nicola moved to bedroom
+Sara moved to corridor
+Sara moved to bedroom
+bedroom light  light turned on
+bathroom light  light turned off
+house_agent>SenseConsumptionIntention#16 sense consumption status: 230.3084999999996kW
+Wednesday:22:45 frolla moved to corridor
+frolla moved to bedroom
+bedroom light  light turned off
+kitchen roll up shutter  lowered down
+living_room roll up shutter  lowered down
+bathroom roll up shutter  lowered down
+house_agent>SenseConsumptionIntention#16 sense consumption status: 230.30949999999962kW
+Thursday:00:00  Temperature: 18°C
+Thermostat: trying to increase temperature
+Thursday:00:30  Temperature: 19°C
+Thursday:03:00  Temperature: 18°C
+Thermostat: trying to increase temperature
+Thursday:03:30  Temperature: 19°C
+Thursday:04:00  dishwasher                     Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#85[object Object]
+dishwasher>RetryFourTimesIntention#86 Intention started
+dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#84 goal:cleaned,not charged,not washing,not soap,free_energy energy
+dishwasher>OnlinePlanning#87   Intention started
+Thursday:04:15  dishwasher>OnlinePlanning#87   Plan found:
+dishwasher>OnlinePlanning#87   - (addnormalsoap)
+dishwasher>OnlinePlanning#87   - (start energy)
+dishwasher>OnlinePlanning#87   - (finish energy)
+dishwasher>OnlinePlanning#87   - (discharge)
+dishwasher>OnlinePlanning#87   Starting sequential step (AddNormalSoap ) Effect: soap
+dishwasher>AddNormalSoap#88    Intention started
+house_agent                    addNormalSoap dishwasher
+house_agent                    Belief changed: soap dishwasher
+dishwasher                     Belief changed: soap
+dishwasher has added soap
+dishwasher status: addSoap
+dishwasher>AddNormalSoap#88    Intention success
+dishwasher>OnlinePlanning#87   Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
+dishwasher>Start#89            Intention started
+house_agent                    start energy dishwasher
+house_agent                    Belief changed: consume_energy dishwasher energy
+house_agent                    Belief changed: not free_energy energy
+house_agent                    Belief changed: washing dishwasher
+dishwasher                     Belief changed: consume_energy energy
+dishwasher                     Belief changed: not free_energy energy
+washingMachine                 Belief changed: not free_energy energy
+dishwasher                     Belief changed: washing
+Thursday:04:30  dishwasher  dishwasher turned on
+dishwasher status: started
+dishwasher>Start#89            Intention success
+house_agent>SenseConsumptionIntention#16 sense consumption status: 232.81149999999963kW
+house_agent>SensePowerLoadIntention#13 sense powerload status: 500
+dishwasher>OnlinePlanning#87   Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
+dishwasher>Finish#90           Intention started
+house_agent                    finish energy dishwasher
+house_agent                    Belief changed: cleaned dishwasher
+house_agent                    Belief changed: not washing dishwasher
+house_agent                    Belief changed: not consume_energy dishwasher energy
+house_agent                    Belief changed: free_energy energy
+house_agent                    Belief changed: not soap dishwasher
+dishwasher                     Belief changed: cleaned
+dishwasher                     Belief changed: not washing
+dishwasher                     Belief changed: not consume_energy energy
+dishwasher                     Belief changed: free_energy energy
+washingMachine                 Belief changed: free_energy energy
+dishwasher                     Belief changed: not soap
+dishwasher  dishwasher turned off
+dishwasher status: finished
+dishwasher>Finish#90           Intention success
+house_agent>SensePowerLoadIntention#13 sense powerload status: 0
+dishwasher>OnlinePlanning#87   Starting sequential step (Discharge ) Effect: not charged
+dishwasher>Discharge#91        Intention started
+house_agent                    discharge dishwasher
+house_agent                    Belief changed: not charged dishwasher
+dishwasher                     Belief changed: not charged
+dishwasher has discharged dishes
+dishwasher status: discharge
+dishwasher>Discharge#91        Intention success
+house_agent>SenseDishesIntention#11 sense dishes charge status: 0
+dishwasher>OnlinePlanning#87   Intention success
+dishwasher                     Succesfully used intention OnlinePlanning to achieve goal PddlGoal#84 goal:cleaned,not charged,not washing,not soap,free_energy energy
+dishwasher>RetryFourTimesIntention#86 Intention success
+dishwasher                     Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#85[object Object]
+Thursday:06:00  Nicola moved to corridor
+Nicola moved to living_room
+Nicola moved to kitchen
+Temperature: 18°C
+kitchen light  light turned on
+house_agent>SenseDishesIntention#11 sense dishes charge status: 1
+Thermostat: trying to increase temperature
+house_agent>SenseConsumptionIntention#16 sense consumption status: 232.81549999999962kW
+Thursday:06:15  Nicola moved to living_room
+Nicola moved to corridor
+Nicola moved to bathroom
+kitchen light  light turned off
+bathroom light  light turned on
+house_agent>SenseConsumptionIntention#16 sense consumption status: 232.8194999999996kW
+Thursday:06:30  Nicola moved to corridor
+Nicola moved to living_room
+Temperature: 19°C
+living_room light  light turned on
+bathroom light  light turned off
+house_agent>SenseConsumptionIntention#16 sense consumption status: 232.8234999999996kW
+Thursday:07:00  frolla moved to corridor
+frolla moved to living_room
+frolla moved to kitchen
+Sara moved to corridor
+Sara moved to living_room
+Sara moved to kitchen
+living_room roll up shutter  lifted up
+living_room light  light turned off
+kitchen roll up shutter  lifted up
+house_agent>SenseConsumptionIntention#16 sense consumption status: 232.8244999999996kW
+cat feeder cat_prossimity: true
+cat feeder food bowl full
+cat feeder water on
+cat feeder status_food: full
+cat feeder status_water: on
+house_agent>SenseConsumptionIntention#16 sense consumption status: 232.8264999999996kW
+house_agent>SensePowerLoadIntention#13 sense powerload status: 1
+cat feeder cat_prossimity: false
+cat feeder status_food: empty
+cat feeder water off
+cat feeder status_water: off
+house_agent>SensePowerLoadIntention#13 sense powerload status: 0
+Thursday:07:15  Sara moved to living_room
+Sara moved to corridor
+Sara moved to bathroom
+bathroom roll up shutter  lifted up
+house_agent>SenseConsumptionIntention#16 sense consumption status: 232.8304999999996kW
+electric scooter taken out of garage
+Thursday:07:30  Sara moved to corridor
+Sara moved to stairs
+Sara moved to garage
+electric scooter position: out_garage
+Sara moved to outside
+Thursday:08:00  frolla moved to living_room
+frolla moved to corridor
+frolla moved to service_bathroom
+Cat is using the litter
+cat litter cat_position: in
+Cat finished using the litter
+cat litter status: dirty
+cat litter cat_position: out
+Cat litter cleaned
+cat litter status: clean
+house_agent>SenseConsumptionIntention#16 sense consumption status: 232.8324999999996kW
+Thursday:08:15  frolla moved to corridor
+frolla moved to living_room
+Thursday:09:00  Temperature: 18°C
+Thermostat: trying to increase temperature
+Thursday:09:30  Temperature: 19°C
+Thursday:12:00  Temperature: 18°C
+Thermostat: trying to increase temperature
+Thursday:12:30  frolla moved to kitchen
+Temperature: 19°C
+cat feeder cat_prossimity: true
+cat feeder food bowl full
+cat feeder water on
+cat feeder status_food: full
+cat feeder status_water: on
+house_agent>SenseConsumptionIntention#16 sense consumption status: 232.83349999999962kW
+house_agent>SensePowerLoadIntention#13 sense powerload status: 1
+cat feeder cat_prossimity: false
+cat feeder status_food: empty
+cat feeder water off
+cat feeder status_water: off
+house_agent>SensePowerLoadIntention#13 sense powerload status: 0
+Thursday:13:00  frolla moved to living_room
+frolla moved to corridor
+frolla moved to service_bathroom
+Cat is using the litter
+cat litter cat_position: in
+Cat finished using the litter
+cat litter status: dirty
+cat litter cat_position: out
+Cat litter cleaned
+cat litter status: clean
+house_agent>SenseConsumptionIntention#16 sense consumption status: 232.8384999999996kW
+Thursday:13:15  frolla moved to corridor
+frolla moved to living_room
+Thursday:15:00  Temperature: 18°C
+Thermostat: trying to increase temperature
+Thursday:15:30  Temperature: 19°C
+Thursday:16:00  towel warmer  towel warmer turned on
+towel warmer status: on
+house_agent>SensePersonIntention#15 sense shower intention: Sara true
+house_agent>SenseConsumptionIntention#16 sense consumption status: 233.0384999999996kW
+house_agent>SensePowerLoadIntention#13 sense powerload status: 50
+Thursday:16:15  electric scooter in garage
+Sara will have a shower
+Thursday:16:30  towel warmer  towel warmer turned off
+electric scooter position: in_garage
+electric scooter status: half_charge
+Sara moved to garage
+Sara moved to stairs
+Sara moved to corridor
+Sara moved to bathroom
+towel warmer status: off
+electric scooter charged
+electric scooter status: full_charge
+house_agent>SensePersonIntention#15 sense shower intention: Sara false
+house_agent>SenseClothesIntention#12 sense clothes charge status: 11
+house_agent>SensePowerLoadIntention#13 sense powerload status: 0
+house_agent>SenseConsumptionIntention#16 sense consumption status: 233.1759999999996kW
+Thursday:17:15  Sara moved to corridor
+Sara moved to living_room
+Thursday:18:00  Temperature: 18°C
+Thermostat: trying to increase temperature
+Thursday:18:30  Temperature: 19°C
+Thursday:19:00  frolla moved to kitchen
+living_room light  light turned on
+towel warmer  towel warmer turned on
+towel warmer status: on
+house_agent>SensePersonIntention#14 sense shower intention: Nicola true
+house_agent>SenseConsumptionIntention#16 sense consumption status: 233.17999999999958kW
+house_agent>SensePowerLoadIntention#13 sense powerload status: 50
+cat feeder cat_prossimity: true
+cat feeder food bowl full
+cat feeder water on
+cat feeder status_food: full
+cat feeder status_water: on
+house_agent>SenseConsumptionIntention#16 sense consumption status: 233.38099999999957kW
+house_agent>SensePowerLoadIntention#13 sense powerload status: 51
+cat feeder cat_prossimity: false
+cat feeder status_food: empty
+cat feeder water off
+cat feeder status_water: off
+house_agent>SensePowerLoadIntention#13 sense powerload status: 50
+Thursday:19:15  Nicola will have a shower
+Thursday:19:30  towel warmer  towel warmer turned off
+frolla moved to living_room
+frolla moved to corridor
+frolla moved to service_bathroom
+Nicola moved to corridor
+Nicola moved to bathroom
+Sara moved to kitchen
+towel warmer status: off
+kitchen light  light turned on
+bathroom light  light turned on
+kitchen light  light turned off
+living_room light  light turned off
+house_agent>SenseClothesIntention#12 sense clothes charge status: 12
+house_agent>SensePersonIntention#14 sense shower intention: Nicola false
+bathroom light  light turned off
+house_agent>SenseDishesIntention#11 sense dishes charge status: 2
+house_agent                    Belief changed: not cleaned dishwasher
+house_agent                    Belief changed: charged dishwasher
+dishwasher                     Belief changed: not cleaned
+dishwasher                     Belief changed: charged
+house_agent>SensePowerLoadIntention#13 sense powerload status: 0
+house_agent>SenseConsumptionIntention#16 sense consumption status: 233.38799999999955kW
+Cat is using the litter
+cat litter cat_position: in
+Cat finished using the litter
+cat litter status: dirty
+cat litter cat_position: out
+Cat litter cleaned
+cat litter status: clean
+house_agent>SenseConsumptionIntention#16 sense consumption status: 233.39399999999955kW
+Thursday:19:45  frolla moved to corridor
+frolla moved to living_room
+kitchen light  light turned on
+bathroom light  light turned on
+house_agent>SenseConsumptionIntention#16 sense consumption status: 233.39799999999954kW
+Thursday:20:30  Nicola moved to corridor
+Nicola moved to living_room
+Sara moved to living_room
+living_room light  light turned on
+kitchen light  light turned off
+bathroom light  light turned off
+house_agent>SenseConsumptionIntention#16 sense consumption status: 233.40599999999952kW
+Thursday:21:00  Temperature: 18°C
+Thermostat: trying to increase temperature
+Thursday:21:30  Temperature: 19°C
+Thursday:22:15  Nicola moved to corridor
+Nicola moved to bathroom
+Sara moved to corridor
+Sara moved to bathroom
+bathroom light  light turned on
+living_room light  light turned off
+house_agent>SenseConsumptionIntention#16 sense consumption status: 233.4099999999995kW
+Thursday:22:30  Nicola moved to corridor
+Nicola moved to bedroom
+Sara moved to corridor
+Sara moved to bedroom
+bedroom light  light turned on
+bathroom light  light turned off
+house_agent>SenseConsumptionIntention#16 sense consumption status: 233.4139999999995kW
+Thursday:22:45  frolla moved to corridor
+frolla moved to bedroom
+bedroom light  light turned off
+kitchen roll up shutter  lowered down
+living_room roll up shutter  lowered down
+bathroom roll up shutter  lowered down
+house_agent>SenseConsumptionIntention#16 sense consumption status: 233.4149999999995kW
+Friday:00:00    Temperature: 18°C
+Thermostat: trying to increase temperature
+Friday:00:30    Temperature: 19°C
+Friday:03:00    Temperature: 18°C
+Thermostat: trying to increase temperature
+Friday:03:30    Temperature: 19°C
+Friday:04:00    dishwasher                     Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#91[object Object]
+dishwasher>RetryFourTimesIntention#92 Intention started
+dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#90 goal:cleaned,not charged,not washing,not soap,free_energy energy
+dishwasher>OnlinePlanning#93   Intention started
+Friday:04:15    dishwasher>OnlinePlanning#93   Plan found:
+dishwasher>OnlinePlanning#93   - (addnormalsoap)
+dishwasher>OnlinePlanning#93   - (start energy)
+dishwasher>OnlinePlanning#93   - (finish energy)
+dishwasher>OnlinePlanning#93   - (discharge)
+dishwasher>OnlinePlanning#93   Starting sequential step (AddNormalSoap ) Effect: soap
+dishwasher>AddNormalSoap#94    Intention started
+house_agent                    addNormalSoap dishwasher
+house_agent                    Belief changed: soap dishwasher
+dishwasher                     Belief changed: soap
+dishwasher has added soap
+dishwasher status: addSoap
+dishwasher>AddNormalSoap#94    Intention success
+dishwasher>OnlinePlanning#93   Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
+dishwasher>Start#95            Intention started
+house_agent                    start energy dishwasher
+house_agent                    Belief changed: consume_energy dishwasher energy
+house_agent                    Belief changed: not free_energy energy
+house_agent                    Belief changed: washing dishwasher
+dishwasher                     Belief changed: consume_energy energy
+dishwasher                     Belief changed: not free_energy energy
+washingMachine                 Belief changed: not free_energy energy
+dishwasher                     Belief changed: washing
+Friday:04:30    dishwasher  dishwasher turned on
+dishwasher status: started
+dishwasher>Start#95            Intention success
+house_agent>SenseConsumptionIntention#16 sense consumption status: 235.91699999999952kW
+house_agent>SensePowerLoadIntention#13 sense powerload status: 500
+dishwasher>OnlinePlanning#93   Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
+dishwasher>Finish#96           Intention started
+house_agent                    finish energy dishwasher
+house_agent                    Belief changed: cleaned dishwasher
+house_agent                    Belief changed: not washing dishwasher
+house_agent                    Belief changed: not consume_energy dishwasher energy
+house_agent                    Belief changed: free_energy energy
+house_agent                    Belief changed: not soap dishwasher
+dishwasher                     Belief changed: cleaned
+dishwasher                     Belief changed: not washing
+dishwasher                     Belief changed: not consume_energy energy
+dishwasher                     Belief changed: free_energy energy
+washingMachine                 Belief changed: free_energy energy
+dishwasher                     Belief changed: not soap
+dishwasher  dishwasher turned off
+dishwasher status: finished
+dishwasher>Finish#96           Intention success
+house_agent>SensePowerLoadIntention#13 sense powerload status: 0
+dishwasher>OnlinePlanning#93   Starting sequential step (Discharge ) Effect: not charged
+dishwasher>Discharge#97        Intention started
+house_agent                    discharge dishwasher
+house_agent                    Belief changed: not charged dishwasher
+dishwasher                     Belief changed: not charged
+dishwasher has discharged dishes
+dishwasher status: discharge
+dishwasher>Discharge#97        Intention success
+house_agent>SenseDishesIntention#11 sense dishes charge status: 0
+dishwasher>OnlinePlanning#93   Intention success
+dishwasher                     Succesfully used intention OnlinePlanning to achieve goal PddlGoal#90 goal:cleaned,not charged,not washing,not soap,free_energy energy
+dishwasher>RetryFourTimesIntention#92 Intention success
+dishwasher                     Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#91[object Object]
 Friday:06:00    Temperature: 18°C
 Thermostat: trying to increase temperature
 Friday:06:30    Temperature: 19°C
@@ -1222,12 +1224,14 @@ frolla moved to kitchen
 Sara moved to corridor
 Sara moved to living_room
 Sara moved to kitchen
+kitchen roll up shutter  lifted up
+house_agent>SenseConsumptionIntention#16 sense consumption status: 235.91799999999952kW
 cat feeder cat_prossimity: true
 cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.03049999999998kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 235.91899999999953kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
@@ -1237,6 +1241,8 @@ house_agent>SensePowerLoadIntention#13 sense powerload status: 0
 Friday:07:15    Sara moved to living_room
 Sara moved to corridor
 Sara moved to bathroom
+bathroom roll up shutter  lifted up
+house_agent>SenseConsumptionIntention#16 sense consumption status: 235.92299999999952kW
 Temperature changed to:  20
 electric scooter taken out of garage
 Friday:07:30    thermostat status: 20
@@ -1253,7 +1259,7 @@ towel warmer  towel warmer turned on
 towel warmer status: on
 house_agent>SensePersonIntention#14 sense shower intention: Nicola true
 house_agent>SenseDishesIntention#11 sense dishes charge status: 1
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.23349999999998kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.1229999999995kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 50
 Friday:07:45    Nicola will have a shower
 Friday:08:00    towel warmer  towel warmer turned off
@@ -1264,7 +1270,7 @@ Nicola moved to living_room
 Nicola moved to corridor
 Nicola moved to bathroom
 towel warmer status: off
-house_agent>SenseClothesIntention#12 sense clothes charge status: 9
+house_agent>SenseClothesIntention#12 sense clothes charge status: 13
 house_agent>SensePersonIntention#14 sense shower intention: Nicola false
 house_agent>SensePowerLoadIntention#13 sense powerload status: 0
 Cat is using the litter
@@ -1274,12 +1280,14 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.23549999999998kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.12499999999952kW
 Friday:08:15    frolla moved to corridor
 frolla moved to living_room
 Friday:08:30    Temperature: 20°C
 Friday:08:45    Nicola moved to corridor
 Nicola moved to office
+office roll up shutter  lifted up
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.12599999999952kW
 Friday:09:45    Temperature: 19°C
 Thermostat: trying to increase temperature
 Friday:10:30    Temperature: 20°C
@@ -1295,7 +1303,7 @@ cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.23649999999998kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.12699999999953kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
@@ -1306,6 +1314,8 @@ Friday:13:00    frolla moved to living_room
 frolla moved to corridor
 frolla moved to service_bathroom
 Nicola moved to living_room
+living_room roll up shutter  lifted up
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.13099999999952kW
 Cat is using the litter
 cat litter cat_position: in
 Cat finished using the litter
@@ -1313,7 +1323,7 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.24149999999998kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.13299999999953kW
 Friday:13:15    frolla moved to corridor
 frolla moved to living_room
 Friday:13:30    Nicola moved to kitchen
@@ -1331,7 +1341,7 @@ Friday:15:30    Temperature: 20°C
 Friday:16:00    towel warmer  towel warmer turned on
 towel warmer status: on
 house_agent>SensePersonIntention#15 sense shower intention: Sara true
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.44149999999998kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.33299999999952kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 50
 Friday:16:15    electric scooter in garage
 Sara will have a shower
@@ -1346,9 +1356,9 @@ towel warmer status: off
 electric scooter charged
 electric scooter status: full_charge
 house_agent>SensePersonIntention#15 sense shower intention: Sara false
-house_agent>SenseClothesIntention#12 sense clothes charge status: 10
+house_agent>SenseClothesIntention#12 sense clothes charge status: 14
 house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.57899999999998kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.4704999999995kW
 Friday:17:15    Sara moved to corridor
 Sara moved to living_room
 Friday:18:00    Nicola moved to corridor
@@ -1358,13 +1368,13 @@ Thermostat: trying to increase temperature
 Friday:18:30    Temperature: 20°C
 Friday:19:00    frolla moved to kitchen
 living_room light  light turned on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.582999999999979kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.4744999999995kW
 cat feeder cat_prossimity: true
 cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.583999999999978kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.4754999999995kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
@@ -1379,7 +1389,7 @@ Sara moved to kitchen
 kitchen light  light turned on
 living_room light  light turned off
 house_agent>SenseDishesIntention#11 sense dishes charge status: 3
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.590999999999978kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.48249999999948kW
 Cat is using the litter
 cat litter cat_position: in
 Cat finished using the litter
@@ -1387,14 +1397,14 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.592999999999979kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.48449999999949kW
 Friday:19:45    frolla moved to corridor
 frolla moved to living_room
 Friday:20:30    Nicola moved to living_room
 Sara moved to living_room
 living_room light  light turned on
 kitchen light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.596999999999978kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.48849999999948kW
 Friday:21:00    Temperature: 19°C
 Thermostat: trying to increase temperature
 Friday:21:30    Temperature: 20°C
@@ -1404,7 +1414,7 @@ Sara moved to corridor
 Sara moved to bathroom
 bathroom light  light turned on
 living_room light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.600999999999978kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.49249999999947kW
 Temperature changed to:  19
 Friday:22:30    Nicola moved to corridor
 Nicola moved to bedroom
@@ -1413,41 +1423,131 @@ Sara moved to corridor
 Sara moved to bedroom
 bedroom light  light turned on
 bathroom light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.604999999999977kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.49649999999946kW
 Friday:22:45    frolla moved to corridor
 frolla moved to bedroom
 bedroom light  light turned off
-bedroom roll up shutter  lowered down
-house_agent>SenseConsumptionIntention#16 sense consumption status: 15.605999999999977kW
+kitchen roll up shutter  lowered down
+living_room roll up shutter  lowered down
+bathroom roll up shutter  lowered down
+office roll up shutter  lowered down
+house_agent>SenseConsumptionIntention#16 sense consumption status: 236.49749999999946kW
 Saturday:00:00  Temperature: 19°C
 Saturday:00:15  Temperature: 18°C
 Thermostat: trying to increase temperature
 Saturday:00:30  Temperature: 19°C
-Saturday:02:00  washingMachine                 Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#49[object Object]
-washingMachine>RetryFourTimesIntention#48 Intention started
-washingMachine                 Trying to use intention OnlinePlanning to achieve goal PddlGoal#48 goal:cleaned,not charged,not washing,not soap,dried
-washingMachine>OnlinePlanning#49 Intention started
-dishwasher                     Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#51[object Object]
-dishwasher>RetryFourTimesIntention#50 Intention started
-dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#50 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>OnlinePlanning#51   Intention started
-Saturday:02:15  washingMachine>OnlinePlanning#49 Plan found:
-washingMachine>OnlinePlanning#49 - (addnormalsoap)
-washingMachine>OnlinePlanning#49 - (start energy)
-washingMachine>OnlinePlanning#49 - (finish energy)
-washingMachine>OnlinePlanning#49 - (startdry energy)
-washingMachine>OnlinePlanning#49 - (finishdry energy)
-washingMachine>OnlinePlanning#49 - (discharge)
-washingMachine>OnlinePlanning#49 Starting sequential step (AddNormalSoap ) Effect: soap
-washingMachine>AddNormalSoap#52 Intention started
-house_agent                    addNormalSoap washingMachine
+Saturday:02:00  washingMachine                 Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#97[object Object]
+washingMachine>RetryFourTimesIntention#98 Intention started
+washingMachine                 Trying to use intention OnlinePlanning to achieve goal PddlGoal#96 goal:cleaned,not charged,not washing,not soap,dried
+washingMachine>OnlinePlanning#99 Intention started
+dishwasher                     Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#99[object Object]
+dishwasher>RetryFourTimesIntention#100 Intention started
+dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#98 goal:cleaned,not charged,not washing,not soap,free_energy energy
+dishwasher>OnlinePlanning#101  Intention started
+Saturday:02:30  dishwasher>OnlinePlanning#101  Plan found:
+dishwasher>OnlinePlanning#101  - (addnormalsoap)
+dishwasher>OnlinePlanning#101  - (start energy)
+dishwasher>OnlinePlanning#101  - (finish energy)
+dishwasher>OnlinePlanning#101  - (discharge)
+washingMachine>OnlinePlanning#99 Plan found:
+washingMachine>OnlinePlanning#99 - (addtendersoap)
+washingMachine>OnlinePlanning#99 - (start energy)
+washingMachine>OnlinePlanning#99 - (finish energy)
+washingMachine>OnlinePlanning#99 - (startdry energy)
+washingMachine>OnlinePlanning#99 - (finishdry energy)
+washingMachine>OnlinePlanning#99 - (discharge)
+dishwasher>OnlinePlanning#101  Starting sequential step (AddNormalSoap ) Effect: soap
+dishwasher>AddNormalSoap#102   Intention started
+house_agent                    addNormalSoap dishwasher
+house_agent                    Belief changed: soap dishwasher
+dishwasher                     Belief changed: soap
+washingMachine>OnlinePlanning#99 Starting sequential step (AddTenderSoap ) Effect: soap
+washingMachine>AddTenderSoap#106 Intention started
+house_agent                    addTenderSoap washingMachine
 house_agent                    Belief changed: soap washingMachine
 washingMachine                 Belief changed: soap
-washing machine has added normal soap
-washing machine status: addNormalSoap
-washingMachine>AddNormalSoap#52 Intention success
-washingMachine>OnlinePlanning#49 Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
-washingMachine>Start#53        Intention started
+dishwasher has added soap
+dishwasher status: addSoap
+washing machine has added tender soap
+washing machine status: addTenderSoap
+dishwasher>AddNormalSoap#102   Intention success
+washingMachine>AddTenderSoap#106 Intention success
+dishwasher>OnlinePlanning#101  Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
+dishwasher>Start#103           Intention started
+house_agent                    start energy dishwasher
+house_agent                    Belief changed: consume_energy dishwasher energy
+house_agent                    Belief changed: not free_energy energy
+house_agent                    Belief changed: washing dishwasher
+dishwasher                     Belief changed: consume_energy energy
+dishwasher                     Belief changed: not free_energy energy
+washingMachine                 Belief changed: not free_energy energy
+dishwasher                     Belief changed: washing
+washingMachine>OnlinePlanning#99 Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
+washingMachine>Start#107       Intention started
+house_agent                    start energy washingMachine
+house_agent                    house_agent.start failed: pddl precondition not valid
+washingMachine>Start#107       Intention failed: pddl precondition not valid
+washingMachine>OnlinePlanning#99 Intention failed: pddl precondition not valid
+washingMachine                 Failed to use intention OnlinePlanning to achieve goal PddlGoal#96 goal:cleaned,not charged,not washing,not soap,dried: pddl precondition not valid
+washingMachine                 Error: pddl precondition not valid
+    at Agent.house_agent.start (/Users/camir/Documents/Cami/UNIVERSITA/MAGISTRALE/Y_1_S_2/ASA/Project/Assignment2/src/myworld/Scenario1.js:50:23)
+    at Start.exec (/Users/camir/Documents/Cami/UNIVERSITA/MAGISTRALE/Y_1_S_2/ASA/Project/Assignment2/src/myworld/Scenario1.js:215:27)
+    at exec.next (<anonymous>)
+    at Start.run (/Users/camir/Documents/Cami/UNIVERSITA/MAGISTRALE/Y_1_S_2/ASA/Project/Assignment2/src/utils/Intention.js:76:66)
+    at OnlinePlanning.exec (/Users/camir/Documents/Cami/UNIVERSITA/MAGISTRALE/Y_1_S_2/ASA/Project/Assignment2/src/pddl/OnlinePlanner.js:112:36)
+    at exec.next (<anonymous>)
+    at OnlinePlanning.run (/Users/camir/Documents/Cami/UNIVERSITA/MAGISTRALE/Y_1_S_2/ASA/Project/Assignment2/src/utils/Intention.js:76:66)
+    at async Agent.postSubGoal (/Users/camir/Documents/Cami/UNIVERSITA/MAGISTRALE/Y_1_S_2/ASA/Project/Assignment2/src/utils/Agent.js:68:27)
+washingMachine                 No success in achieving goal PddlGoal#96 goal:cleaned,not charged,not washing,not soap,dried
+washingMachine>RetryFourTimesIntention#98 wait for something to change on beliefset before retrying for the 2th time goal PddlGoal#96 goal:cleaned,not charged,not washing,not soap,dried
+Saturday:02:45  dishwasher  dishwasher turned on
+dishwasher status: started
+dishwasher>Start#103           Intention success
+house_agent>SenseConsumptionIntention#16 sense consumption status: 239.00049999999948kW
+house_agent>SensePowerLoadIntention#13 sense powerload status: 500
+dishwasher>OnlinePlanning#101  Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
+dishwasher>Finish#104          Intention started
+house_agent                    finish energy dishwasher
+house_agent                    Belief changed: cleaned dishwasher
+house_agent                    Belief changed: not washing dishwasher
+house_agent                    Belief changed: not consume_energy dishwasher energy
+house_agent                    Belief changed: free_energy energy
+house_agent                    Belief changed: not soap dishwasher
+dishwasher                     Belief changed: cleaned
+dishwasher                     Belief changed: not washing
+dishwasher                     Belief changed: not consume_energy energy
+dishwasher                     Belief changed: free_energy energy
+washingMachine                 Belief changed: free_energy energy
+dishwasher                     Belief changed: not soap
+dishwasher  dishwasher turned off
+dishwasher status: finished
+washingMachine                 Trying to use intention OnlinePlanning to achieve goal PddlGoal#96 goal:cleaned,not charged,not washing,not soap,dried
+washingMachine>OnlinePlanning#112 Intention started
+dishwasher>Finish#104          Intention success
+house_agent>SensePowerLoadIntention#13 sense powerload status: 0
+dishwasher>OnlinePlanning#101  Starting sequential step (Discharge ) Effect: not charged
+dishwasher>Discharge#105       Intention started
+house_agent                    discharge dishwasher
+house_agent                    Belief changed: not charged dishwasher
+dishwasher                     Belief changed: not charged
+dishwasher has discharged dishes
+dishwasher status: discharge
+dishwasher>Discharge#105       Intention success
+house_agent>SenseDishesIntention#11 sense dishes charge status: 0
+dishwasher>OnlinePlanning#101  Intention success
+dishwasher                     Succesfully used intention OnlinePlanning to achieve goal PddlGoal#98 goal:cleaned,not charged,not washing,not soap,free_energy energy
+dishwasher>RetryFourTimesIntention#100 Intention success
+dishwasher                     Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#99[object Object]
+Saturday:03:00  Temperature: 18°C
+Thermostat: trying to increase temperature
+washingMachine>OnlinePlanning#112 Plan found:
+washingMachine>OnlinePlanning#112 - (start energy)
+washingMachine>OnlinePlanning#112 - (finish energy)
+washingMachine>OnlinePlanning#112 - (startdry energy)
+washingMachine>OnlinePlanning#112 - (finishdry energy)
+washingMachine>OnlinePlanning#112 - (discharge)
+washingMachine>OnlinePlanning#112 Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
+washingMachine>Start#113       Intention started
 house_agent                    start energy washingMachine
 house_agent                    Belief changed: consume_energy washingMachine energy
 house_agent                    Belief changed: not free_energy energy
@@ -1456,13 +1556,13 @@ washingMachine                 Belief changed: consume_energy energy
 dishwasher                     Belief changed: not free_energy energy
 washingMachine                 Belief changed: not free_energy energy
 washingMachine                 Belief changed: washing
-Saturday:02:30  washing machine washing machine turned on
+Saturday:03:15  washing machine washing machine turned on
 washing machine status: started
-washingMachine>Start#53        Intention success
-house_agent>SenseConsumptionIntention#16 sense consumption status: 215.60599999999997kW
+washingMachine>Start#113       Intention success
+house_agent>SenseConsumptionIntention#16 sense consumption status: 439.0004999999995kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 500
-washingMachine>OnlinePlanning#49 Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
-washingMachine>Finish#54       Intention started
+washingMachine>OnlinePlanning#112 Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
+washingMachine>Finish#114      Intention started
 house_agent                    finish energy washingMachine
 house_agent                    Belief changed: cleaned washingMachine
 house_agent                    Belief changed: not washing washingMachine
@@ -1481,15 +1581,10 @@ washingMachine                 Belief changed: not dried
 washingMachine                 Belief changed: not drying
 washing machine washing machine turned off
 washing machine status: finished
-washingMachine>Finish#54       Intention success
+washingMachine>Finish#114      Intention success
 house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-dishwasher>OnlinePlanning#51   Plan found:
-dishwasher>OnlinePlanning#51   - (addnormalsoap)
-dishwasher>OnlinePlanning#51   - (start energy)
-dishwasher>OnlinePlanning#51   - (finish energy)
-dishwasher>OnlinePlanning#51   - (discharge)
-washingMachine>OnlinePlanning#49 Starting sequential step (StartDry energy) Effect: drying,consume_energy energy,not free_energy energy
-washingMachine>StartDry#55     Intention started
+washingMachine>OnlinePlanning#112 Starting sequential step (StartDry energy) Effect: drying,consume_energy energy,not free_energy energy
+washingMachine>StartDry#115    Intention started
 house_agent                    startDry energy washingMachine
 house_agent                    Belief changed: drying washingMachine
 house_agent                    Belief changed: consume_energy washingMachine energy
@@ -1498,39 +1593,14 @@ washingMachine                 Belief changed: drying
 washingMachine                 Belief changed: consume_energy energy
 dishwasher                     Belief changed: not free_energy energy
 washingMachine                 Belief changed: not free_energy energy
-dishwasher>OnlinePlanning#51   Starting sequential step (AddNormalSoap ) Effect: soap
-dishwasher>AddNormalSoap#58    Intention started
-house_agent                    addNormalSoap dishwasher
-house_agent                    Belief changed: soap dishwasher
-dishwasher                     Belief changed: soap
-dishwasher has added soap
-dishwasher status: addSoap
-dishwasher>AddNormalSoap#58    Intention success
-dishwasher>OnlinePlanning#51   Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
-dishwasher>Start#59            Intention started
-house_agent                    start energy dishwasher
-house_agent                    house_agent.start failed: pddl precondition not valid
-dishwasher>Start#59            Intention failed: pddl precondition not valid
-dishwasher>OnlinePlanning#51   Intention failed: pddl precondition not valid
-dishwasher                     Failed to use intention OnlinePlanning to achieve goal PddlGoal#50 goal:cleaned,not charged,not washing,not soap,free_energy energy: pddl precondition not valid
-dishwasher                     Error: pddl precondition not valid
-    at Agent.house_agent.start (/Users/camir/Documents/Cami/UNIVERSITA/MAGISTRALE/Y_1_S_2/ASA/Project/Assignment2/src/myworld/Scenario1.js:49:23)
-    at Start.exec (/Users/camir/Documents/Cami/UNIVERSITA/MAGISTRALE/Y_1_S_2/ASA/Project/Assignment2/src/myworld/Scenario1.js:214:27)
-    at exec.next (<anonymous>)
-    at Start.run (/Users/camir/Documents/Cami/UNIVERSITA/MAGISTRALE/Y_1_S_2/ASA/Project/Assignment2/src/utils/Intention.js:76:66)
-    at OnlinePlanning.exec (/Users/camir/Documents/Cami/UNIVERSITA/MAGISTRALE/Y_1_S_2/ASA/Project/Assignment2/src/pddl/OnlinePlanner.js:112:36)
-    at exec.next (<anonymous>)
-    at OnlinePlanning.run (/Users/camir/Documents/Cami/UNIVERSITA/MAGISTRALE/Y_1_S_2/ASA/Project/Assignment2/src/utils/Intention.js:76:66)
-    at async Agent.postSubGoal (/Users/camir/Documents/Cami/UNIVERSITA/MAGISTRALE/Y_1_S_2/ASA/Project/Assignment2/src/utils/Agent.js:68:27)
-dishwasher                     No success in achieving goal PddlGoal#50 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>RetryFourTimesIntention#50 wait for something to change on beliefset before retrying for the 2th time goal PddlGoal#50 goal:cleaned,not charged,not washing,not soap,free_energy energy
-Saturday:02:45  washing machine has started drying
+Saturday:03:30  Temperature: 19°C
+washing machine has started drying
 washing machine status: startDry
-washingMachine>StartDry#55     Intention success
-house_agent>SenseConsumptionIntention#16 sense consumption status: 217.60599999999997kW
+washingMachine>StartDry#115    Intention success
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.0004999999995kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 500
-washingMachine>OnlinePlanning#49 Starting sequential step (FinishDry energy) Effect: dried,not consume_energy energy,free_energy energy
-washingMachine>FinishDry#56    Intention started
+washingMachine>OnlinePlanning#112 Starting sequential step (FinishDry energy) Effect: dried,not consume_energy energy,free_energy energy
+washingMachine>FinishDry#116   Intention started
 house_agent                    finishDry energy washingMachine
 house_agent                    Belief changed: dried washingMachine
 house_agent                    Belief changed: not consume_energy washingMachine energy
@@ -1541,76 +1611,21 @@ dishwasher                     Belief changed: free_energy energy
 washingMachine                 Belief changed: free_energy energy
 washing machine has finished drying
 washing machine status: finishDry
-dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#50 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>OnlinePlanning#62   Intention started
-washingMachine>FinishDry#56    Intention success
+washingMachine>FinishDry#116   Intention success
 house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-washingMachine>OnlinePlanning#49 Starting sequential step (Discharge ) Effect: not charged
-washingMachine>Discharge#57    Intention started
+washingMachine>OnlinePlanning#112 Starting sequential step (Discharge ) Effect: not charged
+washingMachine>Discharge#117   Intention started
 house_agent                    discharge washingMachine
 house_agent                    Belief changed: not charged washingMachine
 washingMachine                 Belief changed: not charged
 washing machine has discharged clothes
 washing machine status: discharge
-washingMachine>Discharge#57    Intention success
+washingMachine>Discharge#117   Intention success
 house_agent>SenseClothesIntention#12 sense clothes charge status: 0
-washingMachine>OnlinePlanning#49 Intention success
-washingMachine                 Succesfully used intention OnlinePlanning to achieve goal PddlGoal#48 goal:cleaned,not charged,not washing,not soap,dried
-washingMachine>RetryFourTimesIntention#48 Intention success
-washingMachine                 Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#49[object Object]
-Saturday:03:00  Temperature: 18°C
-Thermostat: trying to increase temperature
-dishwasher>OnlinePlanning#62   Plan found:
-dishwasher>OnlinePlanning#62   - (start energy)
-dishwasher>OnlinePlanning#62   - (finish energy)
-dishwasher>OnlinePlanning#62   - (discharge)
-dishwasher>OnlinePlanning#62   Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
-dishwasher>Start#63            Intention started
-house_agent                    start energy dishwasher
-house_agent                    Belief changed: consume_energy dishwasher energy
-house_agent                    Belief changed: not free_energy energy
-house_agent                    Belief changed: washing dishwasher
-dishwasher                     Belief changed: consume_energy energy
-dishwasher                     Belief changed: not free_energy energy
-washingMachine                 Belief changed: not free_energy energy
-dishwasher                     Belief changed: washing
-Saturday:03:15  dishwasher  dishwasher turned on
-dishwasher status: started
-dishwasher>Start#63            Intention success
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.10599999999997kW
-house_agent>SensePowerLoadIntention#13 sense powerload status: 500
-dishwasher>OnlinePlanning#62   Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
-dishwasher>Finish#64           Intention started
-house_agent                    finish energy dishwasher
-house_agent                    Belief changed: cleaned dishwasher
-house_agent                    Belief changed: not washing dishwasher
-house_agent                    Belief changed: not consume_energy dishwasher energy
-house_agent                    Belief changed: free_energy energy
-house_agent                    Belief changed: not soap dishwasher
-dishwasher                     Belief changed: cleaned
-dishwasher                     Belief changed: not washing
-dishwasher                     Belief changed: not consume_energy energy
-dishwasher                     Belief changed: free_energy energy
-washingMachine                 Belief changed: free_energy energy
-dishwasher                     Belief changed: not soap
-dishwasher  dishwasher turned off
-dishwasher status: finished
-dishwasher>Finish#64           Intention success
-house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-dishwasher>OnlinePlanning#62   Starting sequential step (Discharge ) Effect: not charged
-dishwasher>Discharge#65        Intention started
-house_agent                    discharge dishwasher
-house_agent                    Belief changed: not charged dishwasher
-dishwasher                     Belief changed: not charged
-dishwasher has discharged dishes
-dishwasher status: discharge
-dishwasher>Discharge#65        Intention success
-house_agent>SenseDishesIntention#11 sense dishes charge status: 0
-dishwasher>OnlinePlanning#62   Intention success
-dishwasher                     Succesfully used intention OnlinePlanning to achieve goal PddlGoal#50 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>RetryFourTimesIntention#50 Intention success
-dishwasher                     Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#51[object Object]
-Saturday:03:30  Temperature: 19°C
+washingMachine>OnlinePlanning#112 Intention success
+washingMachine                 Succesfully used intention OnlinePlanning to achieve goal PddlGoal#96 goal:cleaned,not charged,not washing,not soap,dried
+washingMachine>RetryFourTimesIntention#98 Intention success
+washingMachine                 Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#97[object Object]
 Saturday:06:00  Temperature: 18°C
 Thermostat: trying to increase temperature
 Saturday:06:30  Temperature: 19°C
@@ -1622,7 +1637,7 @@ cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.10699999999997kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.00149999999945kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
@@ -1638,7 +1653,9 @@ Nicola moved to kitchen
 Sara moved to corridor
 Sara moved to living_room
 Sara moved to kitchen
+kitchen roll up shutter  lifted up
 house_agent>SenseDishesIntention#11 sense dishes charge status: 1
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.0054999999994kW
 Cat is using the litter
 cat litter cat_position: in
 Cat finished using the litter
@@ -1646,13 +1663,13 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.11199999999997kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.0074999999994kW
 Saturday:08:15  frolla moved to corridor
 frolla moved to living_room
 towel warmer  towel warmer turned on
 towel warmer status: on
 house_agent>SensePersonIntention#14 sense shower intention: Nicola true
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.31199999999995kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.2074999999994kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 50
 Saturday:08:30  Nicola will have a shower
 Saturday:08:45  towel warmer  towel warmer turned off
@@ -1661,13 +1678,15 @@ Nicola moved to corridor
 Nicola moved to bathroom
 Sara moved to living_room
 towel warmer status: off
+bathroom roll up shutter  lifted up
 house_agent>SenseClothesIntention#12 sense clothes charge status: 1
+living_room roll up shutter  lifted up
 towel warmer  towel warmer turned on
 towel warmer status: on
 house_agent>SensePersonIntention#15 sense shower intention: Sara true
 house_agent>SensePowerLoadIntention#13 sense powerload status: 0
 house_agent>SensePersonIntention#14 sense shower intention: Nicola false
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.51199999999994kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.2084999999994kW
 Saturday:09:00  Temperature: 18°C
 Thermostat: trying to increase temperature
 Sara will have a shower
@@ -1705,7 +1724,7 @@ cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.51299999999995kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.41049999999933kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
@@ -1724,7 +1743,7 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.51799999999994kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.4154999999993kW
 Saturday:13:15  frolla moved to corridor
 frolla moved to living_room
 Saturday:15:00  Temperature: 18°C
@@ -1735,13 +1754,13 @@ Thermostat: trying to increase temperature
 Saturday:18:30  Temperature: 19°C
 Saturday:19:00  frolla moved to kitchen
 living_room light  light turned on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.52199999999993kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.41949999999935kW
 cat feeder cat_prossimity: true
 cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.52299999999994kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.4204999999993kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
@@ -1756,7 +1775,7 @@ Sara moved to kitchen
 kitchen light  light turned on
 living_room light  light turned off
 house_agent>SenseDishesIntention#11 sense dishes charge status: 3
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.52999999999992kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.4274999999993kW
 Cat is using the litter
 cat litter cat_position: in
 Cat finished using the litter
@@ -1764,14 +1783,14 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.53199999999993kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.42949999999934kW
 Saturday:19:45  frolla moved to corridor
 frolla moved to living_room
 Saturday:20:00  Nicola moved to living_room
 Sara moved to living_room
 living_room light  light turned on
 kitchen light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.53599999999992kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.43349999999936kW
 Saturday:21:00  Temperature: 18°C
 Thermostat: trying to increase temperature
 Saturday:21:30  Temperature: 19°C
@@ -1781,51 +1800,44 @@ Sara moved to corridor
 Sara moved to bathroom
 bathroom light  light turned on
 living_room light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.5399999999999kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.4374999999994kW
 Saturday:22:30  Nicola moved to corridor
 Nicola moved to bedroom
 Sara moved to corridor
 Sara moved to bedroom
 bedroom light  light turned on
 bathroom light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.5439999999999kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.4414999999994kW
 Saturday:22:45  frolla moved to corridor
 frolla moved to bedroom
 bedroom light  light turned off
-bedroom roll up shutter  lowered down
-house_agent>SenseConsumptionIntention#16 sense consumption status: 220.5449999999999kW
+kitchen roll up shutter  lowered down
+living_room roll up shutter  lowered down
+bathroom roll up shutter  lowered down
+house_agent>SenseConsumptionIntention#16 sense consumption status: 441.44249999999937kW
 Sunday:00:00    Temperature: 18°C
 Thermostat: trying to increase temperature
 Sunday:00:30    Temperature: 19°C
-Sunday:02:00    washingMachine                 Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#66[object Object]
-washingMachine>RetryFourTimesIntention#66 Intention started
-washingMachine                 Trying to use intention OnlinePlanning to achieve goal PddlGoal#65 goal:cleaned,not charged,not washing,not soap,dried
-washingMachine>OnlinePlanning#67 Intention started
-dishwasher                     Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#68[object Object]
-dishwasher>RetryFourTimesIntention#68 Intention started
-dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#67 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>OnlinePlanning#69   Intention started
-Sunday:02:15    washingMachine>OnlinePlanning#67 Plan found:
-dishwasher>OnlinePlanning#69   Plan found:
-dishwasher>OnlinePlanning#69   - (addnormalsoap)
-dishwasher>OnlinePlanning#69   - (start energy)
-dishwasher>OnlinePlanning#69   - (rinseaid energy)
-dishwasher>OnlinePlanning#69   - (finish energy)
-dishwasher>OnlinePlanning#69   - (discharge)
-dishwasher>OnlinePlanning#69   Starting sequential step (AddNormalSoap ) Effect: soap
-dishwasher>AddNormalSoap#70    Intention started
+Sunday:02:00    dishwasher                     Trying to use intention RetryFourTimesIntention to achieve goal RetryGoal#116[object Object]
+dishwasher>RetryFourTimesIntention#118 Intention started
+dishwasher                     Trying to use intention OnlinePlanning to achieve goal PddlGoal#115 goal:cleaned,not charged,not washing,not soap,free_energy energy
+dishwasher>OnlinePlanning#119  Intention started
+Sunday:02:15    dishwasher>OnlinePlanning#119  Plan found:
+dishwasher>OnlinePlanning#119  - (addnormalsoap)
+dishwasher>OnlinePlanning#119  - (start energy)
+dishwasher>OnlinePlanning#119  - (rinseaid energy)
+dishwasher>OnlinePlanning#119  - (finish energy)
+dishwasher>OnlinePlanning#119  - (discharge)
+dishwasher>OnlinePlanning#119  Starting sequential step (AddNormalSoap ) Effect: soap
+dishwasher>AddNormalSoap#120   Intention started
 house_agent                    addNormalSoap dishwasher
 house_agent                    Belief changed: soap dishwasher
 dishwasher                     Belief changed: soap
-washingMachine>OnlinePlanning#67 Intention success
-washingMachine                 Succesfully used intention OnlinePlanning to achieve goal PddlGoal#65 goal:cleaned,not charged,not washing,not soap,dried
-dishwasher has added soap
+Sunday:02:30    dishwasher has added soap
 dishwasher status: addSoap
-dishwasher>AddNormalSoap#70    Intention success
-washingMachine>RetryFourTimesIntention#66 Intention success
-washingMachine                 Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#66[object Object]
-dishwasher>OnlinePlanning#69   Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
-dishwasher>Start#71            Intention started
+dishwasher>AddNormalSoap#120   Intention success
+dishwasher>OnlinePlanning#119  Starting sequential step (Start energy) Effect: consume_energy energy,not free_energy energy,washing
+dishwasher>Start#121           Intention started
 house_agent                    start energy dishwasher
 house_agent                    Belief changed: consume_energy dishwasher energy
 house_agent                    Belief changed: not free_energy energy
@@ -1834,21 +1846,21 @@ dishwasher                     Belief changed: consume_energy energy
 dishwasher                     Belief changed: not free_energy energy
 washingMachine                 Belief changed: not free_energy energy
 dishwasher                     Belief changed: washing
-Sunday:02:30    dishwasher  dishwasher turned on
+Sunday:02:45    dishwasher  dishwasher turned on
 dishwasher status: started
-dishwasher>Start#71            Intention success
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.0449999999999kW
+dishwasher>Start#121           Intention success
+house_agent>SenseConsumptionIntention#16 sense consumption status: 443.9444999999993kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 500
-dishwasher>OnlinePlanning#69   Starting sequential step (RinseAid energy) Effect: not cristal_to_rinse
-dishwasher>RinseAid#72         Intention started
+dishwasher>OnlinePlanning#119  Starting sequential step (RinseAid energy) Effect: not cristal_to_rinse
+dishwasher>RinseAid#122        Intention started
 house_agent                    rinseAid energy dishwasher
 house_agent                    Belief changed: not cristal_to_rinse dishwasher
 dishwasher                     Belief changed: not cristal_to_rinse
 dishwasher  is using rinse aid
 dishwasher status: rinseAid
-dishwasher>RinseAid#72         Intention success
-dishwasher>OnlinePlanning#69   Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
-dishwasher>Finish#73           Intention started
+dishwasher>RinseAid#122        Intention success
+dishwasher>OnlinePlanning#119  Starting sequential step (Finish energy) Effect: cleaned,not washing,not consume_energy energy,free_energy energy,not soap,not dried,not drying
+dishwasher>Finish#123          Intention started
 house_agent                    finish energy dishwasher
 house_agent                    Belief changed: cleaned dishwasher
 house_agent                    Belief changed: not washing dishwasher
@@ -1863,21 +1875,21 @@ washingMachine                 Belief changed: free_energy energy
 dishwasher                     Belief changed: not soap
 dishwasher  dishwasher turned off
 dishwasher status: finished
-dishwasher>Finish#73           Intention success
+dishwasher>Finish#123          Intention success
 house_agent>SensePowerLoadIntention#13 sense powerload status: 0
-dishwasher>OnlinePlanning#69   Starting sequential step (Discharge ) Effect: not charged
-dishwasher>Discharge#74        Intention started
+dishwasher>OnlinePlanning#119  Starting sequential step (Discharge ) Effect: not charged
+dishwasher>Discharge#124       Intention started
 house_agent                    discharge dishwasher
 house_agent                    Belief changed: not charged dishwasher
 dishwasher                     Belief changed: not charged
 dishwasher has discharged dishes
 dishwasher status: discharge
-dishwasher>Discharge#74        Intention success
+dishwasher>Discharge#124       Intention success
 house_agent>SenseDishesIntention#11 sense dishes charge status: 0
-dishwasher>OnlinePlanning#69   Intention success
-dishwasher                     Succesfully used intention OnlinePlanning to achieve goal PddlGoal#67 goal:cleaned,not charged,not washing,not soap,free_energy energy
-dishwasher>RetryFourTimesIntention#68 Intention success
-dishwasher                     Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#68[object Object]
+dishwasher>OnlinePlanning#119  Intention success
+dishwasher                     Succesfully used intention OnlinePlanning to achieve goal PddlGoal#115 goal:cleaned,not charged,not washing,not soap,free_energy energy
+dishwasher>RetryFourTimesIntention#118 Intention success
+dishwasher                     Succesfully used intention RetryFourTimesIntention to achieve goal RetryGoal#116[object Object]
 Sunday:03:00    Temperature: 18°C
 Thermostat: trying to increase temperature
 Sunday:03:30    Temperature: 19°C
@@ -1892,7 +1904,7 @@ cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.0459999999999kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 443.9454999999993kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
@@ -1908,7 +1920,9 @@ Nicola moved to kitchen
 Sara moved to corridor
 Sara moved to living_room
 Sara moved to kitchen
+kitchen roll up shutter  lifted up
 house_agent>SenseDishesIntention#11 sense dishes charge status: 1
+house_agent>SenseConsumptionIntention#16 sense consumption status: 443.94949999999926kW
 Cat is using the litter
 cat litter cat_position: in
 Cat finished using the litter
@@ -1916,13 +1930,13 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.0509999999999kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 443.95149999999927kW
 Sunday:08:15    frolla moved to corridor
 frolla moved to living_room
 towel warmer  towel warmer turned on
 towel warmer status: on
 house_agent>SensePersonIntention#14 sense shower intention: Nicola true
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.2509999999999kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 444.15149999999926kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 50
 Sunday:08:30    Nicola will have a shower
 Sunday:08:45    towel warmer  towel warmer turned off
@@ -1931,13 +1945,15 @@ Nicola moved to corridor
 Nicola moved to bathroom
 Sara moved to living_room
 towel warmer status: off
+bathroom roll up shutter  lifted up
 house_agent>SenseClothesIntention#12 sense clothes charge status: 3
+living_room roll up shutter  lifted up
 towel warmer  towel warmer turned on
 towel warmer status: on
 house_agent>SensePersonIntention#15 sense shower intention: Sara true
 house_agent>SensePowerLoadIntention#13 sense powerload status: 0
 house_agent>SensePersonIntention#14 sense shower intention: Nicola false
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.45099999999988kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 444.15249999999924kW
 Sunday:09:00    Temperature: 18°C
 Thermostat: trying to increase temperature
 Sara will have a shower
@@ -1975,7 +1991,7 @@ cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.45199999999988kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 444.3544999999992kW
 house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
@@ -1994,7 +2010,7 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.45699999999988kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 444.3594999999992kW
 Sunday:13:15    frolla moved to corridor
 frolla moved to living_room
 Sunday:15:00    Temperature: 18°C
@@ -2005,16 +2021,16 @@ Thermostat: trying to increase temperature
 Sunday:18:30    Temperature: 19°C
 Sunday:19:00    frolla moved to kitchen
 living_room light  light turned on
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.46099999999987kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 444.3634999999992kW
 cat feeder cat_prossimity: true
 cat feeder food bowl full
 cat feeder water on
 cat feeder status_food: full
 cat feeder status_water: on
+house_agent>SenseConsumptionIntention#16 sense consumption status: 444.36449999999917kW
+house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder cat_prossimity: false
 cat feeder status_food: empty
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.46199999999988kW
-house_agent>SensePowerLoadIntention#13 sense powerload status: 1
 cat feeder water off
 cat feeder status_water: off
 house_agent>SensePowerLoadIntention#13 sense powerload status: 0
@@ -2026,7 +2042,7 @@ Sara moved to kitchen
 kitchen light  light turned on
 living_room light  light turned off
 house_agent>SenseDishesIntention#11 sense dishes charge status: 3
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.46899999999985kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 444.3714999999992kW
 Cat is using the litter
 cat litter cat_position: in
 Cat finished using the litter
@@ -2034,14 +2050,14 @@ cat litter status: dirty
 cat litter cat_position: out
 Cat litter cleaned
 cat litter status: clean
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.47099999999986kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 444.3734999999992kW
 Sunday:19:45    frolla moved to corridor
 frolla moved to living_room
 Sunday:20:00    Nicola moved to living_room
 Sara moved to living_room
 living_room light  light turned on
 kitchen light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.47499999999985kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 444.3774999999992kW
 Sunday:21:00    Temperature: 18°C
 Thermostat: trying to increase temperature
 Sunday:21:30    Temperature: 19°C
@@ -2051,17 +2067,18 @@ Sara moved to corridor
 Sara moved to bathroom
 bathroom light  light turned on
 living_room light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.47899999999984kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 444.3814999999992kW
 Sunday:22:30    Nicola moved to corridor
 Nicola moved to bedroom
 Sara moved to corridor
 Sara moved to bedroom
 bedroom light  light turned on
 bathroom light  light turned off
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.48299999999983kW
+house_agent>SenseConsumptionIntention#16 sense consumption status: 444.38549999999924kW
 Sunday:22:45    frolla moved to corridor
 frolla moved to bedroom
 bedroom light  light turned off
-bedroom roll up shutter  lowered down
-house_agent>SenseConsumptionIntention#16 sense consumption status: 223.48399999999984kW
-Monday:00:00    Temperature: 18°C
+kitchen roll up shutter  lowered down
+living_room roll up shutter  lowered down
+bathroom roll up shutter  lowered down
+house_agent>SenseConsumptionIntention#16 sense consumption status: 444.3864999999992kW
