@@ -49,7 +49,7 @@ function setup (intentions = []) {
 
             if (!res.result.plan && res.result.output.split('\n')[0] != ' --- OK.') {
                 this.log('No plan found')
-                this.log(res)
+                this.log(JSON.stringify(res))
                 throw new Error('Plan not found');
             }
 

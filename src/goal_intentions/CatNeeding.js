@@ -40,7 +40,7 @@ class CatLitterIntention extends Intention {
     } 
     *exec(){
         while(true) {
-            yield this.cat_litter.notifyChange('status', 'cat_litter')
+            yield this.cat_litter.notifyChange('cat_position', 'cat_litter')
             if (this.cat_litter.status == 'dirty' && this.cat_litter.cat_position == 'out'){
                 this.cat_litter.cleanCatLitter()
             }

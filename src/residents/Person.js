@@ -1,24 +1,14 @@
-const Observable = require("../utils/Observable");
+const Resident = require("./Resident");
 
-class Person extends Observable {
+class Person extends Resident {
     constructor (house, name, init) {
-        super(init)
-        this.house = house
-        this.name = name
+        super(house, name, init)
     }
     willShowerIn30Min(){
         this.shower_intention = true
     }
     showered(){
         this.shower_intention = false
-    }
-    moveTo (to) {
-        if (this.house.rooms[this.in_room.name].doors_to.find(element => element === to)) {
-            this.in_room = to
-            return true 
-        }
-        else
-            return false
     }
 }
 

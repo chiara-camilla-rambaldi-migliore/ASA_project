@@ -23,7 +23,6 @@ class BrightnessWithPresenceIntention extends Intention {
                         if(Clock.global.hh >= 7 && Clock.global.hh <= 19 && 'rollUpShutter' in room.devices && room.devices['rollUpShutter'].status == 'lowered'){
                             room.devices['rollUpShutter'].liftUpShutter()
                         } else if(!(Clock.global.hh >= 7 && Clock.global.hh <= 19) && room.devices['light'].status == 'off'){
-                            //TODO: check brightness
                             room.devices['light'].switchOnLight()
                         }
                     } else if(room.devices['light'].status == 'on'){
@@ -47,7 +46,6 @@ class BrightnessWithTimeIntention extends Intention {
     } 
     *exec(){
         while(true) {
-            //TODO: switch on light at sunset and off at sunrise
             yield Clock.global.notifyChange('mm', 'brightness')
             // if it's sunrise and light are on, then switch them off and lift the shutters
             // if it's unset and shutter are lifted and light off
@@ -63,16 +61,17 @@ class BrightnessWithTimeIntention extends Intention {
                         resident.in_room.devices['light'].switchOffLight()
                     } else if (
                         Clock.global.hh>=19 && 
-                        Clock.global.hh<22 &&
-                        Clock.global.mm>=0 && 
+                        (Clock.global.hh<22 || (Clock.global.hh==22 && Clock.global.mm<30))&& 
                         resident.in_room.devices['light'].status == 'off'
                     ){
                         resident.in_room.devices['light'].switchOnLight()
                     } else if (
                         Clock.global.hh>=22 && 
                         Clock.global.mm>=30 && 
-                        resident.in_room.devices['light'].status == 'on'){
+                        resident.in_room.devices['light'].status == 'on'
+                    ){
                         resident.in_room.devices['light'].switchOffLight()
+                        resident.in_room.devices['rollUpShutter'].lowDownShutter()
                     }
                 }
             });

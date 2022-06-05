@@ -265,6 +265,7 @@ class House {
             this.residents.nicola.moveTo(this.rooms.corridor)
             this.residents.nicola.moveTo(this.rooms.bathroom)
             console.log(chalk['magenta']('Nicola will have a shower'))
+            this.devices.washing_machine.setDirtyClothes()
             this.residents.nicola.showered()
         }
     
@@ -349,10 +350,11 @@ class House {
             this.residents.nicola.moveTo(this.rooms.corridor)
             this.residents.nicola.moveTo(this.rooms.bathroom)
             console.log(chalk['magenta']('Nicola will have a shower'))
+            this.devices.washing_machine.setDirtyClothes()
             this.residents.nicola.showered()
         }
     
-        if(time.dd>1 && time.dd<5 && time.hh==20 && time.mm==0){
+        if(time.dd>1 && time.dd<5 && time.hh==20 && time.mm==30){
             this.residents.nicola.moveTo(this.rooms.corridor)
             this.residents.nicola.moveTo(this.rooms.living_room)
         }
@@ -417,6 +419,16 @@ class House {
         if(time.dd>=1 && time.dd<6 && time.hh==20 && time.mm==30){
             this.residents.sara.moveTo(this.rooms.living_room)
         }
+        
+        if(time.dd>=1 && time.dd<6 && time.hh==22 && time.mm==15){
+            this.residents.sara.moveTo(this.rooms.corridor)
+            this.residents.sara.moveTo(this.rooms.bathroom)
+        }
+    
+        if(time.dd>=1 && time.dd<6 && time.hh==22 && time.mm==30){
+            this.residents.sara.moveTo(this.rooms.corridor)
+            this.residents.sara.moveTo(this.rooms.bedroom)
+        }
     }
 
     satSunSchedule(time){
@@ -429,14 +441,36 @@ class House {
             this.residents.sara.moveTo(this.rooms.kitchen)
             this.devices.dishwasher.setDirtyDishes()
         }
+        if((time.dd==6 || time.dd==7) && time.hh==8 && time.mm==15){
+            this.residents.nicola.willShowerIn30Min()
+        }
     
         if((time.dd==6 || time.dd==7) && time.hh==8 && time.mm==45){
             this.residents.nicola.moveTo(this.rooms.living_room)
             this.residents.nicola.moveTo(this.rooms.corridor)
             this.residents.nicola.moveTo(this.rooms.bathroom)
+            let tender = (Math.random() < 0.5)
+            console.log(chalk['magenta']('Nicola will have a shower'))
+            this.devices.washing_machine.setDirtyClothes(tender)
+
             this.residents.sara.moveTo(this.rooms.living_room)
+            this.residents.sara.willShowerIn30Min()
+        }
+
+        if((time.dd==6 || time.dd==7) && time.hh==9 && time.mm==15){
             this.residents.sara.moveTo(this.rooms.corridor)
             this.residents.sara.moveTo(this.rooms.bathroom)
+            console.log(chalk['magenta']('Sara will have a shower'))
+            let tender = (Math.random() < 0.5)
+            this.devices.washing_machine.setDirtyClothes(tender)
+
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.living_room)
+        }
+
+        if((time.dd==6 || time.dd==7) && time.hh==9 && time.mm==45){
+            this.residents.sara.moveTo(this.rooms.corridor)
+            this.residents.sara.moveTo(this.rooms.living_room)
         }
     
         if((time.dd==6 || time.dd==7) && time.hh==12 && time.mm==30){
@@ -463,8 +497,20 @@ class House {
         if((time.dd==6 || time.dd==7) && time.hh==20 && time.mm==0){
             this.residents.nicola.moveTo(this.rooms.living_room)
             this.residents.sara.moveTo(this.rooms.living_room)
-            let tender = (Math.random() < 0.8)
-            this.devices.washing_machine.setDirtyClothes(tender)
+        }
+        
+        if((time.dd==6 || time.dd==7) && time.hh==22 && time.mm==15){
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.bathroom)
+            this.residents.sara.moveTo(this.rooms.corridor)
+            this.residents.sara.moveTo(this.rooms.bathroom)
+        }
+    
+        if((time.dd==6 || time.dd==7) && time.hh==22 && time.mm==30){
+            this.residents.nicola.moveTo(this.rooms.corridor)
+            this.residents.nicola.moveTo(this.rooms.bedroom)
+            this.residents.sara.moveTo(this.rooms.corridor)
+            this.residents.sara.moveTo(this.rooms.bedroom)
         }
     }
 }

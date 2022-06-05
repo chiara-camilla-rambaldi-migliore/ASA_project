@@ -38,6 +38,7 @@ class FakeAction {
 class F_RinseAid extends FakeAction {
     static parameters = ['energy', 'agent']
     static precondition = [ 
+        ['not very_dirty', 'agent'],
         ['cristal_to_rinse', 'agent'], 
         ['not free_energy', 'energy'],
         ['consume_energy', 'agent', 'energy'], 
@@ -123,10 +124,10 @@ class F_Charge extends FakeAction {
     static precondition = [ 
         ['not washing', 'agent'],
         ['not charged', 'agent'],
+        ['not cleaned', 'agent']
     ]
     static effect = [ 
-        ['charged', 'agent'],
-        ['not cleaned', 'agent']
+        ['charged', 'agent']
     ]
 }
 

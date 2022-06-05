@@ -9,7 +9,6 @@ class TowelWarmer extends Observable {
     }
     switchOnTowelWarmer () {
         this.status = 'on'
-        //TODO: increase consumption every 15 minutes of usage
         this.house.utilities.electricity.consumption += 0.2;
         this.house.utilities.electricity.powerLoad += 50;
         // Include some messages logged on the console!
